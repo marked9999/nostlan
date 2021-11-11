@@ -16,7 +16,7 @@
 				{
 					"target": "zip",
 					"arch": [
-						"arm64"
+						"x64"
 					]
 				}
 			]
@@ -60,7 +60,7 @@
 		"byte-base64": "^1.1.0",
 		"chrome-finder": "^1.0.7",
 		"circletype": "^2.3.0",
-		"contro-ui": "^3.3.7",
+		"contro-ui": "^3.3.8",
 		"crc": "^3.8.0",
 		"deep-extend": "^0.6.0",
 		"delay": "^5.0.0",
@@ -132,6 +132,7 @@
 		"rebuild-w": "npm rebuild --build-from-source --runtime=electron --target=15.2.0 --disturl=https://atom.io/download/atom-shell",
 		"relink": "npm link ../../pkg/contro-ui",
 		"dist-l": "electron-builder -l",
+		"dist-m": "electron-builder -m -c.npmRebuild=false",
 		"delete-tags": "git tag | xargs git tag -d",
 		"delete-tags-remote": "git tag -l | xargs -n 1 git push --delete origin",
 		"v": "npm version patch --force",
@@ -139,5 +140,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "1.22.0"
+	"version": "1.22.1"
 }
