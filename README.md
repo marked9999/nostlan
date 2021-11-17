@@ -3,7 +3,6 @@
 | <a href="https://www.patreon.com/nostlan" max-width=50px><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon.png" max-width=50px></a> | Nostlan is a game launcher for retro and current gen video game emulators! Available on Linux, macOS, and Windows. Systems supported: Arcade, DS, GBA, 3DS, PS2, PS3, SNES, Switch, Wii, Wii U, and Xbox 360. Emulators supported: bsnes, Cemu, Citra, Dolphin, DeSmuME, MAME, melonDS, mGBA, PCSX2, RPCS3, Ryujinx, Xenia, and Yuzu. _[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ and if you enjoy the app [please make a contribution](https://www.paypal.me/qashto/20), any amount is appreciated. Join the [Nostlan community Discord server](https://discord.gg/cT2yNC6). [Support the development of Nostlan on patreon](https://www.patreon.com/nostlan) to gain access to premium features! |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-
 ## A what? What's a "game launcher"?
 
 Nostlan is like the part of Netflix where you choose a movie to watch but for your game libraries. It identifies your games and downloads high quality box art for them. You can interact with Nostlan using a mouse and keyboard or a game controller. [Nostlan is unlike any other launcher for video game emulators](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F). It has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
@@ -38,7 +37,7 @@ Click on an image to see it in full quality 4K!
 <img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/wiiu_LQ.png">
 </a></p>
 
-### Switch [Ryujinx, Yuzu]
+### Switch [Yuzu, Ryujinx]
 
 <p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/switch.png">
 <img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/switch_LQ.png">
