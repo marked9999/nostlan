@@ -512,8 +512,8 @@ module.exports = (() => {
 				win: 'yuzu\\.exe'
 			},
 			cmd: {
-				linux: ['flatpak', 'run', '${app}', '${game}', '-f', '-g'],
-				win: ['${app}', '${game}', '-f', '-g']
+				linux: ['flatpak', 'run', '${app}', '-g', '${game}', '-f'],
+				win: ['${app}', '-g', '${game}', '-f']
 			},
 			site: 'https://yuzu-emu.org/',
 			patreon: 'https://www.patreon.com/yuzuteam',
