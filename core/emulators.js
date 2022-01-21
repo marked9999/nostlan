@@ -573,7 +573,7 @@ module.exports = (() => {
 			if (typeof emus[_emu][prop] != 'string') {
 				if (emus[_emu][prop][type]) {
 					emus[_emu][prop] = emus[_emu][prop][type];
-				} else {
+				} else if (prop != 'install' || !emus[_emu][prop].jsEmu) {
 					delete emus[_emu][prop];
 				}
 			}

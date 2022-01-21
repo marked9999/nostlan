@@ -20,7 +20,7 @@
 		"opt1": "Ik ben nog geen sponsor"
 	},
 	"setupMenu": {
-		"opt0": "Installeren in ~\/Documents\/emu",
+		"opt0": "Installeren in ~/Documents/emu",
 		"opt1": "Kies een installatielocatie",
 		"opt2": "Instelhulp afronden",
 		"err0": "Kies een installatielocatie!",
@@ -179,8 +179,8 @@
 	},
 	"emptyGameLibMenu": {
 		"title0": "Geen spellen aangetroffen",
-		"opt0": "Kies een spellenmap",
-		"opt1": "Installeren",
+		"opt1": "Kies een spellenmap",
+		"opt2": "Installeren",
 		"msg0_0": "Selecteren",
 		"msg0_1": "Spellenmap",
 		"msg1_0": "De spelbestanden moeten een bestandsextensie hebben",
@@ -189,7 +189,8 @@
 		"msg1_3": "spellen hebt, dan kun je ook eerst de",
 		"msg1_4": "emulator installeren.",
 		"err0": "Deze emulator is al geïnstalleerd.",
-		"err1": "Als je dit programma nog niet hebt, installeer het dan middels je Linux-pakketbeheerder."
+		"err1": "Als je dit programma nog niet hebt, installeer het dan middels je Linux-pakketbeheerder.",
+		"nav3Lbl": "Sys"
 	},
 	"alertMenu": {
 		"title0": "Voltooid!",

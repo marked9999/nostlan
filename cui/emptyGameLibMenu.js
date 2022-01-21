@@ -1,6 +1,8 @@
 class CuiState extends cui.State {
 	async onAction(act) {
-		if (act == 'find') {
+		if (act == 'retry') {
+			await cui.libMain.load();
+		} else if (act == 'find') {
 			log('user selecting gameLibDir');
 			// `select ${syst.name} games folder`
 			let gameLibDir = await dialog.selectDir(
@@ -37,22 +39,27 @@ class CuiState extends cui.State {
 		this.$elem.find('.cui').remove();
 		this.$elem.append(
 			pug(`
+.cui(name='retry')
+	i.material-icons.md-left loop
+	.text.opt0 ${lang.emptyGameLibMenu.opt0}
+	i.material-icons.md-right.invis loop
 .cui(name='find')
 	i.material-icons.md-left wysiwyg
-	.text.opt0 browse for games folder
+	.text.opt1 ${lang.emptyGameLibMenu.opt1}
 	i.material-icons.md-right.invis wysiwyg`)
 		);
 		for (let i in syst.emus) {
+			i = Number(i);
 			let _emu = syst.emus[i];
 			let instOpt = `
 .cui(name='install-${_emu}')
 	i.material-icons.md-left get_app
-	.text.opt${i + 1} install ${emus[_emu].name}
+	.text.opt${i + 2} ${lang.emptyGameLibMenu['opt' + (i + 2)]} ${emus[_emu].name}
 	i.material-icons.md-right.invis get_app`;
 			this.$elem.append(pug(instOpt));
 		}
 		cui.addListeners(this.id);
-		let note = '';
+		let note = prefs[sys].libs.join('<br>') + '<br><br>';
 		if (syst.gameExts) {
 			// 'Game files must have the file extension'
 			note += lang.emptyGameLibMenu.msg1_0 + ':<br>';

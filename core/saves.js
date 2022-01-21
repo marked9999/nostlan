@@ -16,8 +16,7 @@ class Saves {
 		}
 		let emuApp = util.absPath(prefs[emu].app);
 		if (!emuApp || !(await fs.exists(emuApp))) {
-			er('nostlan must know the location of ' + emus[emu].name +
-				' before you can backup/update emulator saves');
+			er('nostlan must know the location of ' + emus[emu].name + ' before you can backup/update emulator saves');
 			return;
 		}
 		let dir = path.join(emuApp, '..');
@@ -38,44 +37,28 @@ class Saves {
 			if (mac) {
 				dir = util.absPath('$home') + '/Library/Application Support/DeSmuME/0.9.11';
 			}
-			prefs[emu].saves.dirs = [
-				dir + '/Battery',
-				dir + '/Cheats',
-				dir + '/States'
-			];
+			prefs[emu].saves.dirs = [dir + '/Battery', dir + '/Cheats', dir + '/States'];
 		} else if (emu == 'dolphin') {
 			dir += '/User';
 			if (mac && !(await fs.exists(dir))) {
 				dir = util.absPath('$home') + '/Library/Application Support/Dolphin';
 			}
 			if (!(await fs.exists(dir))) {
-				cui.err(`"User" folder not found. "User" folder needs to be in the same folder as "Dolphin.exe". To make a build use a local "User" directory, create a text file named "portable" next to the executable files of the app (Dolphin.exe). Including the file extension, it should be named "portable.txt". Dolphin will check if that file exists in the same directory, then it will not use a global "User" directory, instead it will create and use the local "User" directory in the same directory. For more info look at: https://dolphin-emu.org/docs/guides/controlling-global-user-directory/`);
+				cui.err(
+					`"User" folder not found. "User" folder needs to be in the same folder as "Dolphin.exe". To make a build use a local "User" directory, create a text file named "portable" next to the executable files of the app (Dolphin.exe). Including the file extension, it should be named "portable.txt". Dolphin will check if that file exists in the same directory, then it will not use a global "User" directory, instead it will create and use the local "User" directory in the same directory. For more info look at: https://dolphin-emu.org/docs/guides/controlling-global-user-directory/`
+				);
 				return;
 			}
-			prefs[emu].saves.dirs = [
-				dir + '/GC',
-				dir + '/Wii/title',
-				dir + '/StateSaves'
-			];
+			prefs[emu].saves.dirs = [dir + '/GC', dir + '/Wii/title', dir + '/StateSaves'];
 		} else if (emu == 'mame') {
 			prefs[emu].saves.dirs = [dir + '/sta'];
 		} else if (emu == 'mesen') {
-			prefs[emu].saves.dirs = [
-				dir + '/Saves',
-				dir + '/SaveStates',
-				dir + '/RecentGames'
-			];
+			prefs[emu].saves.dirs = [dir + '/Saves', dir + '/SaveStates', dir + '/RecentGames'];
 		} else if (emu == 'pcsx2') {
-			prefs[emu].saves.dirs = [
-				dir + '/memcards',
-				dir + '/sstates'
-			];
+			prefs[emu].saves.dirs = [dir + '/memcards', dir + '/sstates'];
 		} else if (emu == 'ppsspp') {
 			dir += '/memstick/PSP';
-			prefs[emu].saves.dirs = [
-				dir + '/SAVEDATA',
-				dir + '/PPSSPP_STATE'
-			];
+			prefs[emu].saves.dirs = [dir + '/SAVEDATA', dir + '/PPSSPP_STATE'];
 		} else if (emu == 'rpcs3') {
 			dir += '/dev_hdd0/home/00000001/savedata';
 			prefs[emu].saves.dirs = [dir];
@@ -116,7 +99,6 @@ class Saves {
 		let date = Math.trunc(Date.now() / 10000);
 
 		for (let save of prefs.saves) {
-
 			if (save.noSaveOnQuit) {
 				log('no save on quit for ' + save.name);
 				continue;
@@ -139,7 +121,7 @@ class Saves {
 					await fs.ensureDir(dest);
 				} catch (ror) {
 					er(ror);
-					cui.err('can not save to cloud/backup saves folder: ' + dest);
+					cui.err('Save Sync ERROR: can not save to cloud/backup saves folder\n' + dest);
 					return;
 				}
 				if (/(bsnes|desmume|melonds|mgba|snes9x)/.test(emu)) {
@@ -148,7 +130,7 @@ class Saves {
 					});
 					for (let file of files) {
 						await fs.copy(file, dest + '/' + path.parse(file).base, {
-							filter: function(file) {
+							filter: function (file) {
 								let ext = path.parse(file).ext.toLowerCase();
 								// only copy files with these extensions
 								if (/\.(dct|ds\d|dsv|ml\d|sav|srm|bsz)/i.test(ext)) {
@@ -181,7 +163,11 @@ class Saves {
 				if (oldest > backupDate) oldest = backupDate;
 			}
 
-			await fs.remove(dir + '/' + oldest);
+			try {
+				await fs.remove(dir + '/' + oldest);
+			} catch (ror) {
+				cui.error('Save Sync error: could not remove directory\n' + dir);
+			}
 		}
 	}
 
@@ -214,7 +200,11 @@ class Saves {
 			log(`Updating files from ${save.name} to ${dest}`);
 			$('#loadDialog0').text(`Updating files from ${save.name} to`);
 			$('#loadDialog1').text(dest);
-			await fs.copy(src, dest);
+			try {
+				await fs.copy(src, dest);
+			} catch (ror) {
+				cui.error('Save sync error: Could not copy from\n' + src + 'to\n' + dest);
+			}
 		}
 		$('#loadDialog0').text('');
 		$('#loadDialog1').text('');
@@ -227,9 +217,7 @@ class Saves {
 			log('update save sync failed, no saves folder');
 			return;
 		}
-		if (!prefs[emu].saves ||
-			!prefs[emu].saves.dirs ||
-			!prefs[emu].saves.dirs.length) {
+		if (!prefs[emu].saves || !prefs[emu].saves.dirs || !prefs[emu].saves.dirs.length) {
 			if (!(await this.setup())) return;
 			if (!(await this._update(forced))) {
 				await this._backup();
@@ -246,9 +234,7 @@ class Saves {
 	}
 
 	async backup() {
-		if (!prefs[emu].saves ||
-			!prefs[emu].saves.dirs ||
-			!prefs[emu].saves.dirs.length) {
+		if (!prefs[emu].saves || !prefs[emu].saves.dirs || !prefs[emu].saves.dirs.length) {
 			if (!(await this.setup())) return;
 		}
 		// check if any require saving

@@ -57,17 +57,22 @@ class Launcher {
 			dir = util.absPath(dir);
 			if (!(await fs.exists(dir))) continue;
 			let files;
+			const filterFunc = (item) => {
+				// ignore alias to folders on drives that are not connected
+				return fs.existsSync(item);
+			};
 			try {
 				files = await klaw(dir, {
-					depthLimit: 2
+					depthLimit: 2,
+					filter: filterFunc
 				});
 			} catch (ror) {
 				// 'Incorrect path to emulator app directory. Delete or edit your user preferences file.'
 				await cui.err(lang.playing.err0 + ' ' + ror, '406');
+				return;
 			}
 			if (!emus[emu].appRegex) return;
 			let regex = new RegExp(emus[emu].appRegex, 'i');
-
 			for (let file of files) {
 				let f = path.parse(file);
 
