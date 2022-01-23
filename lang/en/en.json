@@ -118,7 +118,8 @@
 		"msg1": "game library has no game files"
 	},
 	"playMenu": {
-		"title0": "Play game with"
+		"title0": "Play game with",
+		"err0": "This emulator requires system bios file(s), search the internet!"
 	},
 	"emuMenu": {
 		"title0": "Emulator Menu",

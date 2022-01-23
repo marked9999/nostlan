@@ -186,10 +186,10 @@ module.exports = (() => {
 			bios: '$emu/bios.bin',
 			jsEmu: true,
 			install: {
-				jsEmu: 'https://github.com/taisel/IodineGBA/archive/master.zip'
+				jsEmu: 'https://github.com/quinton-ashley/IodineGBA/archive/refs/heads/main.zip'
 			},
-			latestVersion: '1.0.0',
-			dev: false,
+			latestVersion: '1.0.1',
+			dev: true,
 			mute: false,
 			volume: 20,
 			keyboard: [{}, {}]

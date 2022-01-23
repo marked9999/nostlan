@@ -143,8 +143,10 @@ class Launcher {
 			if (cfg.bios) {
 				cfg.bios = util.absPath(cfg.bios);
 				if (!(await fs.exists(cfg.bios))) {
-					// "This emulator requires system bios file(s)"
-					cui.err(lang.playMenu.err + ': ' + cfg.bios);
+					// "This emulator requires system bios file(s), search the internet!"
+					cui.err(lang.playMenu.err0 + ': ' + cfg.bios, 404, 'libMain');
+					cui.clearDialogs();
+					$('body > :not(#dialogs)').removeClass('dim');
 					this.state = 'closed';
 					return;
 				}
@@ -233,10 +235,17 @@ class Launcher {
 					};
 				}
 			});
-			await delay(1500);
-			jsEmu.executeJavaScript(`jsEmu.launch(${JSON.stringify(game)}, ${JSON.stringify(cfg)})`);
 			this.cfg = cfg;
 			this.jsEmu = jsEmu;
+			await delay(1500);
+			try {
+				await jsEmu.executeJavaScript(`jsEmu.launch(${JSON.stringify(game)}, ${JSON.stringify(cfg)})`);
+			} catch (ror) {
+				this.stdout = ror;
+				this.close(500);
+				return;
+			}
+
 			await cui.change('playing_4');
 			$('nav').hide();
 			cui.clearDialogs();
@@ -473,18 +482,18 @@ class Launcher {
 		}
 	}
 
-	close() {
+	async close(code) {
 		this.state = 'closing';
 		if (!emus[emu].jsEmu) {
 			this.child.kill('SIGINT');
 		} else {
-			this._close();
-			this.jsEmu.executeJavaScript('jsEmu.close();');
+			this._close(code);
+			if (!code) this.jsEmu.executeJavaScript('jsEmu.close();');
 			this.jsEmu.remove();
 			$('body').removeClass('jsEmu');
-			cui.setUISub(sys);
 			this.jsEmu = null;
 			this.cfg = null;
+			cui.setUISub(sys);
 		}
 	}
 

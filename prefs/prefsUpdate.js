@@ -12,17 +12,15 @@ module.exports = async function (defaults) {
 		for (let _emu of _syst.emus) {
 			if (!prefs[_emu]) prefs[_emu] = {};
 
-			let props = ['app', 'cmd'];
+			let props = ['app', 'cmd', 'bios', 'dev', 'mute', 'volume', 'keyboard'];
 			for (let prop of props) {
 				// initialize to defaults if nothing is there yet
-				if (!prefs[_emu][prop] && emus[_emu][prop]) {
+				if (
+					prop == 'latestVersion' ||
+					(typeof prefs[_emu][prop] == 'undefined' && typeof emus[_emu][prop] != 'undefined')
+				) {
 					prefs[_emu][prop] = emus[_emu][prop];
 				}
-			}
-			props = ['latestVersion'];
-			for (let prop of props) {
-				// always update
-				prefs[_emu][prop] = emus[_emu][prop];
 			}
 		}
 

@@ -8,6 +8,7 @@ class Nostlan_iodine {
 	}
 
 	async launch(game, cfg) {
+		log('launching');
 		this.cfg = cfg;
 
 		let bios = await fetch(cfg.bios);
@@ -30,7 +31,6 @@ class Nostlan_iodine {
 		this.ready = true;
 	}
 
-	// The array index below corresponds to the button bit index.
 	controIn(contro) {
 		if (!this.ready) return;
 
