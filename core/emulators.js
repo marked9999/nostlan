@@ -325,10 +325,12 @@ module.exports = (() => {
 			name: 'mupen64plus',
 			sys: 'n64',
 			appRegex: {
-				mac: 'M64Py\\.app'
+				mac: 'M64Py\\.app',
+				win: 'm64py\\.exe'
 			},
 			cmd: {
-				mac: ['${app}', '${game}']
+				mac: ['${app}', '${game}'],
+				win: ['${app}', '${game}']
 			},
 			install: {
 				'mac-x64': {
@@ -336,6 +338,12 @@ module.exports = (() => {
 				},
 				'mac-arm64': {
 					installer: 'https://github.com/mupen64plus/mupen64plus-ui-python/releases/download/0.2.4/m64py-0.2.4.dmg'
+				},
+				'win-x64': {
+					installer:
+						'https://github.com/mupen64plus/mupen64plus-ui-python/releases/download/0.2.5/m64py-0.2.5-setup.exe',
+					portable:
+						'https://github.com/mupen64plus/mupen64plus-ui-python/releases/download/0.2.5/m64py-0.2.5-portable.zip'
 				}
 			}
 		},
@@ -361,6 +369,16 @@ module.exports = (() => {
 				},
 				'win-x64': {
 					portable: 'https://pcsx2.net/download/releases/windows.html?task=download.send&id=125&catid=40&m=0 .7z'
+				}
+			}
+		},
+		project64: {
+			name: 'Project 64',
+			sys: 'n64',
+			install: {
+				'win-x64': {
+					installer: 'https://www.pj64-emu.com/download/project64-3-0-1-installer',
+					portable: 'https://www.pj64-emu.com/download/project64-3-0-1-zip'
 				}
 			}
 		},
