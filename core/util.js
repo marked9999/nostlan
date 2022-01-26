@@ -7,24 +7,13 @@
 global.fs.extract = async (input, output, opt) => {
 	opt = opt || {};
 	let ext = path.parse(input).ext;
-	if (ext == '.7z') {
-		return new Promise((resolve, reject) => {
-			opt.$bin = require('7zip-bin').path7za;
-			require('node-7z').extractFull(input, output, opt)
-				.on('end', () => {
-					fs.remove(input);
-					resolve(output);
-				})
-				.on('error', (ror) => {
-					console.error(ror);
-					resolve();
-				});
-		});
-	} else {
+	let res;
+	if (ext != '.7z') {
 		try {
 			await require('extract-zip')(input, {
 				dir: output
 			});
+			res = output;
 		} catch (ror) {
 			if (mac || linux) {
 				await spawn('tar', ['-xzvf', input, '-C', output]);
@@ -32,8 +21,22 @@ global.fs.extract = async (input, output, opt) => {
 				er(ror);
 			}
 		}
-		fs.remove(input);
 	}
+	if (res) return;
+	return new Promise((resolve, reject) => {
+		opt.$bin = require('7zip-bin').path7za;
+		require('node-7z')
+			.extractFull(input, output, opt)
+			.on('end', () => {
+				fs.remove(input);
+				resolve(output);
+			})
+			.on('error', (ror) => {
+				console.error(ror);
+				fs.remove(input);
+				resolve();
+			});
+	});
 };
 
 class Utility {
@@ -81,7 +84,6 @@ class Utility {
 		}
 		return data;
 	}
-
 }
 
 module.exports = new Utility();

@@ -54,11 +54,22 @@ class Saves {
 			prefs[emu].saves.dirs = [dir + '/sta'];
 		} else if (emu == 'mesen') {
 			prefs[emu].saves.dirs = [dir + '/Saves', dir + '/SaveStates', dir + '/RecentGames'];
+		} else if (emu == 'mupen64plus') {
+			if (win) {
+				dir = util.absPath('$home') + '/AppData/Roaming/Mupen64Plus';
+			} else if (mac) {
+				dir = util.absPath('$home') + '/Library/Application Support/Mupen64plus';
+			} else if (linux) {
+				dir = util.absPath('$home') + '/.local/share/mupen64plus';
+			}
+			prefs[emu].saves.dirs = [dir + '/save'];
 		} else if (emu == 'pcsx2') {
 			prefs[emu].saves.dirs = [dir + '/memcards', dir + '/sstates'];
 		} else if (emu == 'ppsspp') {
 			dir += '/memstick/PSP';
 			prefs[emu].saves.dirs = [dir + '/SAVEDATA', dir + '/PPSSPP_STATE'];
+		} else if (emu == 'project64') {
+			prefs[emu].saves.dirs = [dir + '/Save'];
 		} else if (emu == 'rpcs3') {
 			dir += '/dev_hdd0/home/00000001/savedata';
 			prefs[emu].saves.dirs = [dir];

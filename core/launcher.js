@@ -50,7 +50,7 @@ class Launcher {
 			}
 		}
 		let emuAppDirs = emus[emu].appDirs || [];
-		if (!emuAppDirs.length) emuAppDirs.push(`${systemsDir}/${sys}/${emu}`);
+		emuAppDirs.push(`${systemsDir}/${sys}/${emu}`);
 		if (mac) emuAppDirs.push('/Applications');
 
 		for (let dir of emuAppDirs) {
@@ -552,6 +552,7 @@ class Launcher {
 			}
 			$('body > :not(#dialogs)').removeClass('dim');
 		}
+		if (emu == 'project64' && code == 1) code = 0;
 		if (!identify && code) {
 			// ``${app} crashed! If the game didn't start it
 			// might be because some emulators require

@@ -25,7 +25,7 @@ class CuiState extends cui.State {
 		if (!prefs.nlaDir) return;
 		let dir = prefs.nlaDir + '/images';
 
-		let assetPacks = specificAssets || [('discSleeve', 'labels', 'plastic', 'stickers', 'wraps')];
+		let assetPacks = specificAssets || ['discSleeve', 'labels', 'plastic', 'stickers', 'wraps'];
 
 		for (let pack of assetPacks) {
 			$('#loadDialog2').text(pack);

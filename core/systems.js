@@ -46,7 +46,7 @@ module.exports = {
 	n64: {
 		name: 'N64',
 		fullName: 'Nintendo 64',
-		emus: ['mupen64plus', 'project64'],
+		emus: ['project64', 'mupen64plus'],
 		mediaType: 'cart',
 		gameExts: ['n64', 'rom', 'bin', 'jap', 'pal', 'usa', 'eur', 'u64', 'v64', 'z64', 'd64']
 	},
