@@ -82,7 +82,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/org.citra_emu.citra.flatpakref']
+						['flatpak', 'install', 'flathub', 'org.citra_emu.citra']
 					]
 				},
 				'mac-x64': {
@@ -120,7 +120,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/org.desmume.DeSmuME.flatpakref']
+						['flatpak', 'install', 'flathub', 'org.desmume.DeSmuME']
 					]
 				},
 				'mac-x64': {
@@ -151,7 +151,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/org.DolphinEmu.dolphin-emu.flatpakref']
+						['flatpak', 'install', 'flathub', 'org.DolphinEmu.dolphin-emu']
 					]
 				},
 				'mac-x64': {
@@ -246,8 +246,10 @@ module.exports = (() => {
 		melonds: {
 			name: 'melonDS',
 			sys: 'ds',
-			appRegex: {
+			app: {
 				linux: 'net.kuribo64.melonDS',
+			},
+			appRegex: {
 				mac: 'melonDS\\.app',
 				win: 'melonDS\\.exe'
 			},
@@ -262,7 +264,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/net.kuribo64.melonDS.flatpakref']
+						['flatpak', 'install', 'flathub', 'net.kuribo64.melonDS']
 					]
 				},
 				'mac-x64': {
@@ -310,7 +312,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/io.mgba.mGBA.flatpakref']
+						['flatpak', 'install', 'flathub', 'io.mgba.mGBA']
 					]
 				},
 				'mac-x64': {
@@ -324,6 +326,9 @@ module.exports = (() => {
 		mupen64plus: {
 			name: 'mupen64plus',
 			sys: 'n64',
+			app: {
+				linux: 'com.github.Rosalie241.RMG'
+			},
 			appRegex: {
 				mac: 'M64Py\\.app',
 				win: 'm64py\\.exe'
@@ -332,10 +337,17 @@ module.exports = (() => {
 				win: ['$emu/M64Py']
 			},
 			cmd: {
+				linux: ['flatpak', 'run', '${app}', '${game}'],
 				mac: ['${app}', '${game}'],
 				win: ['${app}', '${game}']
 			},
 			install: {
+				'linux-x64': {
+					pkgManager_flatpak: [
+						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
+						['flatpak', 'install', 'flathub', 'com.github.Rosalie241.RMG']
+					]
+				},
 				'mac-x64': {
 					installer: 'https://github.com/mupen64plus/mupen64plus-ui-python/releases/download/0.2.4/m64py-0.2.4.dmg'
 				},
@@ -365,7 +377,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/net.pcsx2.PCSX2.flatpakref']
+						['flatpak', 'install', 'flathub', 'net.pcsx2.PCSX2']
 					]
 				},
 				'win-x64': {
@@ -409,7 +421,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/net.rpcs3.RPCS3.flatpakref']
+						['flatpak', 'install', 'flathub', 'net.rpcs3.RPCS3']
 					]
 				},
 				'win-x64': {
@@ -483,7 +495,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/com.snes9x.Snes9x.flatpakref']
+						['flatpak', 'install', 'flathub', 'com.snes9x.Snes9x']
 					]
 				},
 				'mac-x64': {
@@ -549,7 +561,7 @@ module.exports = (() => {
 				'linux-x64': {
 					pkgManager_flatpak: [
 						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'https://dl.flathub.org/repo/appstream/org.yuzu_emu.yuzu.flatpakref']
+						['flatpak', 'install', 'flathub', 'org.yuzu_emu.yuzu']
 					]
 				},
 				'win-x64': {

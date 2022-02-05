@@ -50,7 +50,7 @@ class Installer {
 					ins.pkgManager_arch;
 				// 'running install script, please wait...'
 				this.loadLog(lang.emuAppMenu.msg2);
-				return await runInstallCmds(cmds);
+				return await this.runInstallCmds(cmds);
 			}
 		}
 
@@ -264,7 +264,7 @@ class Installer {
 	async runInstallCmds(cmds) {
 		try {
 			for (let cmd of cmds) {
-				await spawn(cmd[0], this.cmdArgs.slice(1) || []);
+				await spawn(cmd[0], cmd.slice(1) || []);
 			}
 		} catch (ror) {
 			er(ror);

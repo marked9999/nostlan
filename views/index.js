@@ -54,7 +54,7 @@ module.exports = async function (args) {
 	// jimp is the fallback implemented in pure JS
 	global.sharp = null;
 	global.jimp = null;
-	if (!mac) {
+	if (win) {
 		try {
 			sharp = require('sharp');
 		} catch (ror) {

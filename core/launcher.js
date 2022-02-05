@@ -553,6 +553,11 @@ class Launcher {
 			$('body > :not(#dialogs)').removeClass('dim');
 		}
 		if (emu == 'project64' && code == 1) code = 0;
+		if (linux && code == 1) {
+			cui.change('emuAppMenu');
+			this.state = 'closed';
+			return;
+		}
 		if (!identify && code) {
 			// ``${app} crashed! If the game didn't start it
 			// might be because some emulators require
