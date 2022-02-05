@@ -287,13 +287,15 @@ class Scanner {
 		log('term:  ' + term);
 		let results = await searcher(term.slice(0, 64));
 		if (arg.v) log(results);
+		// default region from prefs
 		let region = prefs.region;
+		// file overwrites default region
 		if (/USA/i.test(fileName)) {
-			region = 'E';
+			region = 'USA';
 		} else if (/Japan/i.test(fileName)) {
-			region = 'J';
+			region = 'Japan';
 		} else if (/Europe/i.test(fileName)) {
-			region = 'P';
+			region = 'Europe';
 		}
 		for (let i = 0; i < results.length; i++) {
 			let game = results[i].item;
@@ -308,15 +310,24 @@ class Scanner {
 				let gRegion = game.id[3];
 				// TODO: this is a temporary region filter
 				if (/[KWXDZIFSHYVRAC]/.test(gRegion)) continue;
-				if (region != gRegion) continue;
+				if (gRegion == 'P' && (region == 'USA' || region == 'Japan')) continue;
+				if (gRegion == 'J' && (region == 'USA' || region == 'Europe')) continue;
 			} else if (sys == 'switch') {
 				let gRegion = game.id[4];
-				if (gRegion == 'B' && (region == 'E' || region == 'J')) continue;
-				if (gRegion == 'C' && (region == 'E' || region == 'P')) continue;
+				if (gRegion == 'B' && (region == 'USA' || region == 'Japan')) continue;
+				if (gRegion == 'C' && (region == 'USA' || region == 'Europe')) continue;
+			} else if (sys == 'xbox') {
+				let gRegion = game.region;
+				if (gRegion == 'Europe' && (region == 'USA' || region == 'Japan')) continue;
+				if (gRegion == 'Japan' && (region == 'USA' || region == 'Europe')) continue;
 			}
 			// skip if it's already in the games array
 			if (games.find((x) => x.id == game.id)) continue;
 			return game;
+		}
+		// if all results were skipped just return the first result
+		if (results.length > 0) {
+			return results[0].item;
 		}
 		return;
 	}

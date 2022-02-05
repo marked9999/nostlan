@@ -101,6 +101,20 @@ module.exports = (() => {
 				win: ['$home/AppData/Roaming/Citra/sdmc']
 			}
 		},
+		'cxbx-reloaded': {
+			name: 'Cxbx-Reloaded',
+			sys: 'xbox',
+			cmd: {
+				win: ['${app}', '${game}']
+			},
+			install: {
+				'win-x64': {
+					prereqs: [{ installer: 'https://aka.ms/vs/16/release/vc_redist.x86.exe' }],
+					portable:
+						'https://github.com/Cxbx-Reloaded/Cxbx-Reloaded/releases/download/CI-db1bae2/CxbxReloaded-Release-VS2019.zip'
+				}
+			}
+		},
 		desmume: {
 			name: 'DeSmuME',
 			sys: 'ds',
@@ -247,7 +261,7 @@ module.exports = (() => {
 			name: 'melonDS',
 			sys: 'ds',
 			app: {
-				linux: 'net.kuribo64.melonDS',
+				linux: 'net.kuribo64.melonDS'
 			},
 			appRegex: {
 				mac: 'melonDS\\.app',
@@ -575,6 +589,37 @@ module.exports = (() => {
 			},
 			update: {
 				win: ['$home/AppData/Local/yuzu/maintenancetool.exe', '--launcher', '${app}']
+			}
+		},
+		xemu: {
+			name: 'xemu',
+			sys: 'xbox',
+			site: 'https://xemu.app/',
+			patreon: 'https://www.patreon.com/mborgerson',
+			app: {
+				linux: 'app.xemu.xemu'
+			},
+			appRegex: {
+				mac: 'xemu\\.app'
+			},
+			cmd: {
+				mac: ['${app}', '${game}'],
+				linux: ['flatpak', 'run', '${app}', '${game}'],
+				win: ['${app}', '${game}']
+			},
+			install: {
+				'mac-x64': {
+					portable: 'https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip'
+				},
+				'mac-arm64': {
+					portable: 'https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip'
+				},
+				'linux-x64': {
+					pkgManager_flatpak: ['flatpak', 'install', '-y', 'app.xemu.xemu']
+				},
+				'win-x64': {
+					portable: 'https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip'
+				}
 			}
 		},
 		xenia: {

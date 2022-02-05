@@ -10,6 +10,8 @@
 	let arg = require('minimist')(process.argv);
 	arg.__root = __dirname.replace(/\\/g, '/');
 	arg.node_modules = arg.__root + '/node_modules';
+	arg.cli = arg.scrape || arg.db;
+
 	let version = require(arg.__root + '/package.json').version;
 
 	let remote = require('@electron/remote/main');
@@ -22,9 +24,11 @@
 	if (arg.h || arg.help) {
 		log('-h|--help : print command line options');
 		log('-v|--version : get the version of the app');
-		if (arg.dev) {
-			log('--cli : run "scrape" or "db"');
-		}
+		log('--sys systemCode : load system');
+		log('--scrape websiteCode : scrape a website');
+		log('--db');
+		log('	generate : ');
+		log(' merge: ');
 	} else if (arg.v || arg.version) {
 		log('v' + version);
 	} else {
@@ -89,6 +93,10 @@
 		let url = 'file://' + arg.__root;
 		if (!arg.cli) {
 			url += '/views/index.pug';
+		} else if (arg.scrape) {
+			url += `/scrape/cli/scrape-cli.pug`;
+		} else if (arg.db) {
+			url += `/db/cli/db-cli.pug`;
 		} else if (!arg.cli.includes('.')) {
 			url += `/${arg.cli}/cli/${arg.cli}-cli.pug`;
 		} else {

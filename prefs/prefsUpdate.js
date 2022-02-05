@@ -34,6 +34,18 @@ module.exports = async function (defaults) {
 		}
 	}
 
+	{
+		let regions = {
+			E: 'USA',
+			J: 'Japan',
+			P: 'Europe'
+		};
+
+		if (prefs.region.length == 1) prefs.region = regions[prefs.region] || 'USA';
+	}
+
+	if (semver.gte(ver, '1.24.0')) return;
+
 	if (semver.gte(ver, '1.22.1')) return;
 
 	delete prefs.chip_arch;

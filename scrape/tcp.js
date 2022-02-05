@@ -18,6 +18,7 @@ let regions = {
 regions.ps3 = regions.ps2;
 regions.ps4 = regions.ps2;
 regions.n64 = regions.nes;
+regions.xbox = regions.nes;
 let tcp = {};
 
 class TheCoverProjectScraper {
@@ -93,8 +94,7 @@ class TheCoverProjectScraper {
 		url = 'http://www.thecoverproject.net' + url + '.jpg';
 		log(url);
 		if (arg.dl) {
-			await dl(url,
-				`${__root}/dev/img/${game.id}/${name}.jpg`);
+			await dl(url, `${__root}/dev/img/${game.id}/${name}.jpg`);
 		}
 		img[name] = this.wrapUrl(url);
 		return img;
@@ -117,14 +117,14 @@ class TheCoverProjectScraper {
 		if (idx == idx.toUpperCase()) idx = '9';
 
 		let lcTitle = title.toLowerCase();
-		let res = tcp[sys][idx].find(x => x.title.toLowerCase() == lcTitle);
+		let res = tcp[sys][idx].find((x) => x.title.toLowerCase() == lcTitle);
 		if (!res && /, the/.test(lcTitle)) {
 			lcTitle = lcTitle.replace(/, the/g, '');
-			res = tcp[sys][idx].find(x => x.title.toLowerCase() == lcTitle);
+			res = tcp[sys][idx].find((x) => x.title.toLowerCase() == lcTitle);
 		}
 		if (!res && /&/.test(lcTitle)) {
 			lcTitle = lcTitle.replace(/&/g, 'and');
-			res = tcp[sys][idx].find(x => x.title.toLowerCase() == lcTitle);
+			res = tcp[sys][idx].find((x) => x.title.toLowerCase() == lcTitle);
 		}
 
 		let results;
@@ -141,9 +141,7 @@ class TheCoverProjectScraper {
 				distance: 5,
 				maxPatternLength: 64,
 				minMatchCharLength: 1,
-				keys: [
-					"title"
-				]
+				keys: ['title']
 			};
 			let fuse = new Fuse(tcp[sys][idx], fusePrms);
 			results = fuse.search(title.slice(0, 64));
@@ -202,6 +200,7 @@ class TheCoverProjectScraper {
 		if (sys == 'nes') catID = 27;
 		if (sys == 'ps2') catID = 6;
 		if (sys == 'snes') catID = 8;
+		if (sys == 'xbox') catID = 9;
 		if (!catID) {
 			er('no category id for system: ' + sys);
 			await delay(100000000);
@@ -209,7 +208,7 @@ class TheCoverProjectScraper {
 		}
 		let urlBase = `http://www.thecoverproject.net/view.php?cat_id=${catID}&view=`;
 		let url;
-		for (let idx of "9abcdefghijklmnopqrstuvwxyz") {
+		for (let idx of '9abcdefghijklmnopqrstuvwxyz') {
 			log('indexing ' + idx + ' for system ' + sys);
 			let links = [];
 			url = urlBase + idx;

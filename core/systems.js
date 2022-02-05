@@ -107,6 +107,13 @@ module.exports = {
 		gameExts: ['rpx', 'rpl', 'wud', 'wux'],
 		gameFolders: true
 	},
+	xbox: {
+		name: 'Xbox',
+		fullName: 'Microsoft Xbox',
+		emus: ['xemu'],
+		mediaType: 'disc',
+		gameExts: ['iso']
+	},
 	xbox360: {
 		name: 'Xbox 360',
 		fullName: 'Microsoft Xbox 360',

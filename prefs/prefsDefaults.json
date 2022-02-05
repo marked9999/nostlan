@@ -1,6 +1,6 @@
 {
 	"nlaDir": "",
-	"region": "E",
+	"region": "USA",
 	"ui": {
 		"mouse": {
 			"wheel": {
@@ -52,7 +52,8 @@
 	},
 	"donor": {},
 	"jsEmu": {
-		"keyboard": [{
+		"keyboard": [
+			{
 				"pause": "esc",
 				"load0": "shift+0",
 				"load1": "shift+1",

@@ -24,11 +24,6 @@ let sources = {
 	wiiu: 'https://www.gametdb.com/wiiutdb.txt?LANG=EN',
 	xbox360: 'https://www.gamesdatabase.org/xbox_360_games_list_with_title_ids'
 };
-let regionFilter = {
-	wii: {
-		E: /\t\t\["\w\w\w[^e][^\n]*\n/
-	}
-};
 let format = {
 	arcade: [
 		{
