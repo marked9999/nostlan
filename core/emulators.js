@@ -104,6 +104,9 @@ module.exports = (() => {
 		'cxbx-reloaded': {
 			name: 'Cxbx-Reloaded',
 			sys: 'xbox',
+			appRegex: {
+				win: 'cxbx\\.exe'
+			},
 			cmd: {
 				win: ['${app}', '${game}']
 			},

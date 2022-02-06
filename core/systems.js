@@ -69,7 +69,8 @@ module.exports = {
 		fullName: 'Sony PlayStation 3',
 		emus: ['rpcs3'],
 		mediaType: 'disc',
-		gameFolders: true
+		gameFolders: true,
+		gameRoot: '/USRDIR/EBOOT.BIN'
 	},
 	// smd: {
 	// 	name: 'SMD',
@@ -105,20 +106,23 @@ module.exports = {
 		emus: ['cemu'],
 		mediaType: 'disc',
 		gameExts: ['rpx', 'rpl', 'wud', 'wux'],
-		gameFolders: true
+		gameFolders: true,
+		gameFolderSearchDepthLimit: 1,
+		gameRoot: 'code'
 	},
 	xbox: {
 		name: 'Xbox',
 		fullName: 'Microsoft Xbox',
-		emus: ['xemu'],
+		emus: ['cxbx-reloaded', 'xemu'],
 		mediaType: 'disc',
-		gameExts: ['iso']
+		gameExts: ['xbe'],
+		gameFolders: true
 	},
 	xbox360: {
 		name: 'Xbox 360',
 		fullName: 'Microsoft Xbox 360',
 		emus: ['xenia'],
 		mediaType: 'disc',
-		gameExts: ['iso']
+		gameExts: ['iso', 'xex']
 	}
 };

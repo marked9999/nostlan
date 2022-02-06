@@ -299,26 +299,18 @@ class Launcher {
 		let cmdArray = prefs[emu].cmd || [];
 
 		let gameFile;
-		if (game) {
-			gameFile = game.file;
-			if (emu == 'rpcs3') {
-				gameFile += '/USRDIR/EBOOT.BIN';
-			} else if (emu == 'xenia' && path.parse(gameFile).ext != '.iso') {
-				let files = await klaw(game.file, {
-					depthLimit: 1
+		if (game) gameFile = game.file;
+		if (game && syst.gameFolders) {
+			if (syst.gameRoot) gameFile += '/' + syst.gameRoot;
+			if ((await fs.stat(gameFile)).isDirectory()) {
+				let limit = 0;
+				if (syst.gameFolderSearchDepthLimit) limit = syst.gameFolderSearchDepthLimit;
+				let files = await klaw(gameFile, {
+					depthLimit: limit
 				});
 				log(files);
 				for (let file of files) {
-					if (path.parse(file).ext == '.xex') {
-						gameFile = file;
-						break;
-					}
-				}
-			} else if (emu == 'cemu') {
-				let files = await klaw(game.file + '/code');
-				log(files);
-				for (let file of files) {
-					if (path.parse(file).ext == '.rpx') {
+					if (syst.gameExts.includes(path.parse(file).ext.slice(1))) {
 						gameFile = file;
 						break;
 					}
