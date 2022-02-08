@@ -4,6 +4,8 @@ module.exports = (() => {
 			// RIP Near 6/27/2021 :(
 			name: 'bsnes',
 			sys: 'snes',
+			site: 'https://github.com/bsnes-emu/bsnes',
+			discord: 'https://discord.gg/B27hf27ZVf',
 			appRegex: {
 				linux: 'bsnes_hd',
 				mac: 'bsnes_hd\\.app',
@@ -32,6 +34,9 @@ module.exports = (() => {
 		cemu: {
 			name: 'Cemu',
 			sys: 'wiiu',
+			site: 'http://cemu.info/',
+			patreon: 'https://www.patreon.com/cemu',
+			discord: 'https://discord.gg/5psYsup',
 			appRegex: {
 				linux: 'Cemu\\.exe',
 				mac: 'Cemu\\.exe',
@@ -57,6 +62,9 @@ module.exports = (() => {
 		citra: {
 			name: 'Citra',
 			sys: 'n3ds',
+			site: 'https://citra-emu.org/',
+			patreon: 'https://www.patreon.com/citraemu',
+			discord: 'https://citra-emu.org/discord/',
 			app: {
 				linux: 'org.citra_emu.citra'
 			},
@@ -104,6 +112,9 @@ module.exports = (() => {
 		'cxbx-reloaded': {
 			name: 'Cxbx-Reloaded',
 			sys: 'xbox',
+			site: 'https://cxbx-reloaded.co.uk/',
+			patreon: 'https://www.patreon.com/LukeUsher',
+			discord: 'https://discord.gg/26Xjx23',
 			appRegex: {
 				win: 'cxbx\\.exe'
 			},
@@ -121,6 +132,8 @@ module.exports = (() => {
 		desmume: {
 			name: 'DeSmuME',
 			sys: 'ds',
+			site: 'http://desmume.org/',
+			forum: 'http://forums.desmume.org/',
 			app: {
 				linux: 'org.desmume.DeSmuME'
 			},
@@ -152,6 +165,8 @@ module.exports = (() => {
 		dolphin: {
 			name: 'Dolphin',
 			sys: 'wii',
+			site: 'https://dolphin-emu.org/',
+			forum: 'https://forums.dolphin-emu.org/',
 			app: {
 				linux: 'org.DolphinEmu.dolphin-emu'
 			},
@@ -185,6 +200,7 @@ module.exports = (() => {
 		'em-fceux': {
 			name: 'em-fceux',
 			sys: 'nes',
+			site: 'https://bitbucket.org/tsone/em-fceux/src/master/',
 			app: '$emu/launch.js',
 			jsEmu: true,
 			install: {
@@ -199,6 +215,7 @@ module.exports = (() => {
 		iodine: {
 			name: 'IodineGBA',
 			sys: 'gba',
+			site: 'https://github.com/taisel/IodineGBA',
 			app: '$emu/launch.js',
 			bios: '$emu/bios.bin',
 			jsEmu: true,
@@ -214,6 +231,8 @@ module.exports = (() => {
 		mame: {
 			name: 'MAME',
 			sys: 'arcade',
+			site: 'https://www.mamedev.org/',
+			forum: 'https://forums.bannister.org/ubbthreads.php?ubb=postlist&Board=1',
 			app: {
 				linux: 'mame'
 			},
@@ -263,6 +282,10 @@ module.exports = (() => {
 		melonds: {
 			name: 'melonDS',
 			sys: 'ds',
+			site: 'https://melonds.kuribo64.net/',
+			patreon: 'https://www.patreon.com/staplebutter',
+			paypal: 'https://paypal.me/Arisotura',
+			forum: 'https://melonds.kuribo64.net/board/',
 			app: {
 				linux: 'net.kuribo64.melonDS'
 			},
@@ -298,6 +321,7 @@ module.exports = (() => {
 		mesen: {
 			name: 'mesen',
 			sys: 'nes',
+			site: 'https://mesen.ca/',
 			appRegex: {
 				win: 'Mesen\\.exe'
 			},
@@ -313,6 +337,10 @@ module.exports = (() => {
 		mgba: {
 			name: 'mGBA',
 			sys: 'gba',
+			site: 'https://mgba.io/',
+			patreon: 'https://www.patreon.com/mgba',
+			discord: 'https://discord.gg/em2M2sG',
+			forum: 'https://forums.mgba.io/showthread.php?tid=466',
 			app: {
 				linux: 'io.mgba.mGBA'
 			},
@@ -343,6 +371,7 @@ module.exports = (() => {
 		mupen64plus: {
 			name: 'mupen64plus',
 			sys: 'n64',
+			site: 'https://github.com/mupen64plus/mupen64plus-ui-python',
 			app: {
 				linux: 'com.github.Rosalie241.RMG'
 			},
@@ -380,6 +409,8 @@ module.exports = (() => {
 		pcsx2: {
 			name: 'PCSX2',
 			sys: 'ps2',
+			site: 'https://pcsx2.net/',
+			forum: 'https://forums.pcsx2.net/',
 			app: {
 				linux: 'net.pcsx2.PCSX2'
 			},
@@ -405,6 +436,9 @@ module.exports = (() => {
 		project64: {
 			name: 'Project 64',
 			sys: 'n64',
+			site: 'https://www.pj64-emu.com/',
+			discord: 'https://discord.gg/Cg3zquF',
+			donate: 'https://www.pj64-emu.com/support-project64.html',
 			appRegex: {
 				win: 'Project64\\.exe'
 			},
@@ -424,6 +458,10 @@ module.exports = (() => {
 		rpcs3: {
 			name: 'RPCS3',
 			sys: 'ps3',
+			site: 'https://rpcs3.net/',
+			patreon: 'https://www.patreon.com/Nekotekina',
+			discord: 'https://discord.me/RPCS3',
+			forum: 'https://forums.rpcs3.net/',
 			app: {
 				linux: 'net.rpcs3.RPCS3'
 			},
@@ -450,6 +488,9 @@ module.exports = (() => {
 		ryujinx: {
 			name: 'Ryujinx',
 			sys: 'switch',
+			site: 'https://ryujinx.org/',
+			patreon: 'https://patreon.com/Ryujinx',
+			discord: 'https://discord.gg/VkQYXAZ',
 			appRegex: {
 				linux: '^Ryujinx',
 				mac: '^Ryujinx',
@@ -474,6 +515,9 @@ module.exports = (() => {
 		'ryujinx-ldn': {
 			name: 'Ryujinx LDN',
 			sys: 'switch',
+			site: 'https://ryujinx.org/',
+			patreon: 'https://patreon.com/Ryujinx',
+			discord: 'https://discord.gg/VkQYXAZ',
 			appRegex: {
 				linux: '^Ryujinx',
 				mac: '^Ryujinx',
@@ -496,6 +540,8 @@ module.exports = (() => {
 		snes9x: {
 			name: 'snes9x',
 			sys: 'snes',
+			site: 'https://www.snes9x.com/',
+			forum: 'https://www.snes9x.com/phpbb3',
 			app: {
 				linux: 'com.snes9x.Snes9x'
 			},
@@ -526,6 +572,8 @@ module.exports = (() => {
 		vba: {
 			name: 'Visual Boy Advance',
 			sys: 'gba',
+			site: 'https://github.com/visualboyadvance-m/visualboyadvance-m',
+			forum: 'https://board.vba-m.com/',
 			app: {
 				linux: 'vbam-sdl'
 			},
@@ -559,6 +607,9 @@ module.exports = (() => {
 		yuzu: {
 			name: 'Yuzu',
 			sys: 'switch',
+			site: 'https://yuzu-emu.org/',
+			patreon: 'https://www.patreon.com/yuzuteam',
+			discord: 'https://discord.gg/u77vRWY',
 			app: {
 				linux: 'org.yuzu_emu.yuzu'
 			},
@@ -630,6 +681,7 @@ module.exports = (() => {
 			sys: 'xbox360',
 			site: 'https://xenia.jp',
 			patreon: 'https://patreon.com/xenia_project',
+			discord: 'https://discord.gg/Q9mxZf9',
 			appRegex: {
 				win: 'Xenia\\.exe'
 			},

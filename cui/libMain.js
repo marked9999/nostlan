@@ -138,10 +138,26 @@ class CuiState extends cui.State {
 			// TODO check if user has the emulator
 			// if they do add the configure and update buttons
 			// else add a button to install
-			emuMenu += `.col.cui(name="${_emu}_config") ` + `${lang.emuMenu.msg0} ${emus[_emu].name}\n`;
+			emuMenu += '.row.row-x\n';
+			emuMenu += `\t.col.cui(name="${_emu}_launch") ${emus[_emu].name}\n`;
 
-			if (emus[_emu].update) {
-				emuMenu += `.col.cui(name="${_emu}_update") ` + `${lang.emuMenu.msg1} ${emus[_emu].name}\n`;
+			let em = emus[_emu];
+			if (em.update) {
+				emuMenu += `\t.col-1.cui(name="${_emu}_update"): span.material-icons download\n`;
+			}
+
+			if (em.site) {
+				emuMenu += `\t.col-1.cui(name="${_emu}_site"): span.material-icons language\n`;
+			}
+
+			if (em.patreon) {
+				emuMenu += `\t.col-1.cui(name="${_emu}_patreon"): span.material-icons favorite\n`;
+			}
+
+			if (em.discord) {
+				emuMenu += `\t.col-1.cui(name="${_emu}_discord"): span.material-icons forum\n`;
+			} else if (em.forum) {
+				emuMenu += `\t.col-1.cui(name="${_emu}_forum"): span.material-icons forum\n`;
 			}
 		}
 		$('#playMenu_5').append(pug(playMenu));

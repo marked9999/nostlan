@@ -16,7 +16,7 @@
 				{
 					"target": "zip",
 					"arch": [
-						"arm64"
+						"x64"
 					]
 				}
 			]
@@ -141,5 +141,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "1.24.4"
+	"version": "1.24.5"
 }

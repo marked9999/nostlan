@@ -54,7 +54,7 @@ class CuiState extends cui.State {
 			let instOpt = `
 .cui(name='install-${_emu}')
 	i.material-icons.md-left get_app
-	.text.opt${i + 2} ${lang.emptyGameLibMenu['opt' + (i + 2)]} ${emus[_emu].name}
+	.text.opt${i + 2} ${lang.emptyGameLibMenu.opt2} ${emus[_emu].name}
 	i.material-icons.md-right.invis get_app`;
 			this.$elem.append(pug(instOpt));
 		}
