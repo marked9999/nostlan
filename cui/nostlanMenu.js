@@ -1,5 +1,4 @@
 class CuiState extends cui.State {
-
 	async onAction(act) {
 		if (act == 'start') {
 			cui.doAction('back');
@@ -8,16 +7,14 @@ class CuiState extends cui.State {
 		} else if (act == 'fullscreen') {
 			prefs.ui.launchFullScreen = !prefs.ui.launchFullScreen;
 			electron.getCurrentWindow().focus();
-			electron.getCurrentWindow().setFullScreen(
-				prefs.ui.launchFullScreen);
+			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
 		} else if (act == 'gameLibMenu') {
 			cui.change('gameLibMenu');
 		} else if (act == 'x') {
 			cui.doAction('quit');
 		} else if (act == 'settings') {
 			cui.change('settingsMenu');
-		} else if (act == 'minimize' ||
-			act == 'prefs' || act == 'y') {
+		} else if (act == 'minimize' || act == 'prefs' || act == 'y') {
 			electron.getCurrentWindow().minimize();
 		} else if (act == 'patreon') {
 			opn('https://www.patreon.com/nostlan');

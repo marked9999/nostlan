@@ -10,7 +10,7 @@ class CuiState extends cui.State {
 			return;
 		}
 		act = acts[1];
-		if (act == 'config') {
+		if (act == 'launch') {
 			await nostlan.launcher.configEmu();
 		} else if (act == 'update') {
 			await nostlan.launcher.updateEmu();
