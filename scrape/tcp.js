@@ -21,6 +21,7 @@ let regions = {
 	}
 };
 regions.gcn = regions.wii;
+regions.ds = regions.wii;
 regions.ps3 = regions.ps2;
 regions.ps4 = regions.ps2;
 regions.n64 = regions.nes;
