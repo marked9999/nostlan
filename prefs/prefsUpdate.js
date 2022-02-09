@@ -10,6 +10,11 @@ module.exports = async function (defaults) {
 		let _syst = systems[_sys];
 		if (!_syst.emus) continue;
 		for (let _emu of _syst.emus) {
+			if (!emus[_emu]) {
+				console.warn(_emu + ' emulator support file for Nostlan not found!');
+				_syst.emus.splice(_syst.emus.indexOf(_emu), 1);
+				continue;
+			}
 			if (!prefs[_emu]) prefs[_emu] = {};
 
 			let props = ['app', 'cmd', 'bios', 'dev', 'mute', 'volume', 'keyboard'];

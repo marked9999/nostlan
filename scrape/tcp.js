@@ -13,8 +13,14 @@ let regions = {
 		Germany: 'de',
 		Japan: 'jp',
 		USA: 'us'
+	},
+	wii: {
+		E: 'us',
+		P: 'eu',
+		J: 'jp'
 	}
 };
+regions.gcn = regions.wii;
 regions.ps3 = regions.ps2;
 regions.ps4 = regions.ps2;
 regions.n64 = regions.nes;
@@ -52,6 +58,7 @@ class TheCoverProjectScraper {
 		if (!$page) return;
 		let region;
 		if (sys == 'ps2') region = game.id[2];
+		if (sys == 'gcn') region = game.id[3];
 		if (sys == 'nes') region = game.id.split('-')[1];
 		if (regions[sys]) {
 			region = regions[sys][region] || 'us';
@@ -193,14 +200,69 @@ class TheCoverProjectScraper {
 		}
 		tcp[sys] = {};
 
-		let catID;
-
-		if (sys == 'gba') catID = 13;
-		if (sys == 'n64') catID = 4;
-		if (sys == 'nes') catID = 27;
-		if (sys == 'ps2') catID = 6;
-		if (sys == 'snes') catID = 8;
-		if (sys == 'xbox') catID = 9;
+		let catIDs = {
+			// home consoles
+			_3do: 40,
+			amigacd32: 48,
+			a2600: 36,
+			a5200: 34,
+			a7800: 39,
+			jaguar: 33,
+			'atari-xe': 35,
+			colecov: 38,
+			dreamcast: 1,
+			fds: 41,
+			gcn: 2,
+			smd: 3,
+			intelliv: 31,
+			jaguarcd: 37,
+			neogeocd: 32,
+			nes: 27,
+			n64: 4,
+			switch: 62,
+			wii: 18,
+			wiiu: 58,
+			ody2: 61,
+			'pc-fx': 43,
+			cdi: 51,
+			ps: 5,
+			ps2: 6,
+			ps3: 19,
+			ps4: 60,
+			ps5: 63,
+			s32x: 29,
+			scd: 17,
+			sms: 30,
+			saturn: 7,
+			snes: 8,
+			tg16: 42,
+			xbox: 9,
+			x360: 10,
+			xbone: 59,
+			xboxs: 64,
+			// handhelds
+			n3ds: 54,
+			lynx: 44,
+			gg: 15,
+			gb: 12,
+			gba: 13,
+			gbc: 14,
+			ngp: 45,
+			ngpc: 46,
+			ds: 11,
+			psp: 16,
+			psv: 55,
+			vb: 56,
+			ws: 47,
+			wsc: 50,
+			// pc
+			amiga: 57,
+			linux: 25,
+			dos: 28,
+			mac: 26,
+			win: 24
+		};
+		let catID = catIDs[sys];
 		if (!catID) {
 			er('no category id for system: ' + sys);
 			await delay(100000000);

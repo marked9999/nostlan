@@ -1,0 +1,285 @@
+{
+	"games": [
+		{
+			"id": "47dba0ac",
+			"title": "Alex Kidd in the Enchanted Castle",
+			"region": "USA"
+		}, {
+			"id": "0496e06c",
+			"title": "Alien Soldier",
+			"region": "Europe"
+		}, {
+			"id": "5ab9c9f8",
+			"title": "Alien Storm",
+			"region": "World"
+		}, {
+			"id": "154d59bb",
+			"title": "Altered Beast",
+			"region": "USA, Europe"
+		}, {
+			"id": "1110b0db",
+			"title": "Story of Thor, The",
+			"region": "Europe"
+		}, {
+			"id": "b97cca1c",
+			"title": "Legende de Thor, La",
+			"region": "France"
+		}, {
+			"id": "fa20d011",
+			"title": "Story of Thor, The",
+			"region": "Germany"
+		}, {
+			"id": "4f39783c",
+			"title": "Story of Thor, The: Hikari o Tsugumono",
+			"region": "Japan"
+		}, {
+			"id": "4631f941",
+			"title": "Story of Thor, The",
+			"region": "Spain"
+		}, {
+			"id": "c4728225",
+			"title": "Beyond Oasis",
+			"region": "USA"
+		}, {
+			"id": "c6aac589",
+			"title": "Bonanza Bros.",
+			"region": "Japan, Europe"
+		}, {
+			"id": "e468cee3",
+			"title": "Cave Story",
+			"region": "NTSC"
+		}, {
+			"id": "d6d74cfd",
+			"title": "Cave Story",
+			"region": "PAL"
+		}, {
+			"id": "d783c244",
+			"title": "Columns",
+			"region": "World"
+		}, {
+			"id": "dc678f6d",
+			"title": "Columns III",
+			"region": "USA"
+		}, {
+			"id": "17da0354",
+			"title": "Comix Zone",
+			"region": "USA"
+		}, {
+			"id": "b9ce9051",
+			"title": "Crack Down",
+			"region": "USA"
+		}, {
+			"id": "95b0ea2b",
+			"title": "Bio Hazard Battle",
+			"region": "USA, Europe"
+		}, {
+			"id": "73dc0dd8",
+			"title": "DEcapAttack",
+			"region": "USA, Europe"
+		}, {
+			"id": "d03cdb53",
+			"title": "Dynamite Headdy",
+			"region": "Japan"
+		}, {
+			"id": "3dfeeb77",
+			"title": "Dynamite Headdy",
+			"region": "USA, Europe"
+		}, {
+			"id": "45547390",
+			"title": "Ecco the Dolphin",
+			"region": "USA, Europe"
+		}, {
+			"id": "ccb21f98",
+			"title": "Ecco: The Tides of Time",
+			"region": "USA"
+		}, {
+			"id": "5b13fc7c",
+			"title": "Ecco Jr.",
+			"region": "USA, Australia"
+		}, {
+			"id": "e72f8a36",
+			"title": "ESWAT: City Under Siege",
+			"region": "USA, Europe"
+		}, {
+			"id": "48f1a42e",
+			"title": "Eternal Champions",
+			"region": "USA"
+		}, {
+			"id": "5f0bd984",
+			"title": "Fatal Labyrinth",
+			"region": "USA, Europe"
+		}, {
+			"id": "4291c8ab",
+			"title": "Flicky",
+			"region": "USA, Europe"
+		}, {
+			"id": "83e7b8ae",
+			"title": "Gain Ground",
+			"region": "World"
+		}, {
+			"id": "e4d84e4a",
+			"title": "Galaxy Force II",
+			"region": "World"
+		}, {
+			"id": "665d7df9",
+			"title": "Golden Axe",
+			"region": "World"
+		}, {
+			"id": "725e0a18",
+			"title": "Golden Axe II",
+			"region": "World"
+		}, {
+			"id": "c7862ea3",
+			"title": "Golden Axe III",
+			"region": "Japan"
+		}, {
+			"id": "b813cf0d",
+			"title": "Gunstar Heroes",
+			"region": "USA"
+		}, {
+			"id": "ce36e6cc",
+			"title": "Kid Chameleon",
+			"region": "USA, Europe"
+		}, {
+			"id": "fbbb5b97",
+			"title": "Landstalker",
+			"region": "USA"
+		}, {
+			"id": "beb715dc",
+			"title": "Light Crusader",
+			"region": "USA"
+		}, {
+			"id": "c24bc5e4",
+			"title": "Wonder Boy III: Monster Lair",
+			"region": "Japan, Europe"
+		}, {
+			"id": "45a50f96",
+			"title": "Wonder Boy V: Monster World III",
+			"region": "Japan, Korea"
+		}, {
+			"id": "1592f5b0",
+			"title": "Wonder Boy in Monster World",
+			"region": "USA, Europe"
+		}, {
+			"id": "75af3d59",
+			"title": "Phantasy Star II",
+			"region": "USA, Europe"
+		}, {
+			"id": "cc194ad8",
+			"title": "Phantasy Star III: Generations of Doom",
+			"region": "USA, Europe"
+		}, {
+			"id": "b23cd7aa",
+			"title": "Phantasy Star IV",
+			"region": "USA"
+		}, {
+			"id": "6511aa61",
+			"title": "Ristar",
+			"region": "USA, Europe"
+		}, {
+			"id": "c7ca517f",
+			"title": "Dr. Robotnik's Mean Bean Machine",
+			"region": "USA"
+		}, {
+			"id": "5cd3e295",
+			"title": "Shadow Dancer: The Secret of Shinobi",
+			"region": "World"
+		}, {
+			"id": "4815e075",
+			"title": "Shining Force II",
+			"region": "USA"
+		}, {
+			"id": "4d2785bc",
+			"title": "Shining in the Darkness",
+			"region": "USA, Europe"
+		}, {
+			"id": "e0594abe",
+			"title": "Shining Force",
+			"region": "USA"
+		}, {
+			"id": "5381506f",
+			"title": "Shinobi III: Return of the Ninja Master",
+			"region": "USA"
+		}, {
+			"id": "0c06aa82",
+			"title": "Sonic & Knuckles + Sonic The Hedgehog 3",
+			"region": "USA"
+		}, {
+			"id": "afe05eee",
+			"title": "Sonic The Hedgehog",
+			"region": "Japan, Korea"
+		}, {
+			"id": "7b905383",
+			"title": "Sonic The Hedgehog 2",
+			"region": "World"
+		}, {
+			"id": "44a2ca44",
+			"title": "Sonic 3D Blast ~ Sonic 3D Flickies' Island",
+			"region": "USA, Europe"
+		}, {
+			"id": "677206cb",
+			"title": "Sonic Spinball",
+			"region": "USA"
+		}, {
+			"id": "36d2f822",
+			"title": "Sword of Vermilion",
+			"region": "USA, Europe"
+		}, {
+			"id": "e5c9cbb0",
+			"title": "Space Harrier II",
+			"region": "World"
+		}, {
+			"id": "b13087ee",
+			"title": "Super Thunder Blade",
+			"region": "World"
+		}, {
+			"id": "4052e845",
+			"title": "Bare Knuckle: Ikari no Tetsuken ~ Streets of Rage",
+			"region": "World"
+		}, {
+			"id": "e01fa526",
+			"title": "Streets of Rage 2",
+			"region": "USA"
+		}, {
+			"id": "90ef991e",
+			"title": "Streets of Rage 3",
+			"region": "Asia"
+		}, {
+			"id": "5d09236f",
+			"title": "Bare Knuckle III",
+			"region": "Japan"
+		}, {
+			"id": "d5bb15d9",
+			"title": "Streets of Rage 3",
+			"region": "USA"
+		}, {
+			"id": "5ca24f66",
+			"title": "Revenge of Shinobi, The",
+			"region": "World"
+		}, {
+			"id": "7a588f4b",
+			"title": "ToeJam & Earl",
+			"region": "World"
+		}, {
+			"id": "aa021bdd",
+			"title": "ToeJam & Earl in Panic on Funkotron",
+			"region": "USA"
+		}, {
+			"id": "d38b3354",
+			"title": "Vectorman",
+			"region": "USA, Europe"
+		}, {
+			"id": "c1a24088",
+			"title": "Vectorman 2",
+			"region": "USA"
+		}, {
+			"id": "937380f3",
+			"title": "Virtua Fighter 2",
+			"region": "USA, Europe"
+		}, {
+			"id": "292080ae",
+			"title": "Cave Story",
+			"region": "World"
+		}
+	]
+}

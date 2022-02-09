@@ -1,7 +1,7 @@
 /*
  * db.js : Nostlan : quinton-ashley
  *
- * NOTE: Not used by Nostlan yet, incomplete.
+ * NOTE: This code is only used by developers to create the db file.
  * Converts database files to Nostlan's json db format.
  */
 const tbl2json = require('tabletojson');
@@ -12,14 +12,16 @@ let sources = {
 	},
 	ds: 'https://www.gametdb.com/dstdb.txt?LANG=EN',
 	n3ds: 'https://www.gametdb.com/3dstdb.txt?LANG=EN',
-	n64: 'https://github.com/libretro/libretro-database/raw/master/metadat/no-intro/Nintendo%20-%20Nintendo%2064.dat',
-	nes: 'https://github.com/libretro/libretro-database/raw/master/metadat/no-intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System.dat',
+	n64: 'https://raw.githubusercontent.com/libretro/libretro-database/master/metadat/no-intro/Nintendo%20-%20Nintendo%2064.dat',
 	ps1: 'http://psxdatacenter.com/ulist.html',
 	ps2: 'https://psxdatacenter.com/psx2/ulist2.html',
 	ps3: 'https://www.gametdb.com/ps3tdb.txt?LANG=EN',
 	psp: 'http://psxdatacenter.com/psp/ulist.html',
+	snes: 'https://raw.githubusercontent.com/libretro/libretro-database/master/metadat/no-intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System.dat',
+	smd: 'https://raw.githubusercontent.com/libretro/libretro-database/b706aa6877ca2f82db7b4e6a5216da0ac13f85ad/dat/Sega%20-%20Mega%20Drive%20-%20Genesis.dat',
 	switch: 'https://www.gametdb.com/switchtdb.txt?LANG=EN',
 	// "https://switchbrew.org/wiki/Title_list/Games"
+	gcn: 'https://raw.githubusercontent.com/libretro/libretro-database/b706aa6877ca2f82db7b4e6a5216da0ac13f85ad/dat/Nintendo%20-%20GameCube.dat',
 	wii: 'https://www.gametdb.com/wiitdb.txt?LANG=EN',
 	wiiu: 'https://www.gametdb.com/wiiutdb.txt?LANG=EN',
 	xbox360: 'https://www.gamesdatabase.org/xbox_360_games_list_with_title_ids'
@@ -36,6 +38,20 @@ let format = {
 			regex:
 				/<game name="([^"]+)[^\n]+\n[^\n]+\n[^\n]+\n[^\n]+<crc>([^<]+)[^\n]+\n[^\n]+\n[^\n]+\n[^\n]+\n[^\n]+\n[^\n]+\n[^\n]+\n/gm,
 			replace: `\n\t"id": "$2",\n\t"title": "$1"\n}, {`
+		}
+	],
+	gcn: [
+		{
+			regex: /clrmamepro \(([^\)].*\n)*\)/gm,
+			replace: ''
+		},
+		{
+			regex: /game \(\s+name "([^\(]+)\(([^\(]+)\)( \([^\d]* *([\d\.]*)\))*.*\n\s*serial "([^"]+)"([^\)].*\n)*\)/gm,
+			replace: `\n\t"id": "$5",\n\t"title": "$1"\n}, {`
+		},
+		{
+			regex: /game \(([^\)].*\n)*\)/gm,
+			replace: ''
 		}
 	],
 	nes: [
@@ -116,6 +132,21 @@ let format = {
 		{
 			regex: /\n$/gm,
 			replace: `}]\n}`
+		}
+	],
+	smd: [
+		{
+			regex: /clrmamepro \(([^\)].*\n)*\)/gm,
+			replace: ''
+		},
+		{
+			regex:
+				/game \(\s+name "([^\(]+)\(([^\(]+)\)( \([^\d]* *([\d\.]*)\))*.*\n.*\n.* size \d* crc (\w{8})[^\n]*\n[^\n]*\n\n/gm,
+			replace: `\n\t"id": "$5",\n\t"title": "$1",\n\t"region": "$2"\n}, {`
+		},
+		{
+			regex: /game \(([^\)].*\n)*\)/gm,
+			replace: ''
 		}
 	],
 	// switch: [{
@@ -246,6 +277,12 @@ class GenDB {
 			for (let x of list.games) {
 				x.id = x.id.slice(0, 4) + x.id.slice(5);
 				x.region = x.region.replace(/[\[\]]/g, '');
+			}
+		}
+
+		if (sources[sys].includes('libretro')) {
+			for (let x of list.games) {
+				x.title = x.title.slice(0, -1);
 			}
 		}
 

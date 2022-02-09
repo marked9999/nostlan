@@ -145,16 +145,6 @@
 			"title": "Deca Sports (Demo)"
 		},
 		{
-			"id": "DZDE01",
-			"title": "The Legend of Zelda: Twilight Princess (Demo)",
-			"sys": "gcn"
-		},
-		{
-			"id": "DZDP01",
-			"title": "The Legend of Zelda: Twilight Princess (Demo)",
-			"sys": "gcn"
-		},
-		{
 			"id": "R22E01",
 			"title": "FlingSmash"
 		},
@@ -403,11 +393,6 @@
 			"title": "It's my Birthday!"
 		},
 		{
-			"id": "R32J01",
-			"title": "Metroid Prime 2",
-			"sys": "gcn"
-		},
-		{
 			"id": "R33E69",
 			"title": "AC/DC Live: Rock Band Track Pack"
 		},
@@ -518,11 +503,6 @@
 		{
 			"id": "R3HX6Z",
 			"title": "Agent Hugo: Hula Holiday"
-		},
-		{
-			"id": "R3IJ01",
-			"title": "Metroid Prime",
-			"sys": "gcn"
 		},
 		{
 			"id": "R3JE5G",
@@ -5105,21 +5085,6 @@
 			"title": "Mushroom Men: The Spore Wars"
 		},
 		{
-			"id": "RMAE01",
-			"title": "Mario Power Tennis",
-			"sys": "gcn"
-		},
-		{
-			"id": "RMAJ01",
-			"title": "Mario Power Tennis",
-			"sys": "gcn"
-		},
-		{
-			"id": "RMAP01",
-			"title": "Mario Power Tennis",
-			"sys": "gcn"
-		},
-		{
 			"id": "RMBE01",
 			"title": "Mario Super Sluggers"
 		},
@@ -7742,11 +7707,6 @@
 			"title": "SpongeBob SquarePants featuring Nicktoons: Globs of Doom"
 		},
 		{
-			"id": "RUUE01",
-			"title": "Animal Crossing: City Folk",
-			"sys": "gcn"
-		},
-		{
 			"id": "RUUJ01",
 			"title": "Machi He Ikouyo: Doubutsu no Mori"
 		},
@@ -8857,26 +8817,6 @@
 		{
 			"id": "RZCE6K",
 			"title": "Saint"
-		},
-		{
-			"id": "RZDE01",
-			"title": "The Legend of Zelda: Twilight Princess",
-			"sys": "gcn"
-		},
-		{
-			"id": "RZDJ01",
-			"title": "The Legend of Zelda: Twilight Princess",
-			"sys": "gcn"
-		},
-		{
-			"id": "RZDK01",
-			"title": "The Legend of Zelda: Twilight Princess",
-			"sys": "gcn"
-		},
-		{
-			"id": "RZDP01",
-			"title": "The Legend of Zelda: Twilight Princess",
-			"sys": "gcn"
 		},
 		{
 			"id": "RZEE52",
@@ -12227,21 +12167,6 @@
 			"title": "Get Fit with Mel B"
 		},
 		{
-			"id": "SNHE69",
-			"title": "Need for Speed: Hot Pursuit",
-			"sys": "gcn"
-		},
-		{
-			"id": "SNHJ13",
-			"title": "Need for Speed: Hot Pursuit",
-			"sys": "gcn"
-		},
-		{
-			"id": "SNHP69",
-			"title": "Need for Speed: Hot Pursuit",
-			"sys": "gcn"
-		},
-		{
 			"id": "SNIE54",
 			"title": "Nicktoons MLB"
 		},
@@ -14846,31 +14771,6 @@
 			"title": "Fatal Frame 4: Mask of the Lunar Eclipse"
 		},
 		{
-			"id": "G01J01",
-			"title": "Super Smash Bros. Melee: SD Remix",
-			"sys": "gcn"
-		},
-		{
-			"id": "G01P01",
-			"title": "Super Smash Bros. Melee: SD Remix",
-			"sys": "gcn"
-		},
-		{
-			"id": "G02E01",
-			"title": "Super Smash Bros. Melee: 20XX Training Pack",
-			"sys": "gcn"
-		},
-		{
-			"id": "G02J01",
-			"title": "Super Smash Bros. Melee: 20XX Training Pack",
-			"sys": "gcn"
-		},
-		{
-			"id": "G02P01",
-			"title": "Super Smash Bros. Melee: 20XX Training Pack",
-			"sys": "gcn"
-		},
-		{
 			"id": "GFZJ8P",
 			"title": "F-Zero AX"
 		},
@@ -14929,11 +14829,6 @@
 		{
 			"id": "JOUE01",
 			"title": "New Super Mario Bros. Wii 10 The Journey"
-		},
-		{
-			"id": "KHPE01",
-			"title": "Kirby Air Ride Hack Pack",
-			"sys": "gcn"
 		},
 		{
 			"id": "KLSEXJ",
@@ -31291,16 +31186,6 @@
 			"title": "Action Replay"
 		},
 		{
-			"id": "DVJP08",
-			"title": "Viewtiful Joe (Promotional demo)",
-			"sys": "gcn"
-		},
-		{
-			"id": "G01E01",
-			"title": "Super Smash Bros. Melee: SD Remix",
-			"sys": "gcn"
-		},
-		{
 			"id": "G2BE5G",
 			"title": "Black & Bruised"
 		},
@@ -31357,26 +31242,6 @@
 			"title": "NHL 2K3"
 		},
 		{
-			"id": "G2ME01",
-			"title": "Metroid Prime 2: Echoes",
-			"sys": "gcn"
-		},
-		{
-			"id": "G2MEAB",
-			"title": "Metroid Prime 3 (E3 Beta)",
-			"sys": "gcn"
-		},
-		{
-			"id": "G2MJ01",
-			"title": "Metroid Prime 2: Dark Echoes",
-			"sys": "gcn"
-		},
-		{
-			"id": "G2MP01",
-			"title": "Metroid Prime 2: Echoes",
-			"sys": "gcn"
-		},
-		{
 			"id": "G2NJ13",
 			"title": "Need for Speed - Underground 2"
 		},
@@ -31407,21 +31272,6 @@
 		{
 			"id": "G2TP52",
 			"title": "Tony Hawk's Underground 2"
-		},
-		{
-			"id": "G2VE08",
-			"title": "Viewtiful Joe 2",
-			"sys": "gcn"
-		},
-		{
-			"id": "G2VJ08",
-			"title": "Viewtiful Joe 2: Blackfilm no Nazo",
-			"sys": "gcn"
-		},
-		{
-			"id": "G2VP08",
-			"title": "Viewtiful Joe 2",
-			"sys": "gcn"
 		},
 		{
 			"id": "G2XE8P",
@@ -31688,36 +31538,6 @@
 			"title": "Sims, The"
 		},
 		{
-			"id": "G4QE01",
-			"title": "Super Mario Strikers",
-			"sys": "gcn"
-		},
-		{
-			"id": "G4QJ01",
-			"title": "Super Mario Strikers",
-			"sys": "gcn"
-		},
-		{
-			"id": "G4QP01",
-			"title": "Mario Smash Football",
-			"sys": "gcn"
-		},
-		{
-			"id": "G4SE01",
-			"title": "The Legend of Zelda: Four Swords Adventures",
-			"sys": "gcn"
-		},
-		{
-			"id": "G4SJ01",
-			"title": "The Legend of Zelda: Four Swords +",
-			"sys": "gcn"
-		},
-		{
-			"id": "G4SP01",
-			"title": "The Legend of Zelda: Four Swords Adventures",
-			"sys": "gcn"
-		},
-		{
 			"id": "G4WJ99",
 			"title": "Bokujou Monogatari - Shiawase no Uta for World"
 		},
@@ -31842,25 +31662,12 @@
 			"title": "Madden NFL 07"
 		},
 		{
-			"id": "G89EAF",
-			"title": "Pac-Man World Rally",
-			"sys": "gcn"
-		},
-		{
 			"id": "G8FE8P",
 			"title": "Virtua Quest"
 		},
 		{
 			"id": "G8FJ8P",
 			"title": "Virtua Fighter Cyber Generation"
-		},
-		{
-			"id": "G8ME01",
-			"title": "Paper Mario: The Thousand-Year Door",
-			"sys": "gcn",
-			"img": {
-				"disc": "q"
-			}
 		},
 		{
 			"id": "G8MJ01",
@@ -32067,21 +31874,8 @@
 			"title": "Midway Arcade Treasures"
 		},
 		{
-			"id": "GALE01",
-			"title": "Super Smash Bros. Melee",
-			"sys": "gcn",
-			"img": {
-				"box": "q"
-			}
-		},
-		{
 			"id": "GALJ01",
 			"title": "Dairantou Smash Brothers DX"
-		},
-		{
-			"id": "GALP01",
-			"title": "Super Smash Bros. Melee",
-			"sys": "gcn"
 		},
 		{
 			"id": "GAME5H",
@@ -33268,16 +33062,6 @@
 			"title": "2002 FIFA World Cup"
 		},
 		{
-			"id": "GFKE69",
-			"title": "Freekstyle",
-			"sys": "gcn"
-		},
-		{
-			"id": "GFKP69",
-			"title": "Freekstyle",
-			"sys": "gcn"
-		},
-		{
 			"id": "GFMJAF",
 			"title": "Family Stadium 2003"
 		},
@@ -33320,21 +33104,6 @@
 		{
 			"id": "GFSX69",
 			"title": "2002 FIFA World Cup"
-		},
-		{
-			"id": "GFTE01",
-			"title": "Mario Golf: Toadstool Tour",
-			"sys": "gcn"
-		},
-		{
-			"id": "GFTJ01",
-			"title": "Mario Golf: Family Tour",
-			"sys": "gcn"
-		},
-		{
-			"id": "GFTP01",
-			"title": "Mario Golf: Toadstool Tour",
-			"sys": "gcn"
 		},
 		{
 			"id": "GFUE4Z",
@@ -33535,16 +33304,6 @@
 		{
 			"id": "GGZX52",
 			"title": "Madagascar"
-		},
-		{
-			"id": "GH2E69",
-			"title": "Need for Speed: Hot Pursuit 2",
-			"sys": "gcn"
-		},
-		{
-			"id": "GH2P69",
-			"title": "Need for Speed: Hot Pursuit 2",
-			"sys": "gcn"
 		},
 		{
 			"id": "GH3E69",
@@ -34383,32 +34142,12 @@
 			"title": "Captain Tsubasa: Ougon Sedai no Chousen"
 		},
 		{
-			"id": "GKUE9G",
-			"title": "Scaler",
-			"sys": "gcn"
-		},
-		{
 			"id": "GKWJ18",
 			"title": "DreamMix TV World Fighters"
 		},
 		{
 			"id": "GKXJE7",
 			"title": "Kiwame Mahjong DX2"
-		},
-		{
-			"id": "GKYE01",
-			"title": "Kirby Air Ride",
-			"sys": "gcn"
-		},
-		{
-			"id": "GKYJ01",
-			"title": "Kirby's Airride",
-			"sys": "gcn"
-		},
-		{
-			"id": "GKYP01",
-			"title": "Kirby Air Ride",
-			"sys": "gcn"
 		},
 		{
 			"id": "GKZD54",
@@ -34533,11 +34272,6 @@
 		{
 			"id": "GLLF78",
 			"title": "Ratatouille"
-		},
-		{
-			"id": "GLME01",
-			"title": "Luigi's Mansion",
-			"sys": "gcn"
 		},
 		{
 			"id": "GLMJ01",
@@ -34680,42 +34414,12 @@
 			"title": "James Bond 007: From Russia With Love"
 		},
 		{
-			"id": "GM2E8P",
-			"title": "Super Monkey Ball 2",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM2J8P",
-			"title": "Super Monkey Ball 2",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM2P8P",
-			"title": "Super Monkey Ball 2",
-			"sys": "gcn"
-		},
-		{
 			"id": "GM3E69",
 			"title": "Madden NFL 2003"
 		},
 		{
 			"id": "GM3P69",
 			"title": "Madden NFL 2003"
-		},
-		{
-			"id": "GM4E01",
-			"title": "Mario Kart: Double Dash!!",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM4J01",
-			"title": "Mario Kart: Double Dash!!",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM4P01",
-			"title": "Mario Kart: Double Dash!!",
-			"sys": "gcn"
 		},
 		{
 			"id": "GM5D7D",
@@ -34746,21 +34450,6 @@
 			"title": "Medabots Infinity"
 		},
 		{
-			"id": "GM8E01",
-			"title": "Metroid Prime",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM8J01",
-			"title": "Metroid Prime",
-			"sys": "gcn"
-		},
-		{
-			"id": "GM8P01",
-			"title": "Metroid Prime",
-			"sys": "gcn"
-		},
-		{
 			"id": "GM9E6S",
 			"title": "Muppets Party Cruise"
 		},
@@ -34771,21 +34460,6 @@
 		{
 			"id": "GMAP51",
 			"title": "Mary-Kate and Ashley: Sweet 16 Licensed to Drive"
-		},
-		{
-			"id": "GMBE8P",
-			"title": "Super Monkey Ball",
-			"sys": "gcn"
-		},
-		{
-			"id": "GMBJ8P",
-			"title": "Super Monkey Ball",
-			"sys": "gcn"
-		},
-		{
-			"id": "GMBP8P",
-			"title": "Super Monkey Ball",
-			"sys": "gcn"
 		},
 		{
 			"id": "GMDE69",
@@ -34880,21 +34554,6 @@
 			"title": "Micro Machines"
 		},
 		{
-			"id": "GMPE01",
-			"title": "Mario Party 4",
-			"sys": "gcn"
-		},
-		{
-			"id": "GMPJ01",
-			"title": "Mario Party 4",
-			"sys": "gcn"
-		},
-		{
-			"id": "GMPP01",
-			"title": "Mario Party 4",
-			"sys": "gcn"
-		},
-		{
 			"id": "GMQE70",
 			"title": "Monopoly Party"
 		},
@@ -34909,65 +34568,6 @@
 		{
 			"id": "GMRP70",
 			"title": "Big Air Freestyle"
-		},
-		{
-			"id": "GMSE01",
-			"title": "Super Mario Sunshine",
-			"keywords": ["SMS"],
-			"sys": "gcn",
-			"img": {
-				"box": "q",
-				"coverFull": "https://r.mprd.se/GCN/Covers/Super%20Mario%20Sunshine.jpg",
-				"disc": "https://images.launchbox-app.com/40a9bd38-7d95-430f-830c-ed008d431bba.png",
-				"manual": "https://themushroomkingdom.net/images/sms/sms_gooped-up.jpg"
-			}
-		},
-		{
-			"id": "GMSE02",
-			"title": "Super Mario Sunshine Multiplayer",
-			"keywords": ["SMS multi", "SMS coop"],
-			"sys": "gcn",
-			"img": {
-				"cover": "https://www.romstation.fr/romstation/resources/games/ngc/cover/53136.jpg",
-				"manual": "https://themushroomkingdom.net/images/sms/sms_gooped-up.jpg"
-			}
-		},
-		{
-			"id": "GMSE03",
-			"title": "Super Mario Sunshine Arcade",
-			"keywords": ["SMS arcade"],
-			"sys": "gcn",
-			"img": {
-				"manual": "https://themushroomkingdom.net/images/sms/sms_gooped-up.jpg"
-			}
-		},
-		{
-			"id": "GMSJ01",
-			"title": "Super Mario Sunshine",
-			"keywords": ["SMS J"],
-			"sys": "gcn",
-			"img": {
-				"box": "q",
-				"disc": "https://www.mobygames.com/images/covers/large/1137760559-00.jpg"
-			}
-		},
-		{
-			"id": "GMSP01",
-			"title": "Super Mario Sunshine",
-			"keywords": ["SMS P"],
-			"sys": "gcn",
-			"img": {
-				"manual": "https://themushroomkingdom.net/images/sms/sms_gooped-up.jpg"
-			}
-		},
-		{
-			"id": "AVP3A",
-			"title": "Super Mario Sunshine Stardust",
-			"keywords": ["SMS S", "SMS Switch", "SMS NX"],
-			"sys": "gcn",
-			"img": {
-				"cover": "https://art.gametdb.com/switch/coverHQ/US/AVP3A.jpg"
-			}
 		},
 		{
 			"id": "GMTE69",
@@ -35338,18 +34938,8 @@
 			"title": "One Piece: Grand Battle! 3"
 		},
 		{
-			"id": "GOME01",
-			"title": "Mario Power Tennis",
-			"sys": "gcn"
-		},
-		{
 			"id": "GOMJ01",
 			"title": "Mario Tennis GC"
-		},
-		{
-			"id": "GOMP01",
-			"title": "Mario Power Tennis",
-			"sys": "gcn"
 		},
 		{
 			"id": "GOND69",
@@ -35464,16 +35054,6 @@
 			"title": "GoldenEye: Rogue Agent"
 		},
 		{
-			"id": "GP2EAF",
-			"title": "Pac-Man World 2",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP2P69",
-			"title": "Pac-Man World 2",
-			"sys": "gcn"
-		},
-		{
 			"id": "GP3E78",
 			"title": "The Polar Express"
 		},
@@ -35484,61 +35064,6 @@
 		{
 			"id": "GP4J18",
 			"title": "Hudson Selection Vol. 3: Bonk's Adventure"
-		},
-		{
-			"id": "GP5E01",
-			"title": "Mario Party 5",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP5J01",
-			"title": "Mario Party 5",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP5P01",
-			"title": "Mario Party 5",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP6E01",
-			"title": "Mario Party 6",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP6J01",
-			"title": "Mario Party 6",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP6P01",
-			"title": "Mario Party 6",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP7E01",
-			"title": "Mario Party 7",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP7J01",
-			"title": "Mario Party 7",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP7P01",
-			"title": "Mario Party 7",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP8EAF",
-			"title": "Pac-Man World 3",
-			"sys": "gcn"
-		},
-		{
-			"id": "GP8P69",
-			"title": "Pac-Man World 3",
-			"sys": "gcn"
 		},
 		{
 			"id": "GP9E7F",
@@ -35815,16 +35340,6 @@
 		{
 			"id": "GQNE5D",
 			"title": "Mortal Kombat: Deception"
-		},
-		{
-			"id": "GQPE78",
-			"title": "SpongeBob SquarePants: Battle for Bikini Bottom",
-			"sys": "gcn"
-		},
-		{
-			"id": "GQPP78",
-			"title": "SpongeBob Squarepants: Battle For Bikini Bottom",
-			"sys": "gcn"
 		},
 		{
 			"id": "GQQD78",
@@ -36315,26 +35830,6 @@
 			"title": "Sega Soccer Slam"
 		},
 		{
-			"id": "GSTE69",
-			"title": "SSX Tricky",
-			"sys": "gcn"
-		},
-		{
-			"id": "GSTJ13",
-			"title": "SSX Tricky",
-			"sys": "gcn"
-		},
-		{
-			"id": "GSTJ69",
-			"title": "SSX Tricky",
-			"sys": "gcn"
-		},
-		{
-			"id": "GSTP69",
-			"title": "SSX Tricky",
-			"sys": "gcn"
-		},
-		{
 			"id": "GSUE70",
 			"title": "Superman: Shadow of Apokolips"
 		},
@@ -36775,21 +36270,6 @@
 			"title": "Shadow the Hedgehog"
 		},
 		{
-			"id": "GUSE7F",
-			"title": "Universal Studios Theme Park Adventure",
-			"sys": "gcn"
-		},
-		{
-			"id": "GUSJ28",
-			"title": "Universal Studios Japan Adventure",
-			"sys": "gcn"
-		},
-		{
-			"id": "GUSP7F",
-			"title": "Universal Studios Theme Park Adventure",
-			"sys": "gcn"
-		},
-		{
 			"id": "GUTD52",
 			"title": "Ultimate Spider-Man"
 		},
@@ -36846,21 +36326,6 @@
 			"title": "MVP Baseball 2005"
 		},
 		{
-			"id": "GVCE08",
-			"title": "Viewtiful Joe: Red Hot Rumble",
-			"sys": "gcn"
-		},
-		{
-			"id": "GVCJ08",
-			"title": "Viewtiful Joe: Battle Carnival",
-			"sys": "gcn"
-		},
-		{
-			"id": "GVCP08",
-			"title": "Viewtiful Joe: Red Hot Rumble",
-			"sys": "gcn"
-		},
-		{
 			"id": "GVDE78",
 			"title": "Bratz Forever Diamondz"
 		},
@@ -36869,28 +36334,8 @@
 			"title": "Bratz Forever Diamondz"
 		},
 		{
-			"id": "GVFJ08",
-			"title": "Viewtiful Joe Revival",
-			"sys": "gcn"
-		},
-		{
 			"id": "GVHE4F",
 			"title": "Bionicle Heroes"
-		},
-		{
-			"id": "GVJE08",
-			"title": "Viewtiful Joe",
-			"sys": "gcn"
-		},
-		{
-			"id": "GVJJ08",
-			"title": "Viewtiful Joe",
-			"sys": "gcn"
-		},
-		{
-			"id": "GVJP08",
-			"title": "Viewtiful Joe",
-			"sys": "gcn"
 		},
 		{
 			"id": "GVKE52",
@@ -37149,21 +36594,6 @@
 			"title": "Wreckless: The Yakuza Missions"
 		},
 		{
-			"id": "GWRE01",
-			"title": "Wave Race: Blue Storm",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWRJ01",
-			"title": "Wave Race: Blue Storm",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWRP01",
-			"title": "Wave Race: Blue Storm",
-			"sys": "gcn"
-		},
-		{
 			"id": "GWSEA4",
 			"title": "ESPN International Winter Sports 2002"
 		},
@@ -37208,42 +36638,12 @@
 			"title": "X-Men 2 : Wolverine's Revenge"
 		},
 		{
-			"id": "GWWE01",
-			"title": "Wario World",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWWJ01",
-			"title": "Wario World",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWWP01",
-			"title": "Wario World",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWXJ13",
-			"title": "Star Wars Rogue Squadron III: Rebel Strike",
-			"sys": "gcn"
-		},
-		{
 			"id": "GWYE41",
 			"title": "Tom Clancy's Splinter Cell: Double Agent"
 		},
 		{
 			"id": "GWYX41",
 			"title": "Tom Clancy's Splinter Cell: Double Agent"
-		},
-		{
-			"id": "GWZE01",
-			"title": "Dance Dance Revolution: Mario Mix",
-			"sys": "gcn"
-		},
-		{
-			"id": "GWZJ01",
-			"title": "Dance Dance Revolution: Mario Mix",
-			"sys": "gcn"
 		},
 		{
 			"id": "GWZP01",
@@ -37284,21 +36684,6 @@
 		{
 			"id": "GXAP51",
 			"title": "XGRA Extreme G Racing Association"
-		},
-		{
-			"id": "GXBE69",
-			"title": "SSX 3",
-			"sys": "gcn"
-		},
-		{
-			"id": "GXBJ13",
-			"title": "SSX 3",
-			"sys": "gcn"
-		},
-		{
-			"id": "GXBP69",
-			"title": "SSX 3",
-			"sys": "gcn"
 		},
 		{
 			"id": "GXCE01",
@@ -37509,21 +36894,6 @@
 			"title": "Jikkyou Powerful Major League"
 		},
 		{
-			"id": "GYQE01",
-			"title": "Mario Superstar Baseball",
-			"sys": "gcn"
-		},
-		{
-			"id": "GYQJ01",
-			"title": "Super Mario Stadium Miracle Baseball",
-			"sys": "gcn"
-		},
-		{
-			"id": "GYQP01",
-			"title": "Mario Superstar Baseball",
-			"sys": "gcn"
-		},
-		{
 			"id": "GYRE41",
 			"title": "TMNT"
 		},
@@ -37616,21 +36986,6 @@
 			"title": "Zoids Full Metal Crash"
 		},
 		{
-			"id": "GZLE01",
-			"title": "The Legend of Zelda: The Wind Waker",
-			"sys": "gcn"
-		},
-		{
-			"id": "GZLJ01",
-			"title": "Zelda no Densetsu: Kaze no Takuto",
-			"sys": "gcn"
-		},
-		{
-			"id": "GZLP01",
-			"title": "The Legend of Zelda: The Wind Waker",
-			"sys": "gcn"
-		},
-		{
 			"id": "GZMP7D",
 			"title": "Butt-Ugly Martians Zoom or Doom"
 		},
@@ -37671,23 +37026,8 @@
 			"title": "Zoids vs. III"
 		},
 		{
-			"id": "GZWE01",
-			"title": "Wario Ware Inc.: Mega Party Game$!",
-			"sys": "gcn"
-		},
-		{
 			"id": "GZWJ01",
 			"title": "Atumare!! Made in Wario"
-		},
-		{
-			"id": "GZWP01",
-			"title": "Wario Ware Inc.: Mega Party Game$!",
-			"sys": "gcn"
-		},
-		{
-			"id": "P2ME01",
-			"title": "Metroid Prime 2: Echoes (Bonus Disc)",
-			"sys": "gcn"
 		},
 		{
 			"id": "PC6E01",
@@ -37710,11 +37050,6 @@
 			"title": "The Tower of Druaga"
 		},
 		{
-			"id": "PM4E01",
-			"title": "Mario Kart: Double Dash!! Bonus Disc",
-			"sys": "gcn"
-		},
-		{
 			"id": "PRJE01",
 			"title": "Pac-Man vs."
 		},
@@ -37725,36 +37060,6 @@
 		{
 			"id": "PRJP01",
 			"title": "Pac-Man vs."
-		},
-		{
-			"id": "PZLE01",
-			"title": "The Legend of Zelda: Collector's Edition",
-			"sys": "gcn"
-		},
-		{
-			"id": "PZLJ01",
-			"title": "The Legend of Zelda: Collector's Edition",
-			"sys": "gcn"
-		},
-		{
-			"id": "PZLP01",
-			"title": "The Legend of Zelda: Collector's Edition",
-			"sys": "gcn"
-		},
-		{
-			"id": "UGPE01",
-			"title": "Game Boy Player",
-			"sys": "gcn"
-		},
-		{
-			"id": "UGPJ01",
-			"title": "Game Boy Player",
-			"sys": "gcn"
-		},
-		{
-			"id": "UGPP01",
-			"title": "Game Boy Player",
-			"sys": "gcn"
 		}
 	]
 }

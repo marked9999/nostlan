@@ -5,6 +5,10 @@ for (let i = 0, element; (element = document.querySelectorAll('input[type="range
 }
 
 $(() => {
+	$('.controls').hide();
+	setTimeout(() => {
+		$('.controls').show();
+	}, 5000);
 	let speedSlider = $('input[name="speed"]'),
 		spikesSlider = $('input[name="spikes"]'),
 		processingSlider = $('input[name="processing"]');

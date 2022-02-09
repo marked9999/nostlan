@@ -66,8 +66,20 @@ class CuiState extends cui.State {
 
 		prefs[sys] ??= {};
 
-		let dbPath = `${__root}/db/${sys}DB.json`;
-		gameDB = JSON.parse(await fs.readFile(dbPath)).games;
+		let gameDB = [];
+		let systems = [sys];
+		if (syst.peers) systems = systems.concat(syst.peers);
+		for (let i = 0; i < systems.length; i++) {
+			let _sys = systems[i];
+			let dbPath = `${__root}/db/${_sys}DB.json`;
+			let _db = JSON.parse(await fs.readFile(dbPath)).games;
+			if (i > 0) {
+				for (let game of _db) {
+					game.sys = _sys;
+				}
+			}
+			gameDB = gameDB.concat(_db);
+		}
 
 		let gamesPath = `${systemsDir}/${sys}/${sys}Games.json`;
 		// if prefs exist load them if not copy the default prefs
@@ -313,7 +325,7 @@ class CuiState extends cui.State {
 		box += `(src="${coverImg}")\n`;
 		box += `    img${coverType}.hq(style="display:none;")\n`;
 		box += `    .shade.p-0.m-0`;
-		if (!(coverType || _sys == 'switch' || _sys == 'gba')) {
+		if (!(coverType || systems[_sys].containerType == 'box' || _sys == 'switch')) {
 			box += '.hide';
 		}
 		if (game.hasNoImages) {
@@ -390,8 +402,8 @@ class CuiState extends cui.State {
 		games = await nostlan.scraper.loadImages(games, recheckImgs);
 		// determine the amount of columns based on the amount of games
 		let cols = prefs.ui.maxColumns || 8;
-		if (sys == 'snes') {
-			if (games.length < 500) cols = 4;
+		if (syst.columnAmount) {
+			if (games.length < 500) cols = syst.columnAmount;
 		} else {
 			if (games.length < 42) cols = 8;
 			if (games.length < 18) cols = 4;

@@ -22,15 +22,14 @@ class Installer {
 
 	async install() {
 		log('installing ' + emus[emu].name);
-		$('#loadDialog0').text(lang.emuAppMenu.msg0 +
-			' ' + emus[emu].name);
+		$('#loadDialog0').text(lang.emuAppMenu.msg0 + ' ' + emus[emu].name);
 		// 'preparing to install'
 		this.loadLog(lang.emuAppMenu.msg1);
 		let ins = emus[emu].install;
 		if (!ins && !emus[emu].jsEmu) {
 			// This emulator is not available for your
 			// computer's operating system
-			cui.err(lang.emuAppMenu.err0 + ": " + osType);
+			cui.err(lang.emuAppMenu.err0 + ': ' + osType);
 			return;
 		}
 		if (emus[emu].jsEmu) {
@@ -44,10 +43,8 @@ class Installer {
 
 		if (!ins.jsEmu && linux) {
 			let distro = (await getDistro()).os;
-			if (ins.pkgManager_flatpak ||
-				(/Arch/i.test(distro) && ins.pkgManager_arch)) {
-				let cmds = ins.pkgManager_flatpak ||
-					ins.pkgManager_arch;
+			if (ins.pkgManager_flatpak || (/Arch/i.test(distro) && ins.pkgManager_arch)) {
+				let cmds = ins.pkgManager_flatpak || ins.pkgManager_arch;
 				// 'running install script, please wait...'
 				this.loadLog(lang.emuAppMenu.msg2);
 				return await this.runInstallCmds(cmds);
@@ -57,8 +54,7 @@ class Installer {
 		let dir = `${systemsDir}/${sys}/${emu}`;
 		await opn(dir);
 
-		let urls = ins.jsEmu || ins.installer ||
-			ins.portable || ins.standalone;
+		let urls = ins.jsEmu || ins.installer || ins.portable || ins.standalone;
 		if (!urls) {
 			// Automated install of this emulator with Nostlan
 			// is not possible. You must install manually.
@@ -80,8 +76,7 @@ class Installer {
 		res = await nostlan.launcher.getEmuApp();
 		if (!res && ins.installer && win) {
 			// 'Almost done, please finish install manually'
-			cui.alert(lang.emuAppMenu.msg15 + ': ' + emus[emu].name,
-				lang.alertMenu.title5);
+			cui.alert(lang.emuAppMenu.msg15 + ': ' + emus[emu].name, lang.alertMenu.title5);
 		} else if (!res) {
 			// 'Install failed, you must manually install'
 			cui.err(lang.emuAppMenu.err5 + ': ' + emus[emu].name);
@@ -102,7 +97,7 @@ class Installer {
 		let prmIdx = url.indexOf('?');
 		let _url;
 		if (!ext) {
-			_url = (prmIdx != -1) ? url.slice(prmIdx)[0] : url;
+			_url = prmIdx != -1 ? url.slice(prmIdx)[0] : url;
 			ext = path.parse(_url).ext.toLowerCase();
 		}
 		if (/.(bz2|gz|xz)/.test(ext)) ext = '.tar' + ext;
@@ -135,9 +130,7 @@ class Installer {
 		});
 		// check if there's a top level folder
 		// put contents in dir
-		if (files.length == 1 &&
-			(await fs.stat(files[0])).isDirectory() &&
-			(!mac || path.parse(files[0]).ext != '.app')) {
+		if (files.length == 1 && (await fs.stat(files[0])).isDirectory() && (!mac || path.parse(files[0]).ext != '.app')) {
 			await fs.copy(files[0], dir, {
 				overwrite: true
 			});
@@ -203,8 +196,7 @@ class Installer {
 					if (file.includes('Applications')) continue;
 					if (path.parse(file).ext == '.app') {
 						if (/setup/i.test(file)) {
-							file += '/Contents/MacOS/' +
-								path.parse(file).name;
+							file += '/Contents/MacOS/' + path.parse(file).name;
 							// 'running setup app'
 							this.loadLog(lang.emuAppMenu.msg7);
 							try {
@@ -213,8 +205,7 @@ class Installer {
 						} else {
 							// move the app and any helper apps,
 							// such as updaters, to Applications
-							this.loadLog(lang.emuAppMenu.msg8 +
-								' /Applications');
+							this.loadLog(lang.emuAppMenu.msg8 + ' /Applications');
 							let dest = '/Applications';
 							dest += '/' + path.parse(file).base;
 							log(file, dest);
@@ -231,9 +222,7 @@ class Installer {
 				}
 				// 'finishing, ejecting all install disks'
 				this.loadLog(lang.emuAppMenu.msg9);
-				await spawn('osascript', ['-e',
-					'tell application "Finder" to eject (every disk whose ejectable is true)'
-				]);
+				await spawn('osascript', ['-e', 'tell application "Finder" to eject (every disk whose ejectable is true)']);
 				// 'finishing, deleting package file'
 				this.loadLog(lang.emuAppMenu.msg10);
 				await fs.remove(res);
@@ -243,10 +232,8 @@ class Installer {
 			for (let file of files) {
 				if (path.parse(file).ext == '.app') {
 					// 'moving stand alone app to /Applications'
-					this.loadLog(lang.emuAppMenu.msg6 +
-						' /Applications');
-					let newLocation = '/Applications/' +
-						path.parse(file).base;
+					this.loadLog(lang.emuAppMenu.msg6 + ' /Applications');
+					let newLocation = '/Applications/' + path.parse(file).base;
 					await fs.move(file, newLocation, {
 						overwrite: true
 					});

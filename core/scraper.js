@@ -94,7 +94,7 @@ class Scraper {
 
 		let gamesTotal = games.length + 1;
 		for (let i = 0; i < games.length + 1; i++) {
-			$('#loadDialog2').text(`${i+1}/${gamesTotal} games`);
+			$('#loadDialog2').text(`${i + 1}/${gamesTotal} games`);
 			let res;
 			let game;
 			if (!isTemplate && i == games.length) {
@@ -123,9 +123,9 @@ class Scraper {
 					if (games.length == 0) return [];
 					continue;
 				}
-				if (!isTemplate ||
-					(!(await this.imgExists(game, 'coverFull')) &&
-						!(await this.imgExists(game, 'cover')) && sys != 'gba')
+				if (
+					!isTemplate ||
+					(!(await this.imgExists(game, 'coverFull')) && !(await this.imgExists(game, 'cover')) && sys != 'gba')
 				) {
 					await this.getImg(game, 'box', 'HQ');
 				}
@@ -149,9 +149,12 @@ class Scraper {
 				}
 				await this.getImg(game, syst.mediaType);
 
-				if (sys == 'arcade') {
-					await this.getImg(game, 'cabinet');
-				} else if (prefs.ui.getExtraImgs || isTemplate) {
+				if (syst.addImgTypes) {
+					for (let imgType of syst.addImgTypes) {
+						await this.getImg(game, imgType);
+					}
+				}
+				if (prefs.ui.getExtraImgs || isTemplate) {
 					await this.getExtraImgs(game, recheckImgs);
 				}
 			}
@@ -162,8 +165,7 @@ class Scraper {
 				await this.getImg(game, 'boxBack');
 				await this.getImg(game, 'boxSide');
 				if (!(await this.imgExists(game, 'box'))) {
-					await cui.err('ERROR: No default box image found in the directory ' +
-						this.getImgDir(game), 404, 'sysMenu');
+					await cui.err('ERROR: No default box image found in the directory ' + this.getImgDir(game), 404, 'sysMenu');
 					return [];
 				}
 			}
@@ -218,11 +220,14 @@ class Scraper {
 		$('#loadDialog0').text('generating thumbnail images');
 
 		if (global.sharp) {
-			await sharp(og).resize({
-				height: 720
-			}).jpeg({
-				quality: 89
-			}).toFile(thumb);
+			await sharp(og)
+				.resize({
+					height: 720
+				})
+				.jpeg({
+					quality: 89
+				})
+				.toFile(thumb);
 		} else {
 			img = await jimp.read(og);
 			await img.resize(jimp.AUTO, 720);

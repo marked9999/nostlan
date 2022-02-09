@@ -287,6 +287,8 @@ module.exports = async function (args) {
 		$('body').removeClass('waiting');
 		cui.clearDialogs();
 
+		await prefsMng.update(prefs);
+
 		if (prefs.nlaDir) {
 			if ((args.dev && !args.testSetup) || nostlan.premium.verify()) {
 				await cui.libMain.load();

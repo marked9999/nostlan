@@ -103,16 +103,16 @@ class Scanner {
 				$('#loadDialog1').text(term);
 				await delay(1);
 
-				if (/(snes|nes|n64)/.test(sys)) {
+				if (syst.hash) {
 					let data = await fs.readFile(file);
 					let game, hash;
-					if (sys == 'nes') {
+					if (syst.hash == 'crc32') {
 						hash = crc32(data).toString(16);
 						game = gameDB.find((x) => x.id.split('-')[0] == hash);
-					} else if (sys == 'snes') {
+					} else if (syst.hash == 'sha256') {
 						hash = cryptog.createHash('sha256').update(data).digest('hex');
 						game = gameDB.find((x) => x.sha256 == hash);
-					} else if (sys == 'n64') {
+					} else if (syst.hash == 'sha1') {
 						hash = cryptog.createHash('sha1').update(data).digest('hex').toUpperCase();
 						game = gameDB.find((x) => x.sha1 == hash);
 					}
@@ -128,7 +128,7 @@ class Scanner {
 				}
 
 				// rpcs3 ignore games with these ids
-				if (term == 'TEST12345' || term == 'RPSN00001') continue;
+				if (sys == 'ps3' && (term == 'TEST12345' || term == 'RPSN00001')) continue;
 				// eliminations part 1
 				term = term.replace(/[\[\(](USA|World)[\]\)]/gi, '');
 				term = term.replace(/[\[\(]*(NTSC)+(-U)*[\]\)]*/gi, '');
@@ -143,16 +143,20 @@ class Scanner {
 				if (sys == 'wii') {
 					term = term.replace(/ssbm/gi, 'Super Smash Bros. Melee');
 				}
-				term = term.replace(/s*m *64n*/gi, 'Super Mario 64');
-				term = term.replace(/mk(\d+)/gi, 'Mario Kart $1');
+				if (/(n64|wii|wiiu|switch)/.test(sys)) {
+					term = term.replace(/s*m *64n*/gi, 'Super Mario 64');
+					term = term.replace(/mk(\d+)/gi, 'Mario Kart $1');
+				}
 				// exact match by checking if the id is in the file name
 				if (idRegex[sys]) id = term.match(idRegex[sys]);
 				if (id) id = id[1];
+				// special hacks
 				if (sys == 'wii') {
 					if (term == 'Super_Mario_Sunshine_Stardust-trimmed') {
 						id = 'AVP3A';
 					}
 				}
+
 				if (id) {
 					log('id: ' + id);
 					let game;

@@ -1,3 +1,8 @@
+/*
+ * scrape/cli/browser.js : Nostlan : quinton-ashley
+ *
+ * This code is only used by developers to scrape the web for images.
+ */
 const puppeteer = require('puppeteer-core');
 
 class Browser {
@@ -29,7 +34,7 @@ class Browser {
 			this.page.setUserAgent(this.usr);
 		}
 		await this.page.setRequestInterception(true);
-		this.page.on('request', request => {
+		this.page.on('request', (request) => {
 			if (request.resourceType === 'image' || request.resourceType === 'media' || request.resourceType === 'font') {
 				request.abort();
 			} else {
@@ -38,11 +43,11 @@ class Browser {
 		});
 		try {
 			await this.page.goto(url);
-			return $('<div/>').append(await this.page.content());
 		} catch (ror) {
 			er(ror);
+			return;
 		}
-		return;
+		return $('<div/>').append(await this.page.content());
 	}
 
 	async load(params) {

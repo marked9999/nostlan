@@ -14,6 +14,8 @@ module.exports = {
 		name: 'Arcade',
 		fullName: 'Arcade',
 		emus: ['mame'],
+		addImgTypes: ['cabinet'],
+		containerType: 'box',
 		mediaType: 'pcb'
 	},
 	ds: {
@@ -28,6 +30,8 @@ module.exports = {
 		fullName: 'Nintendo Game Boy Advance',
 		emus: ['mgba', 'iodine', 'vba'],
 		mediaType: 'cart',
+		containerType: 'box',
+		hash: 'crc32',
 		gameExts: ['gba']
 	},
 	gcn: {
@@ -48,6 +52,8 @@ module.exports = {
 		fullName: 'Nintendo 64',
 		emus: ['project64', 'mupen64plus'],
 		mediaType: 'cart',
+		containerType: 'box',
+		hash: 'sha1',
 		gameExts: ['n64', 'rom', 'bin', 'jap', 'pal', 'usa', 'eur', 'u64', 'v64', 'z64', 'd64']
 	},
 	nes: {
@@ -55,6 +61,8 @@ module.exports = {
 		fullName: 'Nintendo Entertainment System',
 		emus: ['mesen', 'em-fceux'],
 		mediaType: 'cart',
+		containerType: 'box',
+		hash: 'crc32',
 		gameExts: ['nes', 'fds']
 	},
 	ps2: {
@@ -72,18 +80,22 @@ module.exports = {
 		gameFolders: true,
 		gameRoot: '/USRDIR/EBOOT.BIN'
 	},
-	// smd: {
-	// 	name: 'SMD',
-	// 	fullName: 'SEGA Genesis',
-	// 	emus: ['emulatrix-sega-genesis'],
-	// 	mediaType: 'cart',
-	//	gameExts: ['smd', 'gen', '32x', 'bin', 'rom']
-	// },
+	smd: {
+		name: 'Genesis',
+		fullName: 'SEGA Genesis',
+		emus: ['webretro-smd'],
+		mediaType: 'cart',
+		hash: 'crc32',
+		gameExts: ['md', 'smd', 'gen', '32x', 'bin', 'rom']
+	},
 	snes: {
 		name: 'SNES',
 		fullName: 'Super Nintendo',
 		emus: ['bsnes', 'snes9x'],
 		mediaType: 'cart',
+		containerType: 'box',
+		columnAmount: 4,
+		hash: 'sha256',
 		gameExts: ['snes', 'smc', 'sfc']
 	},
 	switch: {
@@ -97,6 +109,7 @@ module.exports = {
 		name: 'Wii',
 		fullName: 'Nintendo Wii',
 		emus: ['dolphin'],
+		peers: ['gcn'],
 		mediaType: 'disc',
 		gameExts: ['gcm', 'iso', 'tgc', 'gcz', 'rvz', 'wbfs', 'wad', 'elf', 'dol']
 	},
