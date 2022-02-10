@@ -22,10 +22,12 @@ let regions = {
 };
 regions.gcn = regions.wii;
 regions.ds = regions.wii;
+regions.n3ds = regions.wii;
 regions.ps3 = regions.ps2;
 regions.ps4 = regions.ps2;
 regions.n64 = regions.nes;
 regions.xbox = regions.nes;
+regions.smd = regions.nes;
 let tcp = {};
 
 class TheCoverProjectScraper {
@@ -123,6 +125,7 @@ class TheCoverProjectScraper {
 		}
 		let idx = title[0].toLowerCase();
 		if (idx == idx.toUpperCase()) idx = '9';
+		if (idx != '9' && !/[a-z]/.test(idx)) return;
 
 		let lcTitle = title.toLowerCase();
 		let res = tcp[sys][idx].find((x) => x.title.toLowerCase() == lcTitle);
@@ -171,20 +174,21 @@ class TheCoverProjectScraper {
 			url += res.url;
 		}
 		if (!url && sys == 'wii') {
-			if (game.id.length > 4) {
-				url = await this.getGameUrl('gcn', game);
-				if (url) game.sys = 'gcn';
-			} else {
-				url = await this.getGameUrl('n64', game);
+			if (game.id.length < 4) {
+				sys = 'n64';
+				url = await this.getGameUrl(game);
 				if (url) game.sys = 'n64';
 				if (!url) {
-					url = await this.getGameUrl('snes', game);
+					sys = 'snes';
+					url = await this.getGameUrl(game);
 					if (url) game.sys = 'snes';
 				}
 				if (!url) {
-					url = await this.getGameUrl('nes', game);
+					sys = 'nes';
+					url = await this.getGameUrl(game);
 					if (url) game.sys = 'nes';
 				}
+				sys = 'wii';
 			}
 		}
 		return url;
