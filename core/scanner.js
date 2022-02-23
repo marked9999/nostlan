@@ -150,12 +150,6 @@ class Scanner {
 				// exact match by checking if the id is in the file name
 				if (idRegex[sys]) id = term.match(idRegex[sys]);
 				if (id) id = id[1];
-				// special hacks
-				if (sys == 'wii') {
-					if (term == 'Super_Mario_Sunshine_Stardust-trimmed') {
-						id = 'AVP3A';
-					}
-				}
 
 				if (id) {
 					log('id: ' + id);

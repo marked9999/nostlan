@@ -399,6 +399,10 @@ class CuiState extends cui.State {
 			prefs.ui.mouse.delta = 100 * prefs.ui.mouse.wheel.multi;
 		}
 		cui.mouse = prefs.ui.mouse;
+		await nostlan.scraper.loadGameImages(nostlan.themes[sys].template, recheckImgs);
+		for (let peer of syst.peers) {
+			await nostlan.scraper.loadGameImages(nostlan.themes[peer].template, recheckImgs);
+		}
 		games = await nostlan.scraper.loadImages(games, recheckImgs);
 		// determine the amount of columns based on the amount of games
 		let cols = prefs.ui.maxColumns || 8;
@@ -494,7 +498,7 @@ class CuiState extends cui.State {
 						$game.find('.id.label-input img').prop('src', idLblImg);
 						$('#dialogs').show();
 						$('body').addClass('waiting');
-						let _games = await nostlan.scraper.loadImages([games[i]], true, true);
+						let _games = await nostlan.scraper.loadGameImages(games[i], true);
 						if (_games.length) games[i] = _games[0];
 						let $box = await cui.libMain.makeGameBox(games[i]);
 						cui.hideDialogs();
