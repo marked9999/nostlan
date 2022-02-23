@@ -14,6 +14,7 @@ global.fs.extract = async (input, output, opt) => {
 				dir: output
 			});
 			res = output;
+			await fs.remove(input);
 		} catch (ror) {
 			if (mac || linux) {
 				await spawn('tar', ['-xzvf', input, '-C', output]);

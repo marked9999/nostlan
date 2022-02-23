@@ -179,6 +179,7 @@ module.exports = async function (args) {
 		}
 		cui.keyPress('space', 'key- ');
 
+		cui.keyPress('=', 'r');
 		cui.keyPress('[', 'x');
 		cui.keyPress(']', 'y');
 		cui.keyPress('\\', 'b');

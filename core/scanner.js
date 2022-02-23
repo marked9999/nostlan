@@ -269,6 +269,7 @@ class Scanner {
 					};
 					unidentifiedAmt++;
 				}
+
 				game.file = '$' + h + '/' + path.relative(prefs[sys].libs[h], file);
 				games.push(game);
 				log(game);

@@ -21,7 +21,7 @@ class CuiState extends cui.State {
 		cui.clearDialogs();
 		// 'loading additional images'
 		$('#loadDialog0').text(lang.loading.msg1);
-		let gh = 'https://github.com/quinton-ashley/nostlan-img/raw/master/shared';
+		let gh = 'https://github.com/quinton-ashley/nostlan-img/raw/main/shared';
 		if (!prefs.nlaDir) return;
 		let dir = prefs.nlaDir + '/images';
 
@@ -36,7 +36,7 @@ class CuiState extends cui.State {
 				file = await nostlan.scraper.dl(url, file, {
 					timeout: 10000
 				});
-				if (!file) break;
+				if (!file) continue;
 				await fs.extract(file, dir);
 			}
 		}
