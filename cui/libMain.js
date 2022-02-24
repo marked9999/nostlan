@@ -399,9 +399,10 @@ class CuiState extends cui.State {
 			prefs.ui.mouse.delta = 100 * prefs.ui.mouse.wheel.multi;
 		}
 		cui.mouse = prefs.ui.mouse;
-		await nostlan.scraper.loadGameImages(nostlan.themes[sys].template, recheckImgs);
-		for (let peer of syst.peers) {
-			await nostlan.scraper.loadGameImages(nostlan.themes[peer].template, recheckImgs);
+		let systems = [sys];
+		if (syst.peers) systems = systems.concat(syst.peers);
+		for (let _sys of systems) {
+			await nostlan.scraper.loadGameImages(nostlan.themes[_sys].template, recheckImgs);
 		}
 		games = await nostlan.scraper.loadImages(games, recheckImgs);
 		// determine the amount of columns based on the amount of games
