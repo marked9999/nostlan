@@ -66,7 +66,6 @@ class CuiState extends cui.State {
 
 		prefs[sys] ??= {};
 
-		let gameDB = [];
 		let systems = [sys];
 		if (syst.peers) systems = systems.concat(syst.peers);
 		for (let i = 0; i < systems.length; i++) {
