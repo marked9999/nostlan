@@ -1,5 +1,4 @@
 class CuiState extends cui.State {
-
 	async onAction(act) {
 		if (act == 'start') {
 			// nostlan main menu is not available
@@ -8,9 +7,19 @@ class CuiState extends cui.State {
 		} else if (act == 'unpause' || act == 'b' || act == 'pause') {
 			nostlan.launcher.unpause();
 		} else if (act == 'saveState') {
-			cui.change('saveStateMenu');
+			if (emus[emu].saveStateSlots > 1) {
+				cui.change('saveStateMenu');
+			} else {
+				nostlan.launcher.saveState();
+				nostlan.launcher.unpause();
+			}
 		} else if (act == 'loadState') {
-			cui.change('loadStateMenu');
+			if (emus[emu].loadStateSlots > 1) {
+				cui.change('loadStateMenu');
+			} else {
+				nostlan.launcher.loadState();
+				nostlan.launcher.unpause();
+			}
 		} else if (act == 'mute') {
 			let $elem = $('#pauseMenu .cui[name="mute"] .text');
 			if ($elem.text().includes('un')) {

@@ -211,7 +211,9 @@
 		"opt1": "load state",
 		"opt2": "save state",
 		"opt3": "stop emulation",
-		"opt4": ["mute", "unmute"]
+		"opt4": ["mute", "unmute"],
+		"opt5": "show console",
+		"opt6": "fullscreen"
 	},
 	"imgMenu": {
 		"title0": "Select image type"

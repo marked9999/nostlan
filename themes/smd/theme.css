@@ -3,6 +3,10 @@
 	size-adjust: 35%;
 	src: url('../fonts/NiseGenesis.ttf');
 }
+.smd #nav1Btn {
+	font-size: 4vw;
+}
+.smd #nav1Btn,
 .smd .navPanel .text {
 	font-family: NiseGenesis;
 }

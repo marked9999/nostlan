@@ -155,7 +155,7 @@
 		}
 
 		button(p, name, val) {
-			console.log(`p${p} ${name} btn ${val ? 'pressed' : 'released'}`);
+			if (val) console.log(`p${p} ${name} btn pressed`);
 			let btn = this.btns[name];
 			// touched isn't supported in iOS Safari rn but
 			// I put it anyway for possible future proofing
@@ -232,8 +232,11 @@
 		return gamepadsSpoof.gamepads;
 	};
 
-	let gamepadConnected = document.createEvent('Event');
-	gamepadConnected.initEvent('gamepadconnected', true, false);
-	gamepadConnected.gamepad = gamepadsSpoof.gamepads[0];
-	window.dispatchEvent(gamepadConnected);
+	setTimeout(() => {
+		console.log('connecting spoofed gamepad');
+		let gamepadConnected = document.createEvent('Event');
+		gamepadConnected.initEvent('gamepadconnected', true, false);
+		gamepadConnected.gamepad = gamepadsSpoof.gamepads[0];
+		window.dispatchEvent(gamepadConnected);
+	}, 2000);
 }

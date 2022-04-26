@@ -206,6 +206,8 @@ module.exports = (() => {
 			install: {
 				jsEmu: 'https://unpkg.com/em-fceux/dist/fceux.wasm'
 			},
+			saveStateSlots: 10,
+			loadStateSlots: 10,
 			latestVersion: '1.1.0',
 			dev: false,
 			mute: false,
@@ -614,6 +616,8 @@ module.exports = (() => {
 					args: '?core=genesis_plus_gx'
 				}
 			},
+			saveStateSlots: 1,
+			loadStateSlots: 1,
 			install: {
 				jsEmu: 'https://github.com/BinBashBanana/webretro/archive/refs/tags/v6.4.zip'
 			},
