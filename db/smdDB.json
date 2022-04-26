@@ -1,6 +1,14 @@
 {
 	"games": [
 		{
+			"id": "ed427ea9",
+			"title": "Aladdin",
+			"region": "USA",
+			"img": {
+				"coverFull": "https://www.covercentury.com/covers/genesis/a/genesis_aladdin.jpg"
+			}
+		},
+		{
 			"id": "47dba0ac",
 			"title": "Alex Kidd in the Enchanted Castle",
 			"region": "USA",

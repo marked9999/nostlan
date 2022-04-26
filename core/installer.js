@@ -32,13 +32,10 @@ class Installer {
 			cui.err(lang.emuAppMenu.err0 + ': ' + osType);
 			return;
 		}
-		if (emus[emu].jsEmu) {
-			let dir = `${systemsDir}/${sys}/${emu}`;
-			let jsEmuDir = `${__root}/jsEmu/${sys}/${emu}`;
-			await fs.copy(jsEmuDir, dir, {
-				overwrite: true
-			});
-			if (!ins) return true;
+		this.dir = `${systemsDir}/${sys}/${emu}`;
+		if (emus[emu].jsEmu && emus[emu].multiSys) {
+			this.dir = `${systemsDir}/nostlan/jsEmu/${emu}`;
+			await fs.ensureDir(this.dir);
 		}
 
 		if (!ins.jsEmu && linux) {
@@ -51,8 +48,7 @@ class Installer {
 			}
 		}
 
-		let dir = `${systemsDir}/${sys}/${emu}`;
-		await opn(dir);
+		await opn(this.dir);
 
 		let urls = ins.jsEmu || ins.installer || ins.portable || ins.standalone;
 		if (!urls) {
@@ -69,6 +65,13 @@ class Installer {
 		for (let url of urls) {
 			res = await this._install(ins, url);
 			if (!res) return;
+		}
+		if (emus[emu].jsEmu) {
+			let jsEmuDir = `${__root}/jsEmu/${emu}`;
+			await fs.copy(jsEmuDir, this.dir, {
+				overwrite: true
+			});
+			if (!ins) return true;
 		}
 		res = false;
 		// 'verifying installation'
@@ -89,7 +92,7 @@ class Installer {
 	}
 
 	async _install(ins, url) {
-		let dir = `${systemsDir}/${sys}/${emu}`;
+		let dir = this.dir;
 		let ext, file;
 		url = url.split(' ');
 		if (url.length == 2) ext = url[1];

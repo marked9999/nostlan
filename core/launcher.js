@@ -51,11 +51,18 @@ class Launcher {
 		}
 		let emuAppDirs = emus[emu].appDirs || [];
 		emuAppDirs.push(`${systemsDir}/${sys}/${emu}`);
+		if (emus[emu].jsEmu && emus[emu].multiSys) {
+			emuAppDirs.push(`${systemsDir}/nostlan/jsEmu/${emu}`);
+		}
 		if (mac) emuAppDirs.push('/Applications');
 
 		for (let dir of emuAppDirs) {
 			dir = util.absPath(dir);
 			if (!(await fs.exists(dir))) continue;
+			emuApp = dir + '/' + emuApp;
+			if (await fs.exists(emuApp)) {
+				return emuApp;
+			}
 			let files;
 			const filterFunc = (item) => {
 				// ignore alias to folders on drives that are not connected
@@ -124,12 +131,12 @@ class Launcher {
 				return;
 			}
 			let dir = `${systemsDir}/${sys}/${emu}`;
-			let jsEmuDir = `${__root}/jsEmu/${sys}/${emu}`;
+			if (emus[emu].multiSys) {
+				dir = `${systemsDir}/nostlan/jsEmu/${emu}`;
+			}
+			let jsEmuDir = `${__root}/jsEmu/${emu}`;
 
-			if (
-				!prefs[emu].dev &&
-				(!(await fs.exists(dir + '/launch.js')) || prefs[emu].version != prefs[emu].latestVersion)
-			) {
+			if (prefs[emu].dev || prefs[emu].version != prefs[emu].latestVersion) {
 				await fs.copy(jsEmuDir, dir, {
 					overwrite: true
 				});
@@ -141,7 +148,7 @@ class Launcher {
 			Object.assign(cfg, prefs[emu]);
 
 			if (cfg.bios) {
-				cfg.bios = util.absPath(cfg.bios);
+				cfg.bios = util.absPath('$emu/' + cfg.bios);
 				if (!(await fs.exists(cfg.bios))) {
 					// "This emulator requires system bios file(s), search the internet!"
 					cui.err(lang.playMenu.err0 + ': ' + cfg.bios, 404, 'libMain');
@@ -196,7 +203,13 @@ class Launcher {
 				}
 			}
 
-			let fileHtml = `${dir}/launch.html`;
+			let fileHtml = emuApp;
+			if (emus[emu].multiSys) {
+				let mult = emus[emu].multiSys[sys];
+				if (mult.args) fileHtml += mult.args;
+			}
+			// NOT a good way to do it
+			// if (emu == 'webretro') fileHtml += '&rom=' + game.file;
 			let preloadJS = __root + '/jsEmu/preload.js';
 			$('body').prepend(
 				`<webview id="jsEmu" enableremotemodule="false" src="${fileHtml}" preload="${preloadJS}"></webview>`

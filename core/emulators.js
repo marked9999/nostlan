@@ -201,10 +201,10 @@ module.exports = (() => {
 			name: 'em-fceux',
 			sys: 'nes',
 			site: 'https://bitbucket.org/tsone/em-fceux/src/master/',
-			app: '$emu/launch.js',
+			app: 'launch.html',
 			jsEmu: true,
 			install: {
-				jsEmu: ['https://unpkg.com/em-fceux/dist/fceux.js', 'https://unpkg.com/em-fceux/dist/fceux.wasm']
+				jsEmu: 'https://unpkg.com/em-fceux/dist/fceux.wasm'
 			},
 			latestVersion: '1.1.0',
 			dev: false,
@@ -216,14 +216,14 @@ module.exports = (() => {
 			name: 'IodineGBA',
 			sys: 'gba',
 			site: 'https://github.com/taisel/IodineGBA',
-			app: '$emu/launch.js',
-			bios: '$emu/bios.bin',
+			app: 'launch.html',
+			bios: 'bios.bin',
 			jsEmu: true,
 			install: {
 				jsEmu: 'https://github.com/quinton-ashley/IodineGBA/archive/refs/heads/main.zip'
 			},
 			latestVersion: '1.0.1',
-			dev: true,
+			dev: false,
 			mute: false,
 			volume: 20,
 			keyboard: [{}, {}]
@@ -604,46 +604,24 @@ module.exports = (() => {
 				}
 			}
 		},
-		yuzu: {
-			name: 'Yuzu',
-			sys: 'switch',
-			site: 'https://yuzu-emu.org/',
-			patreon: 'https://www.patreon.com/yuzuteam',
-			discord: 'https://discord.gg/u77vRWY',
-			app: {
-				linux: 'org.yuzu_emu.yuzu'
-			},
-			appDirs: {
-				win: ['$home/AppData/Local/yuzu/yuzu-windows-msvc', '$home/AppData/Local/yuzu/yuzu-windows-msvc-early-access']
-			},
-			appRegex: {
-				win: 'yuzu\\.exe'
-			},
-			cmd: {
-				linux: ['flatpak', 'run', '${app}', '-g', '${game}', '-f'],
-				win: ['${app}', '-g', '${game}', '-f']
-			},
-			site: 'https://yuzu-emu.org/',
-			patreon: 'https://www.patreon.com/yuzuteam',
-			install: {
-				'linux-x64': {
-					pkgManager_flatpak: [
-						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
-						['flatpak', 'install', 'flathub', 'org.yuzu_emu.yuzu']
-					]
-				},
-				'win-x64': {
-					prereqs: [
-						{
-							installer: 'https://aka.ms/vs/16/release/vc_redist.x64.exe'
-						}
-					],
-					installer: 'https://github.com/yuzu-emu/liftinstall/releases/download/1.8/yuzu_install.exe'
+		webretro: {
+			name: 'webretro',
+			site: 'https://github.com/BinBashBanana/webretro',
+			app: 'webretro-6.4/index.html',
+			jsEmu: true,
+			multiSys: {
+				smd: {
+					args: '?core=genesis_plus_gx'
 				}
 			},
-			update: {
-				win: ['$home/AppData/Local/yuzu/maintenancetool.exe', '--launcher', '${app}']
-			}
+			install: {
+				jsEmu: 'https://github.com/BinBashBanana/webretro/archive/refs/tags/v6.4.zip'
+			},
+			latestVersion: '6.4.0',
+			dev: false,
+			mute: false,
+			volume: 20,
+			keyboard: [{}, {}]
 		},
 		xemu: {
 			name: 'xemu',
@@ -695,6 +673,47 @@ module.exports = (() => {
 						'https://ci.appveyor.com/api/projects/benvanik/xenia/artifacts/xenia_master.zip?branch=master&job=Configuration%3A%20Release&pr=false .zip'
 					]
 				}
+			}
+		},
+		yuzu: {
+			name: 'Yuzu',
+			sys: 'switch',
+			site: 'https://yuzu-emu.org/',
+			patreon: 'https://www.patreon.com/yuzuteam',
+			discord: 'https://discord.gg/u77vRWY',
+			app: {
+				linux: 'org.yuzu_emu.yuzu'
+			},
+			appDirs: {
+				win: ['$home/AppData/Local/yuzu/yuzu-windows-msvc', '$home/AppData/Local/yuzu/yuzu-windows-msvc-early-access']
+			},
+			appRegex: {
+				win: 'yuzu\\.exe'
+			},
+			cmd: {
+				linux: ['flatpak', 'run', '${app}', '-g', '${game}', '-f'],
+				win: ['${app}', '-g', '${game}', '-f']
+			},
+			site: 'https://yuzu-emu.org/',
+			patreon: 'https://www.patreon.com/yuzuteam',
+			install: {
+				'linux-x64': {
+					pkgManager_flatpak: [
+						['flatpak', 'remote-add', '--if-not-exists', 'flathub', 'https://flathub.org/repo/flathub.flatpakrepo'],
+						['flatpak', 'install', 'flathub', 'org.yuzu_emu.yuzu']
+					]
+				},
+				'win-x64': {
+					prereqs: [
+						{
+							installer: 'https://aka.ms/vs/16/release/vc_redist.x64.exe'
+						}
+					],
+					installer: 'https://github.com/yuzu-emu/liftinstall/releases/download/1.8/yuzu_install.exe'
+				}
+			},
+			update: {
+				win: ['$home/AppData/Local/yuzu/maintenancetool.exe', '--launcher', '${app}']
 			}
 		}
 	};

@@ -83,7 +83,7 @@ module.exports = {
 	smd: {
 		name: 'Genesis',
 		fullName: 'SEGA Genesis',
-		emus: ['webretro-smd'],
+		emus: ['webretro'],
 		mediaType: 'cart',
 		hash: 'crc32',
 		gameExts: ['md', 'smd', 'gen', '32x', 'bin', 'rom']

@@ -94,6 +94,39 @@ module.exports = async function (args) {
 		document.exitPointerLock();
 	});
 
+	{
+		// Importing this adds a right-click menu with 'Inspect Element' option
+		let rightClickPosition = null;
+
+		const rightClickMenu = new electron.Menu();
+		rightClickMenu.append(
+			new electron.MenuItem({
+				label: 'Paste',
+				click: () => {
+					document.execCommand('paste');
+				}
+			})
+		);
+		rightClickMenu.append(
+			new electron.MenuItem({
+				label: 'Inspect Element',
+				click: () => {
+					electron.getCurrentWindow().inspectElement(rightClickPosition.x, rightClickPosition.y);
+				}
+			})
+		);
+
+		window.addEventListener(
+			'contextmenu',
+			(e) => {
+				e.preventDefault();
+				rightClickPosition = { x: e.x, y: e.y };
+				rightClickMenu.popup(electron.getCurrentWindow());
+			},
+			false
+		);
+	}
+
 	nostlan.setup = async () => {
 		// after the user uses the app for the first time
 		// a preferences file is created, if it exists load it

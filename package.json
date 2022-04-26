@@ -50,10 +50,10 @@
 		}
 	],
 	"dependencies": {
-		"7zip-bin": "*",
 		"@electron/remote": "^2.0.4",
 		"@mapbox/node-pre-gyp": "^1.0.8",
 		"@popperjs/core": "^2.11.0",
+		"7zip-bin": "*",
 		"acorn": "^8.6.0",
 		"await-spawn": "^4.0.2",
 		"bootstrap": "^5.1.3",
@@ -61,7 +61,7 @@
 		"chrome-finder": "^1.0.7",
 		"circletype": "^2.3.0",
 		"contro-ui": "^3.3.8",
-		"crc": "^3.8.0",
+		"crc": "^4.1.0",
 		"deep-extend": "^0.6.0",
 		"delay": "^5.0.0",
 		"diacritics": "^1.3.0",
@@ -95,7 +95,7 @@
 		"sharp": "^0.27.2",
 		"tabletojson": "^2.0.7",
 		"tether": "*",
-		"three": "^0.137.5",
+		"three": "^0.139.0",
 		"usb": "1.7.0",
 		"yauzl-promise": "^2.1.3"
 	},
@@ -125,10 +125,10 @@
 		"start": "electron . --dev",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "sudo chmod -R 777 .",
-		"rebuild-l": "rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=13.1.7 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-mi": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=13.1.7 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-m": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=15.2.0 --host_arch=arm64 --target_arch=arm64 --arch=arm64 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-w": "npm rebuild --build-from-source --runtime=electron --target=15.2.0 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-l": "rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-mi": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-m": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --host_arch=arm64 --target_arch=arm64 --arch=arm64 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-w": "npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
 		"relink": "npm link ../../pkg/contro-ui",
 		"dist-l": "electron-builder -l",
 		"dist-m": "electron-builder -m -c.npmRebuild=false",
@@ -141,5 +141,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "1.24.13"
+	"version": "1.24.14"
 }

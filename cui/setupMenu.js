@@ -60,7 +60,7 @@ class CuiState extends cui.State {
 					}
 					break;
 				}
-				if (!emus[_emu].appDirs && !(await fs.exists(templateDir))) {
+				if (!emus[_emu].appDirs && !emus[_emu].multiSys && !(await fs.exists(templateDir))) {
 					await fs.ensureDir(templateDir);
 				}
 				if (i > 0) continue;

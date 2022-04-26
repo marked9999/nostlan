@@ -68,6 +68,7 @@ class CuiState extends cui.State {
 
 		let systems = [sys];
 		if (syst.peers) systems = systems.concat(syst.peers);
+		gameDB = [];
 		for (let i = 0; i < systems.length; i++) {
 			let _sys = systems[i];
 			let dbPath = `${__root}/db/${_sys}DB.json`;
