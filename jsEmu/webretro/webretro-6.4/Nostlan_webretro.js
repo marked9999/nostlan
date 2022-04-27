@@ -3,15 +3,25 @@ class Nostlan_webretro {
 
 	async launch(game, cfg) {
 		console.log('launching webretro');
-		this.cfg = cfg;
 		ffd.style.display = 'none';
+		this.isNintendoSystem = cfg.sys == 'gba' || cfg.sys == 'nes' || cfg.sys == 'n64' || cfg.sys == 'snes';
+		this.cfg = cfg;
 		let data = await (await fetch(game.file)).arrayBuffer();
 		romUploadCallback(game.file, data);
 	}
 
 	controIn(contro) {
-		for (let name in contro.btns) {
-			gamepadsSpoof.button(contro.port, name, contro.btns[name]);
+		let { btns } = contro;
+		if (this.isNintendoSystem) {
+			let tmp = btns.a;
+			btns.a = btns.b;
+			btns.b = tmp;
+			tmp = btns.x;
+			btns.x = btns.y;
+			btns.y = tmp;
+		}
+		for (let name in btns) {
+			gamepadsSpoof.button(contro.port, name, btns[name]);
 		}
 	}
 

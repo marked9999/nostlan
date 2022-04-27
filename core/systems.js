@@ -28,7 +28,7 @@ module.exports = {
 	gba: {
 		name: 'GBA',
 		fullName: 'Nintendo Game Boy Advance',
-		emus: ['mgba', 'iodine', 'vba'],
+		emus: ['webretro', 'mgba', 'vba'],
 		mediaType: 'cart',
 		containerType: 'box',
 		hash: 'crc32',
@@ -59,7 +59,7 @@ module.exports = {
 	nes: {
 		name: 'NES',
 		fullName: 'Nintendo Entertainment System',
-		emus: ['mesen', 'em-fceux'],
+		emus: ['mesen', 'webretro', 'em-fceux'],
 		mediaType: 'cart',
 		containerType: 'box',
 		hash: 'crc32',
@@ -91,7 +91,7 @@ module.exports = {
 	snes: {
 		name: 'SNES',
 		fullName: 'Super Nintendo',
-		emus: ['bsnes', 'snes9x'],
+		emus: ['bsnes', 'webretro', 'snes9x'],
 		mediaType: 'cart',
 		containerType: 'box',
 		columnAmount: 4,

@@ -1,9 +1,16 @@
 module.exports = async function (defaults) {
 	let ver = prefs.version || pkg.version;
+	// update version number
 	prefs.version = pkg.version;
 	if (prefs.nlaDir) {
 		systemsDir = path.join(prefs.nlaDir, '..');
 		systemsDir = systemsDir.replace(/\\/g, '/');
+	}
+
+	if (semver.lt(ver, '1.25.0')) {
+		// delete old jsEmu app locations
+		delete prefs.iodine;
+		delete prefs['em-fceux'].app;
 	}
 
 	for (let _sys in systems) {

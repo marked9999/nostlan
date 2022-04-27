@@ -58,7 +58,11 @@ class Utility {
 			if (tag == 'home') {
 				replacement = os.homedir().replace(/\\/g, '/');
 			} else if (tag == 'emu') {
-				replacement = `${systemsDir}/${sys}/${emu}`;
+				if (emus[emu].jsEmu && emus[emu].multiSys) {
+					replacement = `${systemsDir}/nostlan/jsEmu/${emu}`;
+				} else {
+					replacement = `${systemsDir}/${sys}/${emu}`;
+				}
 			}
 			file = file.replace('$' + tag, replacement);
 		}

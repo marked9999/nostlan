@@ -20,6 +20,10 @@ class CuiState extends cui.State {
 				nostlan.launcher.loadState();
 				nostlan.launcher.unpause();
 			}
+		} else if (act == 'fullscreen') {
+			prefs.ui.launchFullScreen = !prefs.ui.launchFullScreen;
+			electron.getCurrentWindow().focus();
+			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
 		} else if (act == 'mute') {
 			let $elem = $('#pauseMenu .cui[name="mute"] .text');
 			if ($elem.text().includes('un')) {

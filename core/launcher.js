@@ -5,7 +5,6 @@
  * in the user's prefs.json file.
  */
 let child = require('child_process');
-let base64 = require('byte-base64');
 
 let identify = false;
 
@@ -50,19 +49,16 @@ class Launcher {
 			}
 		}
 		let emuAppDirs = emus[emu].appDirs || [];
-		emuAppDirs.push(`${systemsDir}/${sys}/${emu}`);
 		if (emus[emu].jsEmu && emus[emu].multiSys) {
 			emuAppDirs.push(`${systemsDir}/nostlan/jsEmu/${emu}`);
+		} else {
+			emuAppDirs.push(`${systemsDir}/${sys}/${emu}`);
 		}
 		if (mac) emuAppDirs.push('/Applications');
 
 		for (let dir of emuAppDirs) {
 			dir = util.absPath(dir);
 			if (!(await fs.exists(dir))) continue;
-			emuApp = dir + '/' + emuApp;
-			if (await fs.exists(emuApp)) {
-				return emuApp;
-			}
 			let files;
 			const filterFunc = (item) => {
 				// ignore alias to folders on drives that are not connected
@@ -203,10 +199,13 @@ class Launcher {
 				}
 			}
 
+			cfg.sys = sys;
 			let fileHtml = emuApp;
 			if (emus[emu].multiSys) {
 				let mult = emus[emu].multiSys[sys];
-				if (mult.args) fileHtml += mult.args;
+				if (mult.core) {
+					fileHtml += '?core=' + mult.core;
+				}
 			}
 			// NOT a good way to do it
 			// if (emu == 'webretro') fileHtml += '&rom=' + game.file;
@@ -230,7 +229,7 @@ class Launcher {
 
 				if (ping.saveState) {
 					let { slot, data, ext } = ping.saveState;
-					data = base64.bytesToBase64(data);
+					data = String.fromCharCode(...data);
 					let g = path.parse(_this.game.file);
 					let file = dir + '/states/' + g.name + ext;
 					await fs.outputFile(file, data);

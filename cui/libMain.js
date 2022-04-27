@@ -145,13 +145,18 @@ class CuiState extends cui.State {
 			// for the operating system
 			if (!prefs[_emu].cmd && !emus[_emu].jsEmu) continue;
 
-			playMenu += `.col.cui(name="${_emu}") ${emus[_emu].name}\n`;
+			let name = emus[_emu].name;
+			if (emus[_emu].multiSys) {
+				name += ' ' + emus[_emu].multiSys[sys].core;
+			}
+
+			playMenu += `.col.cui(name="${_emu}") ${name}\n`;
 
 			// TODO check if user has the emulator
 			// if they do add the configure and update buttons
 			// else add a button to install
 			emuMenu += '.row.row-x\n';
-			emuMenu += `\t.col.cui(name="${_emu}_launch") ${emus[_emu].name}\n`;
+			emuMenu += `\t.col.cui(name="${_emu}_launch") ${name}\n`;
 
 			let em = emus[_emu];
 			if (em.update) {

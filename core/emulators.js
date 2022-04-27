@@ -201,35 +201,35 @@ module.exports = (() => {
 			name: 'em-fceux',
 			sys: 'nes',
 			site: 'https://bitbucket.org/tsone/em-fceux/src/master/',
-			app: 'launch.html',
+			appRegex: 'index\\.html',
 			jsEmu: true,
 			install: {
 				jsEmu: 'https://unpkg.com/em-fceux/dist/fceux.wasm'
 			},
 			saveStateSlots: 10,
 			loadStateSlots: 10,
-			latestVersion: '1.1.0',
+			latestVersion: '1.1.1',
 			dev: false,
 			mute: false,
 			volume: 20,
 			keyboard: [{}, {}]
 		},
-		iodine: {
-			name: 'IodineGBA',
-			sys: 'gba',
-			site: 'https://github.com/taisel/IodineGBA',
-			app: 'launch.html',
-			bios: 'bios.bin',
-			jsEmu: true,
-			install: {
-				jsEmu: 'https://github.com/quinton-ashley/IodineGBA/archive/refs/heads/main.zip'
-			},
-			latestVersion: '1.0.1',
-			dev: false,
-			mute: false,
-			volume: 20,
-			keyboard: [{}, {}]
-		},
+		// iodine: {
+		// 	name: 'IodineGBA',
+		// 	sys: 'gba',
+		// 	site: 'https://github.com/taisel/IodineGBA',
+		// 	appRegex: 'index\\.html',
+		// 	bios: 'bios.bin',
+		// 	jsEmu: true,
+		// 	install: {
+		// 		jsEmu: 'https://github.com/quinton-ashley/IodineGBA/archive/refs/heads/main.zip'
+		// 	},
+		// 	latestVersion: '1.0.2',
+		// 	dev: false,
+		// 	mute: false,
+		// 	volume: 20,
+		// 	keyboard: [{}, {}]
+		// },
 		mame: {
 			name: 'MAME',
 			sys: 'arcade',
@@ -609,11 +609,23 @@ module.exports = (() => {
 		webretro: {
 			name: 'webretro',
 			site: 'https://github.com/BinBashBanana/webretro',
-			app: 'webretro-6.4/index.html',
+			appRegex: 'index\\.html',
 			jsEmu: true,
 			multiSys: {
 				smd: {
-					args: '?core=genesis_plus_gx'
+					core: 'genesis_plus_gx'
+				},
+				gba: {
+					core: 'mgba'
+				},
+				n64: {
+					core: 'mupen64plus_next'
+				},
+				nes: {
+					core: 'nestopia'
+				},
+				snes: {
+					core: 'snes9x'
 				}
 			},
 			saveStateSlots: 1,
