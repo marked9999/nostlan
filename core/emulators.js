@@ -214,6 +214,24 @@ module.exports = (() => {
 			volume: 20,
 			keyboard: [{}, {}]
 		},
+		ds_player: {
+			name: 'DS Player',
+			sys: 'ds',
+			site: 'https://ds.44670.org/',
+			patreon: 'https://www.patreon.com/ds44670',
+			appRegex: 'index\\.html',
+			jsEmu: true,
+			install: {
+				jsEmu: 'https://github.com/quinton-ashley/ds_player/archive/refs/heads/main.zip'
+			},
+			saveStateSlots: 1,
+			loadStateSlots: 1,
+			latestVersion: '1.0.0',
+			dev: true,
+			mute: false,
+			volume: 20,
+			keyboard: [{}, {}]
+		},
 		// iodine: {
 		// 	name: 'IodineGBA',
 		// 	sys: 'gba',
@@ -636,7 +654,6 @@ module.exports = (() => {
 			latestVersion: '6.4.0',
 			dev: false,
 			mute: false,
-			volume: 20,
 			keyboard: [{}, {}]
 		},
 		xemu: {

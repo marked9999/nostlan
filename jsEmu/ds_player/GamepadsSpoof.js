@@ -51,7 +51,7 @@
 
 	class GamepadsSpoof {
 		constructor() {
-			this.gamepads = [new GamepadSpoof('xbox'), null, null, null];
+			this.gamepads = [new GamepadSpoof(0), null, null, null];
 
 			// safari
 			// this.btns = {
@@ -139,9 +139,9 @@
 		}
 
 		addGamepad(p, type) {
-			// p for player
-			// type can be xbox or playstation
-			console.log(`adding gamepad idx: ${p} type: ${type}`);
+			// p is port number
+			// type (not implemented yet)
+			console.log(`adding gamepad at port: ${p} type: ${type}`);
 			this.gamepads[p] = new GamepadSpoof(p, type);
 		}
 
@@ -234,8 +234,9 @@
 
 	setTimeout(() => {
 		console.log('connecting spoofed gamepad');
-		let gamepadConnected = document.createEvent('Event');
-		gamepadConnected.initEvent('gamepadconnected', true, false);
+		let gamepadConnected = new Event('gamepadconnected', {
+			bubbles: true
+		});
 		gamepadConnected.gamepad = gamepadsSpoof.gamepads[0];
 		window.dispatchEvent(gamepadConnected);
 	}, 2000);

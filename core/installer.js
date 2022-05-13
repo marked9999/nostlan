@@ -127,7 +127,6 @@ class Installer {
 			// "download complete"
 			this.loadLog(lang.emuAppMenu.msg12);
 		}
-		if (ins.jsEmu) return true;
 		let files = await klaw(dir, {
 			depthLimit: 0
 		});
@@ -139,6 +138,7 @@ class Installer {
 			});
 			await fs.remove(files[0]);
 		}
+		if (ins.jsEmu) return true;
 		let macDMG = false;
 		if (ins.installer) {
 			files = await klaw(dir);

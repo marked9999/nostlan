@@ -132,12 +132,12 @@ class Launcher {
 			}
 			let jsEmuDir = `${__root}/jsEmu/${emu}`;
 
-			if (prefs[emu].dev || prefs[emu].version != prefs[emu].latestVersion) {
+			if (prefs[emu].dev || prefs[emu].version != emus[emu].latestVersion) {
 				await fs.copy(jsEmuDir, dir, {
 					overwrite: true
 				});
-				prefs[emu].version = prefs[emu].latestVersion;
-				log('updated ' + emus[emu].name + ' to ' + prefs[emu].version);
+				prefs[emu].version = emus[emu].latestVersion;
+				log('updated ' + emus[emu].name + ' to v' + prefs[emu].version);
 			}
 
 			let cfg = {};
@@ -161,9 +161,6 @@ class Launcher {
 				let gameName = path.parse(game.file).name;
 				for (let file of files) {
 					if (path.parse(file).name == gameName) {
-						// let data = await fs.readFile(file, 'utf8');
-						// data = base64.base64ToBytes(data);
-						// data = Array.from(data);
 						let slot = file.slice(-1);
 						cfg.saveStates[slot] = {
 							file: file,
@@ -221,35 +218,60 @@ class Launcher {
 				});
 			});
 			if (cfg.dev) jsEmu.openDevTools();
+
+			// FAIL: does not load the scripts in time, this approach does not work
+			// for (let src of ['GamepadsSpoof.js', 'Nostlan_' + emu + '.js']) {
+			// 	let s = document.createElement('script');
+			// 	s.type = 'text/javascript';
+			// 	s.src = src;
+			// 	await jsEmu.executeJavaScript(`document.body.append('${s.outerHTML}');`);
+			// }
+
+			this.cfg = cfg;
+			this.jsEmu = jsEmu;
+
 			let _this = this;
 			jsEmu.addEventListener('ipc-message', async (event) => {
 				let ping = JSON.parse(event.channel);
 
 				log(ping);
 
+				let file = ping.saveState || ping.save;
+
+				let { data, ext } = file;
+				data = String.fromCharCode(...data);
+
+				let g = path.parse(_this.game.file);
+
+				let f = dir;
+
 				if (ping.saveState) {
-					let { slot, data, ext } = ping.saveState;
-					data = String.fromCharCode(...data);
-					let g = path.parse(_this.game.file);
-					let file = dir + '/states/' + g.name + ext;
-					await fs.outputFile(file, data);
+					f += '/states/' + g.name + '_' + file.slot + ext;
+				}
+				if (ping.save) {
+					f += '/saves/' + g.name + ext;
+				}
+
+				await fs.outputFile(f, data);
+				let date = (await fs.stat(f)).mtime;
+				date = date.toLocaleString('en-US', {
+					timeZone: timeZone
+				});
+
+				if (ping.saveState) {
 					if (!_this.cfg.saveStates) {
 						_this.cfg.saveStates = {};
 					}
-					let date = (await fs.stat(file)).mtime;
-					date = date.toLocaleString('en-US', {
-						timeZone: timeZone
-					});
-					_this.cfg.saveStates[slot] = {
-						file,
+					_this.cfg.saveStates[file.slot] = {
+						f,
 						data,
 						date
 					};
 				}
 			});
-			this.cfg = cfg;
-			this.jsEmu = jsEmu;
+
 			await delay(1500);
+
 			try {
 				await jsEmu.executeJavaScript(`jsEmu.launch(${JSON.stringify(game)}, ${JSON.stringify(cfg)})`);
 			} catch (ror) {
@@ -492,7 +514,7 @@ class Launcher {
 			this.child.kill('SIGINT');
 		} else {
 			this._close(code);
-			if (!code) this.jsEmu.executeJavaScript('jsEmu.close();');
+			if (!code) await this.jsEmu.executeJavaScript('jsEmu.close();');
 			this.jsEmu.remove();
 			$('body').removeClass('jsEmu');
 			this.jsEmu = null;
@@ -527,10 +549,12 @@ class Launcher {
 
 	mute() {
 		this.jsEmu.executeJavaScript(`jsEmu.mute();`);
+		this.jsEmu.setAudioMuted(true);
 	}
 
 	unmute() {
 		this.jsEmu.executeJavaScript(`jsEmu.unmute();`);
+		this.jsEmu.setAudioMuted(false);
 	}
 
 	openDevTools() {

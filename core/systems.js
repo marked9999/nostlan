@@ -21,7 +21,7 @@ module.exports = {
 	ds: {
 		name: 'DS',
 		fullName: 'Nintendo DS',
-		emus: ['melonds', 'desmume'],
+		emus: ['melonds', 'ds_player', 'desmume'],
 		mediaType: 'cart',
 		gameExts: ['nds', 'tad', 'srl']
 	},
@@ -50,7 +50,7 @@ module.exports = {
 	n64: {
 		name: 'N64',
 		fullName: 'Nintendo 64',
-		emus: ['project64', 'mupen64plus'],
+		emus: ['project64', 'mupen64plus', 'webretro'],
 		mediaType: 'cart',
 		containerType: 'box',
 		hash: 'sha1',
@@ -59,7 +59,7 @@ module.exports = {
 	nes: {
 		name: 'NES',
 		fullName: 'Nintendo Entertainment System',
-		emus: ['mesen', 'webretro', 'em-fceux'],
+		emus: ['em-fceux', 'mesen', 'webretro'],
 		mediaType: 'cart',
 		containerType: 'box',
 		hash: 'crc32',

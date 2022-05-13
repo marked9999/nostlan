@@ -27,15 +27,11 @@ module.exports = function () {
 			return;
 		} else if (nostlan.launcher.state == 'running') {
 			if (nostlan.launcher.jsEmu && ui == 'playing') {
-				if (act == 'pause') {
-					log('pausing emulation');
-					nostlan.launcher.pause();
-				}
+				return true;
 			}
 			return;
-		} else if (act == 'escape') {
-			electron.getCurrentWindow().minimize();
 		}
+
 		if (/^(x|start|y|b)/.test(act)) {
 			let $btn;
 			if (act == 'x') {

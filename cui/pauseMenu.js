@@ -24,17 +24,20 @@ class CuiState extends cui.State {
 			prefs.ui.launchFullScreen = !prefs.ui.launchFullScreen;
 			electron.getCurrentWindow().focus();
 			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
-		} else if (act == 'mute') {
-			let $elem = $('#pauseMenu .cui[name="mute"] .text');
-			if ($elem.text().includes('un')) {
-				nostlan.launcher.unmute();
-				// 'mute'
-				$elem.text(lang.pauseMenu.opt4[1]);
-			} else {
+		} else if (act == 'mute' || act == 'unmute') {
+			let $elem = $(`#pauseMenu_10 .cui[name="${act}"]`);
+			if ($elem.attr('name') == 'mute') {
 				nostlan.launcher.mute();
 				// 'unmute'
-				$elem.text(lang.pauseMenu.opt4[0]);
+				$elem.find('.text').text(lang.pauseMenu.opt4[1]);
+				$elem.attr('name', 'unmute');
+			} else {
+				nostlan.launcher.unmute();
+				// 'mute'
+				$elem.find('.text').text(lang.pauseMenu.opt4[0]);
+				$elem.attr('name', 'mute');
 			}
+			nostlan.launcher.unpause();
 		} else if (act == 'openDevTools') {
 			nostlan.launcher.openDevTools();
 		} else if (act == 'stop') {

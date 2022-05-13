@@ -1,16 +1,20 @@
 class Nostlan_webretro {
-	constructor() {}
+	constructor() {
+		this.ready = false;
+	}
 
 	async launch(game, cfg) {
 		console.log('launching webretro');
 		ffd.style.display = 'none';
 		this.isNintendoSystem = cfg.sys == 'gba' || cfg.sys == 'nes' || cfg.sys == 'n64' || cfg.sys == 'snes';
-		this.cfg = cfg;
+
 		let data = await (await fetch(game.file)).arrayBuffer();
 		romUploadCallback(game.file, data);
+		this.ready = true;
 	}
 
 	controIn(contro) {
+		if (!this.ready) return;
 		let { btns } = contro;
 		if (this.isNintendoSystem) {
 			let tmp = btns.a;
@@ -25,7 +29,30 @@ class Nostlan_webretro {
 		}
 	}
 
-	close() {}
+	close() {
+		if (stateReadersReady) {
+			// export save state data
+			let data = FS.readFile('/home/web_user/retroarch/userdata/states/rom.state');
+			let ping = {
+				saveState: {
+					slot: 0,
+					data: Array.from(data),
+					ext: '.state'
+				}
+			};
+			nostlan.send(JSON.stringify(ping));
+		}
+		if (saveReadersReady) {
+			let data = FS.readFile('/home/web_user/retroarch/userdata/saves/rom' + sramExt);
+			let ping = {
+				save: {
+					data: Array.from(data),
+					ext: sramExt
+				}
+			};
+			nostlan.send(JSON.stringify(ping));
+		}
+	}
 
 	pause(toggle) {
 		toggle ??= true;
@@ -54,22 +81,21 @@ class Nostlan_webretro {
 	}
 
 	loadState() {
-		Module._cmd_load_state();
+		if (stateReadersReady) {
+			Module._cmd_load_state();
+			readyStateReaders2();
+		} else {
+			alert('no save state found!');
+		}
 	}
 
 	saveState() {
 		Module._cmd_save_state();
-	}
-
-	exportState() {
-		downloadFile(
-			FS.readFile('/home/web_user/retroarch/userdata/states/rom.state'),
-			'game-state-' + romName + '-' + getTime() + '.state'
-		);
+		readyStateReaders();
 	}
 
 	undoSaveState() {
-		Module._cmd_undo_save_state();
+		if (stateReaders2Ready) Module._cmd_undo_save_state();
 	}
 }
 

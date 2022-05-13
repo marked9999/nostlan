@@ -217,6 +217,7 @@ module.exports = async function (args) {
 		cui.keyPress(']', 'y');
 		cui.keyPress('\\', 'b');
 		cui.keyPress('|', 'start');
+		cui.keyPress('esc', 'start');
 
 		// https://www.geeksforgeeks.org/drag-and-drop-files-in-electronjs/
 		// TODO: finish implementation

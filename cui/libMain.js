@@ -156,25 +156,25 @@ class CuiState extends cui.State {
 			// if they do add the configure and update buttons
 			// else add a button to install
 			emuMenu += '.row.row-x\n';
-			emuMenu += `\t.col.cui(name="${_emu}_launch") ${name}\n`;
+			emuMenu += `\t.col.cui(name="${_emu} launch") ${name}\n`;
 
 			let em = emus[_emu];
 			if (em.update) {
-				emuMenu += `\t.col-1.cui(name="${_emu}_update"): span.material-icons download\n`;
+				emuMenu += `\t.col-1.cui(name="${_emu} update"): span.material-icons download\n`;
 			}
 
 			if (em.site) {
-				emuMenu += `\t.col-1.cui(name="${_emu}_site"): span.material-icons language\n`;
+				emuMenu += `\t.col-1.cui(name="${_emu} site"): span.material-icons language\n`;
 			}
 
 			if (em.patreon) {
-				emuMenu += `\t.col-1.cui(name="${_emu}_patreon"): span.material-icons favorite\n`;
+				emuMenu += `\t.col-1.cui(name="${_emu} patreon"): span.material-icons favorite\n`;
 			}
 
 			if (em.discord) {
-				emuMenu += `\t.col-1.cui(name="${_emu}_discord"): span.material-icons forum\n`;
+				emuMenu += `\t.col-1.cui(name="${_emu} discord"): span.material-icons forum\n`;
 			} else if (em.forum) {
-				emuMenu += `\t.col-1.cui(name="${_emu}_forum"): span.material-icons forum\n`;
+				emuMenu += `\t.col-1.cui(name="${_emu} forum"): span.material-icons forum\n`;
 			}
 		}
 		$('#playMenu_5').append(pug(playMenu));

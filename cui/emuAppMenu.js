@@ -44,6 +44,9 @@ class CuiState extends cui.State {
 		$('#emuAppMenu_6 .opt0').text(lang.emuAppMenu.opt0 + ' ' + emus[emu].name);
 		// "browse for"
 		$('#emuAppMenu_6 .opt1').text(lang.emuAppMenu.opt1 + ' ' + emus[emu].name);
+		let browseBtn = $('#emuAppMenu_6 .cui[name="find"]')[0];
+		if (!emus[emu].jsEmu) browseBtn.style.display = 'block';
+		else browseBtn.style.display = 'none';
 	}
 
 	async afterChange() {

@@ -6,7 +6,6 @@ class Nostlan_emfceux {
 		this.btns = ['a', 'b', 'select', 'start', 'up', 'down', 'left', 'right'];
 		this.fceux;
 		this.ready = false;
-		this.cfg = {};
 	}
 
 	async launch(game, cfg) {
@@ -29,6 +28,8 @@ class Nostlan_emfceux {
 
 		await this.fceux.ready;
 
+		if (cfg.mute) this.mute(true);
+
 		if (cfg.saveStates) {
 			let saveStates = {};
 			for (let slot in cfg.saveStates) {
@@ -43,8 +44,6 @@ class Nostlan_emfceux {
 			log(saveStates);
 			this.fceux.importSaveFiles(saveStates);
 		}
-
-		if (cfg.mute) this.mute(true);
 
 		this.ready = true;
 	}
@@ -69,6 +68,8 @@ class Nostlan_emfceux {
 	pause(toggle) {
 		toggle ??= true;
 		this.fceux.setPaused(toggle);
+		if (toggle) document.body.style.filter = 'blur(10px)';
+		else document.body.style.filter = 'none';
 	}
 
 	unpause() {
@@ -85,9 +86,8 @@ class Nostlan_emfceux {
 	}
 
 	saveState(slot) {
-		if (typeof slot == 'number') {
-			this.fceux.setState(slot);
-		}
+		slot ??= 0;
+		this.fceux.setState(slot);
 		this.fceux.saveState();
 
 		let data = this.fceux.exportSaveFiles();
@@ -104,9 +104,8 @@ class Nostlan_emfceux {
 	}
 
 	loadState(slot) {
-		if (typeof slot == 'number') {
-			this.fceux.setState(slot);
-		}
+		slot ??= 0;
+		this.fceux.setState(slot);
 		this.fceux.loadState();
 	}
 }
