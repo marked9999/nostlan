@@ -475,6 +475,15 @@ module.exports = (() => {
 				}
 			}
 		},
+		ppsspp: {
+			name: 'PPSSPP',
+			sys: 'psp',
+			site: 'https://www.ppsspp.org',
+			appRegex: 'PPSSPPSDL\\.app',
+			cmd: {
+				mac: ['${app}', '${game}']
+			}
+		},
 		rpcs3: {
 			name: 'RPCS3',
 			sys: 'ps3',

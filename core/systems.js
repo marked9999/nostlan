@@ -80,6 +80,14 @@ module.exports = {
 		gameFolders: true,
 		gameRoot: '/USRDIR/EBOOT.BIN'
 	},
+	psp: {
+		name: 'PSP',
+		fullName: 'Sony PlayStation Portable',
+		emus: ['ppsspp'],
+		mediaType: 'disc',
+		gameFolders: true,
+		gameRoot: '/EBOOT.PBP'
+	},
 	smd: {
 		name: 'Genesis',
 		fullName: 'SEGA Genesis',

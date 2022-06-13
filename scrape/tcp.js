@@ -25,6 +25,7 @@ regions.ds = regions.wii;
 regions.n3ds = regions.wii;
 regions.ps3 = regions.ps2;
 regions.ps4 = regions.ps2;
+regions.psp = regions.ps2;
 regions.n64 = regions.nes;
 regions.xbox = regions.nes;
 regions.smd = regions.nes;
