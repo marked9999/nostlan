@@ -66,13 +66,12 @@ class Themes {
 			title = encodeURI(tile);
 			return `https://wiki.rpcs3.net/index.php?title=${title}`;
 		};
-
 	}
 
 	async loadFrame(name) {
-		let themeDir = `${prefs.nlaDir}/themes/${sysStyle}`;
+		let themeDir = `${prefs.nlaDir}/sys/${sysStyle}/theme`;
 		if (!(await fs.exists(`${themeDir}/${name}.html`))) {
-			themeDir = `${__root}/themes/${sysStyle}`;
+			themeDir = `${__root}/sys/${sysStyle}/theme`;
 		}
 		let fileHtml = `${themeDir}/${name}.html`;
 		let filePug = `${themeDir}/${name}.pug`;
@@ -96,7 +95,7 @@ class Themes {
 		if (prefs.nlaDir) dirs.push(prefs.nlaDir);
 		for (let dir of dirs) {
 			for (let _sys of _systems) {
-				let file = `${dir}/themes/${_sys}/${name}.css`;
+				let file = `${dir}/sys/${_sys}/theme/${name}.css`;
 				if (dir != __root && !(await fs.exists(file))) {
 					try {
 						await fs.ensureFile(file);
@@ -149,7 +148,7 @@ class Themes {
 			let rules = await fs.readFile(file, 'utf8');
 
 			let palette;
-			while (palette = regex.exec(rules)) {
+			while ((palette = regex.exec(rules))) {
 				palettes.push({
 					sys: palette[1],
 					name: palette[2]
@@ -159,7 +158,6 @@ class Themes {
 
 		return palettes;
 	}
-
 }
 
 module.exports = new Themes();

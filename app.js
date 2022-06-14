@@ -94,11 +94,11 @@
 		if (!arg.cli) {
 			url += '/views/index.pug';
 		} else if (arg.scrape) {
-			url += `/scrape/cli/scrape-cli.pug`;
+			url += `/cli/scrape-cli.pug`;
 		} else if (arg.db) {
-			url += `/db/cli/db-cli.pug`;
+			url += `/cli/db-cli.pug`;
 		} else if (!arg.cli.includes('.')) {
-			url += `/${arg.cli}/cli/${arg.cli}-cli.pug`;
+			url += `/cli/${arg.cli}-cli.pug`;
 		} else {
 			url += arg.cli.slice(1);
 		}

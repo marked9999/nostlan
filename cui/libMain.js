@@ -71,7 +71,7 @@ class CuiState extends cui.State {
 		gameDB = [];
 		for (let i = 0; i < systems.length; i++) {
 			let _sys = systems[i];
-			let dbPath = `${__root}/db/${_sys}DB.json`;
+			let dbPath = `${__root}/sys/${_sys}/${_sys}DB.json`;
 			let _db = JSON.parse(await fs.readFile(dbPath)).games;
 			if (i > 0) {
 				for (let game of _db) {

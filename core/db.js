@@ -211,7 +211,7 @@ class GenDB {
 			log(sources[sys]);
 			await delay(10);
 			list = await (await fetch(sources[sys])).text();
-			file = __root + `/db/${sys}DB_up`;
+			file = __root + `/sys/${sys}/${sys}DB_up`;
 			await fs.outputFile(file, list);
 
 			log(file);
@@ -321,9 +321,9 @@ class GenDB {
 
 		let deepExtend = require('deep-extend');
 
-		let db0Path = `${__root}/db/${_sys}DB_up.json`;
+		let db0Path = `${__root}/sys/${sys}/${_sys}DB_up.json`;
 		let db0 = JSON.parse(await fs.readFile(db0Path));
-		let db1Path = `${__root}/db/${_sys}DB.json`;
+		let db1Path = `${__root}/sys/${sys}/${_sys}DB.json`;
 		let db1 = JSON.parse(await fs.readFile(db1Path));
 
 		let merged = 0;

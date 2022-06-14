@@ -265,4 +265,4 @@ html
 		script.
 			console.log('opening index.pug');
 			console.log('#{node_modules}');
-			require('./index.js')(JSON.parse('#{arg}'.replace(/&quot;/g, '"')));
+			require('../core/main.js')(JSON.parse('#{arg}'.replace(/&quot;/g, '"')));

@@ -1,0 +1,31 @@
+{
+	"rpcs3": {
+		"name": "RPCS3",
+		"sys": "ps3",
+		"site": "https://rpcs3.net/",
+		"patreon": "https://www.patreon.com/Nekotekina",
+		"discord": "https://discord.me/RPCS3",
+		"forum": "https://forums.rpcs3.net/",
+		"app": {
+			"linux": "net.rpcs3.RPCS3"
+		},
+		"appRegex": {
+			"win": "rpcs3\\.exe"
+		},
+		"cmd": {
+			"linux": ["flatpak", "run", "${app}", "${game}"],
+			"win": ["${app}", "${game}"]
+		},
+		"install": {
+			"linux-x64": {
+				"pkgManager_flatpak": [
+					["flatpak", "remote-add", "--if-not-exists", "flathub", "https://flathub.org/repo/flathub.flatpakrepo"],
+					["flatpak", "install", "flathub", "net.rpcs3.RPCS3"]
+				]
+			},
+			"win-x64": {
+				"portable": "https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-264df11132f222ba7c2dcdada79909ece21f1316/rpcs3-v0.0.12-10950-264df111_win64.7z"
+			}
+		}
+	}
+}

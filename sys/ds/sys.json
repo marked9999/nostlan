@@ -1,0 +1,7 @@
+{
+	"name": "DS",
+	"fullName": "Nintendo DS",
+	"emus": ["melonds", "ds_player", "desmume"],
+	"mediaType": "cart",
+	"gameExts": ["nds", "tad", "srl"]
+}

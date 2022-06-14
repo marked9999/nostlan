@@ -1,0 +1,23 @@
+{
+	"xenia": {
+		"name": "Xenia",
+		"sys": "xbox360",
+		"site": "https://xenia.jp",
+		"patreon": "https://patreon.com/xenia_project",
+		"discord": "https://discord.gg/Q9mxZf9",
+		"appRegex": {
+			"win": "Xenia\\.exe"
+		},
+		"cmd": {
+			"win": ["${app}", "${game}", "--draw_resolution_scale=2", "--fullscreen"]
+		},
+		"install": {
+			"win-x64": {
+				"portable": [
+					"https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.6.2104/dxc_2021_04-20.zip",
+					"https://ci.appveyor.com/api/projects/benvanik/xenia/artifacts/xenia_master.zip?branch=master&job=Configuration%3A%20Release&pr=false .zip"
+				]
+			}
+		}
+	}
+}
