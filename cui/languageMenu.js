@@ -1,7 +1,7 @@
 class CuiState extends cui.State {
 	async onAction(act) {
 		if (cui.isButton(act)) return;
-		prefs.ui.lang = act;
+		cf.ui.lang = act;
 		await nostlan.start();
 	}
 

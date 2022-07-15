@@ -26,7 +26,7 @@
 		"err0": "You must choose an install location!",
 		"msg0": "choose the folder you want the template to go in",
 		"err1": "Can not write to folder!",
-		"err2": "This folder is read only! Right click the folder, click open as administrator, right click the folder, click edit file permissions. Change to read/write and create/delete for all user groups. Or set prefs.load.readOnlyFS to true in your prefs.json file."
+		"err2": "This folder is read only! Right click the folder, click open as administrator, right click the folder, click edit file permissions. Change to read/write and create/delete for all user groups. Or set load.readOnlyFS to true in your config.json file."
 	},
 	"libMain": {
 		"nav0Lbl": "Play",

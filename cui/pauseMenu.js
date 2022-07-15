@@ -21,9 +21,9 @@ class CuiState extends cui.State {
 				nostlan.launcher.unpause();
 			}
 		} else if (act == 'fullscreen') {
-			prefs.ui.launchFullScreen = !prefs.ui.launchFullScreen;
+			cf.ui.launchFullScreen = !cf.ui.launchFullScreen;
 			electron.getCurrentWindow().focus();
-			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
+			electron.getCurrentWindow().setFullScreen(cf.ui.launchFullScreen);
 		} else if (act == 'mute' || act == 'unmute') {
 			let $elem = $(`#pauseMenu_10 .cui[name="${act}"]`);
 			if ($elem.attr('name') == 'mute') {

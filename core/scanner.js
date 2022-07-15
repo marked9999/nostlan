@@ -55,8 +55,8 @@ class Scanner {
 				resolve(fuse.search(term));
 			});
 		};
-		for (let h = 0; h < prefs[sys].libs.length; h++) {
-			let files = await klaw(prefs[sys].libs[h], {
+		for (let h = 0; h < cf[sys].libs.length; h++) {
+			let files = await klaw(cf[sys].libs[h], {
 				depthLimit: 0
 			});
 			if (!fullRescan) {
@@ -119,7 +119,7 @@ class Scanner {
 					if (game) {
 						this.olog(`exact match:  ${game.title}\r\n`);
 						log(game);
-						game.file = '$' + h + '/' + path.relative(prefs[sys].libs[h], file);
+						game.file = '$' + h + '/' + path.relative(cf[sys].libs[h], file);
 						games.push(game);
 						continue;
 					} else if (hash) {
@@ -166,7 +166,7 @@ class Scanner {
 						}
 						this.olog(`exact match:  ${game.title}\r\n`);
 						log(game);
-						game.file = '$' + h + '/' + path.relative(prefs[sys].libs[h], file);
+						game.file = '$' + h + '/' + path.relative(cf[sys].libs[h], file);
 						games.push(game);
 						continue;
 					}
@@ -195,7 +195,7 @@ class Scanner {
 							game = res;
 							this.olog(`exact match:  ${game.title}\r\n`);
 							log(game);
-							game.file = '$' + h + '/' + path.relative(prefs[sys].libs[h], file);
+							game.file = '$' + h + '/' + path.relative(cf[sys].libs[h], file);
 							games.push(game);
 							continue;
 						}
@@ -264,7 +264,7 @@ class Scanner {
 					unidentifiedAmt++;
 				}
 
-				game.file = '$' + h + '/' + path.relative(prefs[sys].libs[h], file);
+				game.file = '$' + h + '/' + path.relative(cf[sys].libs[h], file);
 				games.push(game);
 				log(game);
 			}
@@ -286,8 +286,8 @@ class Scanner {
 		log('term:  ' + term);
 		let results = await searcher(term.slice(0, 64));
 		if (arg.v) log(results);
-		// default region from prefs
-		let region = prefs.region;
+		// default region from cf
+		let region = cf.region;
 		// file overwrites default region
 		if (/USA/i.test(fileName)) {
 			region = 'USA';

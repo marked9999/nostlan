@@ -9,8 +9,8 @@ class CuiState extends cui.State {
 				return false;
 			}
 			systemsDir = systemsDir.replace(/\\/g, '/');
-			prefs.nlaDir = systemsDir + '/nostlan';
-			await prefsMng.save(prefs);
+			cf.nlaDir = systemsDir + '/nostlan';
+			await cfMng.save(cf);
 			$('#' + this.id).hide();
 			nostlan.start();
 			return;
@@ -47,7 +47,7 @@ class CuiState extends cui.State {
 							await fs.ensureDir(testDir);
 							await fs.remove(testDir);
 						} catch (ror) {
-							if (!prefs.load.readOnlyFS) {
+							if (!cf.load.readOnlyFS) {
 								opn(dir);
 								await cui.error(lang.setupMenu.err2 + '\n' + dir, lang.setupMenu.err1, 'quit');
 							}
@@ -64,16 +64,18 @@ class CuiState extends cui.State {
 					await fs.ensureDir(templateDir);
 				}
 				if (i > 0) continue;
-				// games and/or images dirs might be in a special place
-				// for example the 'roms' folder of MAME
+
 				async function ensureSysDirs(dirType) {
 					let defaultDir = `${systemsDir}/${_sys}/${dirType}`;
 					dirType += 'Dir';
 					if (!emus[_emu][dirType]) {
 						await fs.ensureDir(defaultDir);
 					} else if (!(await fs.exists(defaultDir))) {
+						// games and/or images dirs might be in a special place
+						// for example the 'roms' folder of MAME
+
 						// look for dedicated games dir
-						let dir = templateDir + '/' + emus[_emu][dirType];
+						let dir = util.absPath(emus[_emu][dirType]);
 						await fs.ensureDir(dir);
 						try {
 							await fs.ensureSymlink(dir, defaultDir, 'dir');

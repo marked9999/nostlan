@@ -40,32 +40,32 @@ html {
 
 @font-face {
 	font-family: handwriting0;
-	src: url('../../themes/fonts/edosz.ttf');
+	src: url('../../fonts/edosz.ttf');
 }
 
 @font-face {
 	font-family: handwriting1;
-	src: url('../../themes/fonts/fawn.ttf');
+	src: url('../../fonts/fawn.ttf');
 }
 
 @font-face {
 	font-family: handwriting2;
-	src: url('../../themes/fonts/maxine.ttf');
+	src: url('../../fonts/maxine.ttf');
 }
 
 @font-face {
 	font-family: handwriting3;
-	src: url('../../themes/fonts/TrashHand.ttf');
+	src: url('../../fonts/TrashHand.ttf');
 }
 
 @font-face {
 	font-family: handwriting4;
-	src: url('../../themes/fonts/Yellowtail.ttf');
+	src: url('../../fonts/Yellowtail.ttf');
 }
 
 @font-face {
 	font-family: handwriting5;
-	src: url('../../themes/fonts/Tahu.ttf');
+	src: url('../../fonts/Tahu.ttf');
 }
 
 /*================General====================*/

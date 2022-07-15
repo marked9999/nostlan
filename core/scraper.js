@@ -142,7 +142,7 @@ class Scraper {
 					await this.getImg(game, imgType);
 				}
 			}
-			if (prefs.ui.getExtraImgs || isTemplate) {
+			if (cf.ui.getExtraImgs || isTemplate) {
 				await this.getExtraImgs(game, recheckImgs);
 			}
 		}

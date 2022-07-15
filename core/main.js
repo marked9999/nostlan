@@ -9,30 +9,37 @@ module.exports = async function (args) {
 	global.util = require(__root + '/core/util.js');
 	require('jquery-ui-dist/jquery-ui'); // used for autocomplete
 
-	// Users can put their emu folder with all their games
-	// emulator apps, and box art images anywhere they want but
-	// the preferences file must be located at:
-	// $home/Documents/emu/nostlan/_usr/prefs.json
-	global.usrDir = util.absPath('$home/Documents/emu/nostlan');
-	log(usrDir);
-
 	global.ConfigEditor = require(__root + '/core/ConfigEditor.js');
-	global.prefsMng = new ConfigEditor();
-	prefsMng.configPath = usrDir + '/_usr/prefs.json'; // TODO: change name to settings.json
-	prefsMng.configDefaultsPath = __root + '/prefs/prefsDefaults.json';
-	prefsMng.update = require(__root + '/prefs/prefsUpdate.js');
-	global.prefs = await prefsMng.getDefaults();
-	prefs.args = args;
+	global.cfMng = new ConfigEditor();
+
+	// Users can put the emu folder with all their games,
+	// emulator apps, and box art images anywhere they want but
+	// their configuration file must be located at:
+	// ~/Documents/emu/nostlan/config.json
+	{
+		// move from old location if necessary
+		let dir = util.absPath('~/Documents/emu/nostlan');
+		let oldPath = dir + '/_usr/prefs.json';
+		cfMng.configPath = dir + '/config.json';
+		if (await fs.exists(oldPath)) {
+			await fs.move(oldPath, cfMng.configPath);
+			await fs.remove(dir + '/_usr');
+		}
+	}
+
+	cfMng.configDefaultsPath = __root + '/core/configDefaults.json';
+	cfMng.update = require(__root + '/core/configUpdate.js');
+	global.cf = await cfMng.getDefaults();
+	cf.args = args;
 
 	global.sys = ''; // current system (name)
 	global.syst = {}; // current system (object)
-	global.sysStyle = ''; // style of that system
 	global.emu = ''; // current emulator (name)
 	global.offline = false;
 	// used for creating save states
 	global.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-	// get supported systems + emulators
+	// built-in supported systems
 	let names = [
 		'arcade',
 		'ds',
@@ -69,7 +76,7 @@ module.exports = async function (args) {
 	}
 	delete names;
 
-	if (!prefs.arch) prefs.arch = require('process').arch;
+	if (!cf.arch) cf.arch = require('process').arch;
 
 	// only keeps the info necessary for the current os + chip arch
 	for (let _emu in emus) {
@@ -78,7 +85,7 @@ module.exports = async function (args) {
 		for (let prop of props) {
 			if (!emus[_emu][prop]) continue;
 			let type = osType;
-			if (prop == 'install') type += '-' + prefs.arch;
+			if (prop == 'install') type += '-' + cf.arch;
 
 			if (typeof emus[_emu][prop] != 'string') {
 				if (emus[_emu][prop][type]) {
@@ -99,8 +106,8 @@ module.exports = async function (args) {
 	// alternating reel based game library view, these values
 	// are only used by contro-ui
 	if (mac) {
-		prefs.ui.mouse.wheel.multi = 0.5;
-		prefs.ui.mouse.wheel.smooth = true;
+		cf.ui.mouse.wheel.multi = 0.5;
+		cf.ui.mouse.wheel.smooth = true;
 	}
 
 	// sharp and jimp and image creators/editors
@@ -185,12 +192,12 @@ module.exports = async function (args) {
 	nostlan.setup = async () => {
 		// after the user uses the app for the first time
 		// a preferences file is created, if it exists load it
-		if (await prefsMng.canLoad()) {
-			prefs = await prefsMng.load(prefs);
-			prefs.args = args;
+		if (await cfMng.canLoad()) {
+			cf = await cfMng.load(cf);
+			cf.args = args;
 		}
 		if (!args.dev) {
-			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
+			electron.getCurrentWindow().setFullScreen(cf.ui.launchFullScreen);
 		}
 
 		let sysMenu = `h1.title0\n`;
@@ -207,12 +214,12 @@ module.exports = async function (args) {
 		}
 		$('#sysMenu_5').append(pug(sysMenu));
 
-		if (prefs.ui.autoHideCover) {
+		if (cf.ui.autoHideCover) {
 			$('nav').toggleClass('hide');
 		}
 
 		$('nav').hover(() => {
-			if (prefs.ui.autoHideCover) {
+			if (cf.ui.autoHideCover) {
 				$('nav').toggleClass('hide');
 				if (!$('nav').hasClass('hide')) cui.resize(true);
 			}
@@ -225,7 +232,7 @@ module.exports = async function (args) {
 
 		require(__root + '/cui/_cui.js')();
 
-		sys = args.sys || prefs.session.sys;
+		sys = args.sys || cf.session.sys;
 		syst = systems[sys];
 		cui.mapButtons(sys);
 
@@ -233,9 +240,9 @@ module.exports = async function (args) {
 		// in the cover menu
 		cui.start({
 			v: true,
-			haptic: prefs.ui.gamepad.haptic,
-			gca: prefs.ui.gamepad.gca,
-			gamepadMaps: prefs.ui.gamepad,
+			haptic: cf.ui.gamepad.haptic,
+			gca: cf.ui.gamepad.gca,
+			gamepadMaps: cf.ui.gamepad,
 			normalize: {
 				map: {
 					x: 'y',
@@ -284,7 +291,7 @@ module.exports = async function (args) {
 				// Using the path attribute to get absolute file path
 				let file = f.path;
 				log('file dragged: ', file);
-				await fs.move(file, prefs[sys].libs[0] + '/' + path.parse(file).base);
+				await fs.move(file, cf[sys].libs[0] + '/' + path.parse(file).base);
 			}
 			await cui.libMain.rescanLib();
 		});
@@ -306,7 +313,7 @@ module.exports = async function (args) {
 	};
 
 	nostlan.start = async () => {
-		if (!prefs.ui.lang) {
+		if (!cf.ui.lang) {
 			await cui.change('languageMenu');
 			await delay(1000);
 			cui.resize(true);
@@ -314,10 +321,10 @@ module.exports = async function (args) {
 		}
 		$('body').addClass('waiting'); // changes mouse pointer into progress indicator
 
-		global.lang = JSON.parse(await fs.readFile(`${__root}/lang/${prefs.ui.lang}/${prefs.ui.lang}.json`, 'utf8'));
+		global.lang = JSON.parse(await fs.readFile(`${__root}/lang/${cf.ui.lang}/${cf.ui.lang}.json`, 'utf8'));
 
 		// fill in incomplete translations with english so the app doesn't crash
-		if (prefs.ui.lang != 'en') {
+		if (cf.ui.lang != 'en') {
 			const deepExtend = require('deep-extend');
 			let en = JSON.parse(await fs.readFile(`${__root}/lang/en/en.json`, 'utf8'));
 			deepExtend(en, lang);
@@ -329,8 +336,8 @@ module.exports = async function (args) {
 
 		// convert all markdown files to html
 		for (let file of await klaw(`${__root}/lang/en/md`)) {
-			let dir = `${__root}/lang/${prefs.ui.lang}/md`;
-			if (prefs.ui.lang != 'en' && !(await fs.exists())) {
+			let dir = `${__root}/lang/${cf.ui.lang}/md`;
+			if (cf.ui.lang != 'en' && !(await fs.exists(dir))) {
 				dir = `${__root}/lang/en/md`;
 			}
 			let base = path.parse(file).base;
@@ -347,11 +354,11 @@ module.exports = async function (args) {
 		}
 
 		// ensures the template dir structure exists
-		if (await prefsMng.canLoad()) {
+		if (await cfMng.canLoad()) {
 			await cui.setupMenu.createTemplate();
 		}
 
-		if (prefs.load.online) {
+		if (cf.load.online) {
 			try {
 				if (!args.dev && (await nostlan.updater.check())) {
 					electron.app.quit(); // TODO: make updating optional
@@ -366,8 +373,8 @@ module.exports = async function (args) {
 			// load only the most necessary assets for now
 			await cui.loading.loadSharedAssets(['labels', 'plastic']);
 		}
-		let lblImg = prefs.nlaDir + '/images/labels/long/lbl0.png';
-		if (prefs.nlaDir) $('.label-input img').prop('src', lblImg + '?' + Date.now());
+		let lblImg = cf.nlaDir + '/images/labels/long/lbl0.png';
+		if (cf.nlaDir) $('.label-input img').prop('src', lblImg + '?' + Date.now());
 
 		cui.editView('boxOpenMenu', {
 			keepBackground: true,
@@ -377,15 +384,15 @@ module.exports = async function (args) {
 		$('body').removeClass('waiting');
 		cui.clearDialogs();
 
-		await prefsMng.update(prefs);
+		await cfMng.update(cf);
 
-		if (prefs.nlaDir) {
+		if (cf.nlaDir) {
 			if ((args.dev && !args.testSetup) || nostlan.premium.verify()) {
 				await cui.libMain.load();
-				if (!args.dev && !prefs.saves) {
+				if (!args.dev && !cf.saves) {
 					cui.change('addSavesPathMenu');
 				}
-			} else if ((await prefsMng.canLoad()) && !nostlan.premium.status) {
+			} else if ((await cfMng.canLoad()) && !nostlan.premium.status) {
 				cui.change('donateMenu');
 			}
 		} else {
@@ -404,10 +411,10 @@ module.exports = async function (args) {
 		if (cui.ui != 'alertMenu' && !args.dev && nostlan.premium.verify()) {
 			await cui.nostlanMenu.saveSync('quit');
 		}
-		// save the prefs file
+		// save the cf file
 		// remove the command line args from this session
-		delete prefs.args;
-		if (prefs.nlaDir) await prefsMng.save(prefs);
+		delete cf.args;
+		if (cf.nlaDir) await cfMng.save(cf);
 		electron.app.quit();
 	};
 

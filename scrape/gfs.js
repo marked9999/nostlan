@@ -189,7 +189,7 @@ class GameFaqsScraper {
 			}
 			await dl(url.replace('front', 'side'), imgPath);
 		}
-		if (res && prefs.ui.getBackCoverHQ) {
+		if (res && cf.ui.getBackCoverHQ) {
 			log(url.replace('front', 'back'));
 			if (!name.includes('Side')) {
 				imgPath = dir + '/' + name + 'Back' + ext;

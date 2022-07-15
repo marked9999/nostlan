@@ -2,7 +2,7 @@
  * launcher.js : Nostlan : quinton-ashley
  *
  * Launches emulator apps with the command line args specified
- * in the user's prefs.json file.
+ * in the user's config.json file.
  */
 let child = require('child_process');
 
@@ -41,7 +41,7 @@ class Launcher {
 	}
 
 	async getEmuApp() {
-		let emuApp = util.absPath(prefs[emu].app);
+		let emuApp = util.absPath(cf[emu].app);
 		if (emuApp) {
 			let isCmd = !/\//.test(emuApp);
 			if ((linux && isCmd) || ((!linux || !isCmd) && (await fs.exists(emuApp)))) {
@@ -83,7 +83,7 @@ class Launcher {
 					emuApp = file;
 					if (mac) emuApp = await this.getMacExec(emuApp);
 					if (emuApp && (await fs.exists(emuApp))) {
-						prefs[emu].app = emuApp;
+						cf[emu].app = emuApp;
 						return emuApp;
 					}
 				}
@@ -103,8 +103,8 @@ class Launcher {
 		if (game && game.id) {
 			identify = false;
 			log(game.id);
-			if (!prefs.session[sys]) prefs.session[sys] = {};
-			prefs.session[sys].gameID = game.id;
+			if (!cf.session[sys]) cf.session[sys] = {};
+			cf.session[sys].gameID = game.id;
 			game.file = util.absPath(game.file);
 			this.game = game;
 		}
@@ -132,16 +132,16 @@ class Launcher {
 			}
 			let jsEmuDir = `${__root}/jsEmu/${emu}`;
 
-			if (prefs[emu].dev || prefs[emu].version != emus[emu].latestVersion) {
+			if (cf[emu].dev || cf[emu].version != emus[emu].latestVersion) {
 				await fs.copy(jsEmuDir, dir, {
 					overwrite: true
 				});
-				prefs[emu].version = emus[emu].latestVersion;
-				log('updated ' + emus[emu].name + ' to v' + prefs[emu].version);
+				cf[emu].version = emus[emu].latestVersion;
+				log('updated ' + emus[emu].name + ' to v' + cf[emu].version);
 			}
 
 			let cfg = {};
-			Object.assign(cfg, prefs[emu]);
+			Object.assign(cfg, cf[emu]);
 
 			if (cfg.bios) {
 				cfg.bios = util.absPath('$emu/' + cfg.bios);
@@ -178,10 +178,10 @@ class Launcher {
 
 			cui.setUISub('jsEmu', true);
 
-			for (let port in prefs.jsEmu.keyboard) {
+			for (let port in cf.jsEmu.keyboard) {
 				let board = {};
 				// default keyboard controls
-				Object.assign(board, prefs.jsEmu.keyboard[port]);
+				Object.assign(board, cf.jsEmu.keyboard[port]);
 				if (cfg.keyboard) {
 					// overridden by keyboard control settings
 					// in the preferences for the emu (stored in cfg)
@@ -330,7 +330,7 @@ class Launcher {
 			await fs.writeFile(this.emuAppDir + '/mame.ini', ini);
 		}
 		if (!identify) log(emu);
-		let cmdArray = prefs[emu].cmd || [];
+		let cmdArray = cf[emu].cmd || [];
 
 		let gameFile;
 		if (game) gameFile = game.file;
@@ -386,10 +386,10 @@ class Launcher {
 			// ${btn} button for ${time} seconds`
 			$('#loadDialog1').text(
 				lang.playing.msg2_0 +
-					` "${prefs.inGame.quit.hold}" ` +
+					` "${cf.inGame.quit.hold}" ` +
 					lang.playing.msg2_1 +
 					' ' +
-					(prefs.inGame.quit.time / 1000).toFixed(0) +
+					(cf.inGame.quit.time / 1000).toFixed(0) +
 					' ' +
 					lang.playing.msg2_2
 			);
@@ -606,7 +606,7 @@ class Launcher {
 		}
 		if (!identify) {
 			electron.getCurrentWindow().focus();
-			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
+			electron.getCurrentWindow().setFullScreen(cf.ui.launchFullScreen);
 		}
 		this.state = 'closed';
 		identify = false;

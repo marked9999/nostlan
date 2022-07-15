@@ -17,13 +17,17 @@ global.fs.extract = async (input, output, opt) => {
 			await fs.remove(input);
 		} catch (ror) {
 			if (mac || linux) {
-				await spawn('tar', ['-xzvf', input, '-C', output]);
+				res = await spawn('tar', ['-xzvf', input, '-C', output]);
+				if (res instanceof Error) {
+					er(res);
+					return;
+				}
 			} else {
 				er(ror);
 			}
 		}
 	}
-	if (res) return;
+	if (res) return res;
 	return new Promise((resolve, reject) => {
 		opt.$bin = require('7zip-bin').path7za;
 		require('node-7z')
@@ -45,10 +49,13 @@ class Utility {
 
 	absPath(file) {
 		if (!file) return '';
+		if (file[0] === '~') {
+			file = path.join(os.homedir(), file.slice(1));
+		}
 		let lib = file.match(/\$\d+/g);
 		if (lib) {
 			lib = lib[0].slice(1);
-			file = file.replace(/\$\d+/g, prefs[sys].libs[lib]);
+			file = file.replace(/\$\d+/g, cf[sys].libs[lib]);
 		}
 		let tags = file.match(/\$[a-zA-Z]+/g);
 		if (!tags) return file;
@@ -56,7 +63,7 @@ class Utility {
 		for (let tag of tags) {
 			tag = tag.slice(1);
 			if (tag == 'home') {
-				replacement = os.homedir().replace(/\\/g, '/');
+				replacement = os.homedir();
 			} else if (tag == 'emu') {
 				if (emu && emus[emu].jsEmu && emus[emu].multiSys) {
 					replacement = `${systemsDir}/nostlan/jsEmu/${emu}`;

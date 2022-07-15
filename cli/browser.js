@@ -52,15 +52,15 @@ class Browser {
 
 	async load(params) {
 		this.usr = params.user;
-		if (!prefs.chromium || !(await fs.exists(prefs.chromium))) {
-			prefs.chromium = require('chrome-finder')();
+		if (!cf.chromium || !(await fs.exists(cf.chromium))) {
+			cf.chromium = require('chrome-finder')();
 		}
-		// if (!prefs.chromium) {
-		// 	prefs.chromium = elec.selectFile('select chromium or chrome');
+		// if (!cf.chromium) {
+		// 	cf.chromium = elec.selectFile('select chromium or chrome');
 		// }
 		try {
 			this.pup = await puppeteer.launch({
-				executablePath: prefs.chromium
+				executablePath: cf.chromium
 			});
 		} catch (ror) {
 			log(ror);

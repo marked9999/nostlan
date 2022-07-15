@@ -46,9 +46,7 @@ class CuiState extends cui.State {
 	}
 
 	async load(gameLibDir) {
-		// sysStyle = prefs[sys].style || sys;
-		sysStyle = sys;
-		cui.change('loading', sysStyle);
+		cui.change('loading', sys);
 		// 'loading your game library'
 		let ld0 = lang.loading.msg0_0 + ' ';
 		ld0 += syst.fullName + ' ';
@@ -56,15 +54,15 @@ class CuiState extends cui.State {
 		$('#loadDialog0').text(ld0);
 		// set emu to the default for the current OS
 		for (let _emu of syst.emus) {
-			if (!prefs[_emu].cmd && !emus[_emu].jsEmu) continue;
+			if (!cf[_emu].cmd && !emus[_emu].jsEmu) continue;
 			emu = _emu;
 			break;
 		}
 		await cui.loading.intro();
 
-		if (prefs.args.testIntro) return;
+		if (cf.args.testIntro) return;
 
-		prefs[sys] ??= {};
+		cf[sys] ??= {};
 
 		let systems = [sys];
 		if (syst.peers) systems = systems.concat(syst.peers);
@@ -82,9 +80,9 @@ class CuiState extends cui.State {
 		}
 
 		let gamesPath = `${systemsDir}/${sys}/${sys}Games.json`;
-		// if prefs exist load them if not copy the default prefs
+		// if cf exist load them if not copy the default cf
 		games = [];
-		if ((await fs.exists(gamesPath)) && prefs[sys]?.libs) {
+		if ((await fs.exists(gamesPath)) && cf[sys]?.libs) {
 			games = JSON.parse(await fs.readFile(gamesPath)).games || [];
 		}
 		if (games.length == 0) {
@@ -97,9 +95,9 @@ class CuiState extends cui.State {
 			gameLibDir = gameLibDir || `${systemsDir}/${sys}/games`;
 			log('searching for games in: ' + gameLibDir);
 
-			prefs[sys].libs ??= [];
-			if (!prefs[sys].libs.includes(gameLibDir)) {
-				prefs[sys].libs.push(gameLibDir);
+			cf[sys].libs ??= [];
+			if (!cf[sys].libs.includes(gameLibDir)) {
+				cf[sys].libs.push(gameLibDir);
 			}
 
 			// let files = await klaw(gameLibDir);
@@ -120,15 +118,15 @@ class CuiState extends cui.State {
 			}
 		}
 		systemsDir = systemsDir.replace(/\\/g, '/');
-		prefs.nlaDir = systemsDir + '/nostlan';
+		cf.nlaDir = systemsDir + '/nostlan';
 		try {
-			await fs.ensureDir(prefs.nlaDir);
+			await fs.ensureDir(cf.nlaDir);
 		} catch (ror) {
 			er(ror);
 		}
-		prefs.session.sys = sys;
+		cf.session.sys = sys;
 		cui.mapButtons(sys);
-		await prefsMng.save(prefs);
+		await cfMng.save(cf);
 		if (nostlan.premium.verify()) {
 			await nostlan.saves.update();
 		}
@@ -143,7 +141,7 @@ class CuiState extends cui.State {
 		for (let _emu of syst.emus) {
 			// if cmd not found emulator is not available
 			// for the operating system
-			if (!prefs[_emu].cmd && !emus[_emu].jsEmu) continue;
+			if (!cf[_emu].cmd && !emus[_emu].jsEmu) continue;
 
 			let name = emus[_emu].name;
 			if (emus[_emu].multiSys) {
@@ -169,6 +167,8 @@ class CuiState extends cui.State {
 
 			if (em.patreon) {
 				emuMenu += `\t.col-1.cui(name="${_emu} patreon"): span.material-icons favorite\n`;
+			} else if (em.sponsor) {
+				emuMenu += `\t.col-1.cui(name="${_emu} sponsor"): span.material-icons favorite\n`;
 			}
 
 			if (em.discord) {
@@ -182,7 +182,7 @@ class CuiState extends cui.State {
 		cui.addView('playMenu');
 		cui.addView('emuMenu');
 
-		await cui.change('libMain', sysStyle);
+		await cui.change('libMain', sys);
 		await cui.boxOpenMenu.load(true);
 		await cui.loading.removeIntro();
 		cui.resize(true);
@@ -217,7 +217,7 @@ class CuiState extends cui.State {
 	async addTemplateBoxes(cols) {
 		for (let i = 0; i < cols; i++) {
 			for (let j = 0; j < 4; j++) {
-				let $box = await this.makeGameBox(nostlan.themes[sysStyle].template);
+				let $box = await this.makeGameBox(nostlan.themes[sys].template);
 				$('.reel.r' + i).append($box);
 			}
 		}
@@ -228,10 +228,10 @@ class CuiState extends cui.State {
 		// default layout is alphabetical order by column
 		// altReelsScrolling places games alphabetical order by row
 		for (let i = 0, col = 0; i < games.length; i++) {
-			if (prefs.ui.altReelsScrolling && i >= (games.length * (col + 1)) / cols) {
+			if (cf.ui.altReelsScrolling && i >= (games.length * (col + 1)) / cols) {
 				col++;
 			}
-			if (!prefs.ui.altReelsScrolling && col == cols) {
+			if (!cf.ui.altReelsScrolling && col == cols) {
 				col = 0;
 			}
 			// TODO temp code for hiding other game versions
@@ -246,7 +246,7 @@ class CuiState extends cui.State {
 				let $box = await this.makeGameBox(games[i]);
 				$('.reel.r' + col).append($box);
 				$('#loadDialog2').text(`${i + 1}/${games.length} ${lang.loading.msg4}`);
-				if (!prefs.ui.altReelsScrolling) col++;
+				if (!cf.ui.altReelsScrolling) col++;
 			} catch (ror) {
 				er(ror);
 			}
@@ -296,7 +296,7 @@ class CuiState extends cui.State {
 			await getCoverImg();
 		}
 		if (game.hasNoImages) {
-			if (prefs[sys].onlyShowGamesWithImages) return;
+			if (cf[sys].onlyShowGamesWithImages) return;
 			let id = game.id;
 			game.id = '_TEMPLATE_' + _sys; // temporary
 			await getBoxImg();
@@ -355,7 +355,7 @@ class CuiState extends cui.State {
 			this.shouldSaveChanges = true;
 		}
 		let lbls = '';
-		let stksDir = prefs.nlaDir + '/images/stickers';
+		let stksDir = cf.nlaDir + '/images/stickers';
 
 		let idx = Math.floor(Math.random() * 8);
 		let stkSml = `${stksDir}/small/stk${idx}.png`;
@@ -375,19 +375,19 @@ class CuiState extends cui.State {
 		if (title.length <= 7) fontSize = 2.5;
 		let padding = title.length.map(1, 40, 2, 0);
 		if (padding < 0.5) padding = 0.5;
-		let titleLblImg = prefs.nlaDir + '/images/labels/large/lbl0.png';
+		let titleLblImg = cf.nlaDir + '/images/labels/large/lbl0.png';
 		lbls += `  img(src="${titleLblImg}" style="filter: brightness(0.8) sepia(1) saturate(300%) hue-rotate(${game.lblColor}deg);")\n`;
 		lbls += `  textarea(game_id="${game.id}" style="font-size:${fontSize}vw; padding-top:${padding}vw;") ${title}\n`;
 
 		lbls += `.id.label-input\n`;
 		let unidentified = game.id.includes('UNIDENTIFIED');
-		let idLblImg = prefs.nlaDir + '/images/labels/medium/lbl0.png';
-		if (unidentified) idLblImg = prefs.nlaDir + '/images/labels/long/lbl1.png';
+		let idLblImg = cf.nlaDir + '/images/labels/medium/lbl0.png';
+		if (unidentified) idLblImg = cf.nlaDir + '/images/labels/long/lbl1.png';
 		lbls += `  img(src="${idLblImg}")\n`;
 		lbls += `  input(readonly="true" value="${game.id}")\n`;
 
 		lbls += `.file.label-input\n`;
-		let fileLblImg = prefs.nlaDir + '/images/labels/long/lbl0.png';
+		let fileLblImg = cf.nlaDir + '/images/labels/long/lbl0.png';
 		lbls += `  img(src="${fileLblImg}" style="filter: brightness(0.8) sepia(1) saturate(300%) hue-rotate(${game.lblColor}deg);")\n`;
 		lbls += `  input(readonly="true" value="${game.file.slice(1)}")\n`;
 		return lbls;
@@ -400,10 +400,10 @@ class CuiState extends cui.State {
 
 	async viewerLoad(recheckImgs) {
 		cui.resize(true);
-		if (!prefs.ui.mouse.delta) {
-			prefs.ui.mouse.delta = 100 * prefs.ui.mouse.wheel.multi;
+		if (!cf.ui.mouse.delta) {
+			cf.ui.mouse.delta = 100 * cf.ui.mouse.wheel.multi;
 		}
-		cui.mouse = prefs.ui.mouse;
+		cui.mouse = cf.ui.mouse;
 		let systems = [sys];
 		if (syst.peers) systems = systems.concat(syst.peers);
 		for (let _sys of systems) {
@@ -411,7 +411,7 @@ class CuiState extends cui.State {
 		}
 		games = await nostlan.scraper.loadImages(games, recheckImgs);
 		// determine the amount of columns based on the amount of games
-		let cols = prefs.ui.maxColumns || 8;
+		let cols = cf.ui.maxColumns || 8;
 		if (syst.columnAmount) {
 			if (games.length < 500) cols = syst.columnAmount;
 		} else {
@@ -423,7 +423,7 @@ class CuiState extends cui.State {
 		// the column style must change based on the number of columns
 		let dynColStyle = '<style class="gameViewerColsStyle" type="text/css">' + `.reel {width: ${(1 / cols) * 100}%;}`;
 		for (let i = 0; i < cols; i++) {
-			$glv.append(pug(`.reel.r${i}.row-y.${prefs.ui.altReelsScrolling && i % 2 == 0 ? 'reverse' : 'normal'}`));
+			$glv.append(pug(`.reel.r${i}.row-y.${cf.ui.altReelsScrolling && i % 2 == 0 ? 'reverse' : 'normal'}`));
 			dynColStyle += `.reel.r${i} {left:  ${(i / cols) * 100}%;}`;
 		}
 		dynColStyle += `
@@ -462,8 +462,8 @@ class CuiState extends cui.State {
 		cui.addView('libMain', {
 			hoverCurDisabled: true
 		});
-		if (prefs[sys].colorPalette) {
-			$('body').addClass(prefs[sys].colorPalette);
+		if (cf[sys].colorPalette) {
+			$('body').addClass(cf[sys].colorPalette);
 		}
 	}
 
@@ -499,8 +499,8 @@ class CuiState extends cui.State {
 						games[i].file = file;
 						$game.find('.id.label-input input').val(games[i].id);
 						let unidentified = games[i].id.includes('UNIDENTIFIED');
-						let idLblImg = prefs.nlaDir + '/images/labels/medium/lbl0.png';
-						if (unidentified) idLblImg = prefs.nlaDir + '/images/labels/long/lbl1.png';
+						let idLblImg = cf.nlaDir + '/images/labels/medium/lbl0.png';
+						if (unidentified) idLblImg = cf.nlaDir + '/images/labels/long/lbl1.png';
 						$game.find('.id.label-input img').prop('src', idLblImg);
 						$('#dialogs').show();
 						$('body').addClass('waiting');
@@ -552,8 +552,8 @@ class CuiState extends cui.State {
 	}
 
 	async afterChange() {
-		if (cui.uiPrev == 'loading' && prefs.session[sys] && prefs.session[sys].gameID) {
-			let $cursor = $('#' + prefs.session[sys].gameID).eq(0);
+		if (cui.uiPrev == 'loading' && cf.session[sys] && cf.session[sys].gameID) {
+			let $cursor = $('#' + cf.session[sys].gameID).eq(0);
 			if (!$cursor.length) $cursor = $('#' + games[0].id).eq(0);
 			cui.makeCursor($cursor);
 			cui.scrollToCursor(250, 0);

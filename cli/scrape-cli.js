@@ -23,16 +23,16 @@ module.exports = async function (arg) {
 	}
 
 	global.ConfigEditor = require(__root + '/core/ConfigEditor.js');
-	global.prefsMng = new ConfigEditor();
-	prefsMng.configPath = __root + '/scrape/cli/prefs_' + osType + '.json';
-	global.prefs = {};
-	prefs = await prefsMng.load();
+	global.cfMng = new ConfigEditor();
+	cfMng.configPath = __root + '/scrape/cli/cf_' + osType + '.json';
+	global.cf = {};
+	cf = await cfMng.load();
 
 	global.browser = require('./browser.js');
 	await browser.load({
 		user: 'qashto@gmail.com'
 	});
-	await prefsMng.save(prefs);
+	await cfMng.save(cf);
 
 	let scraper = require(`../${scrape}.js`);
 	global.sys = arg.sys || 'snes'; // sys default

@@ -69,9 +69,9 @@ class Themes {
 	}
 
 	async loadFrame(name) {
-		let themeDir = `${prefs.nlaDir}/sys/${sysStyle}/theme`;
+		let themeDir = `${systemsDir}/sys/${sys}/theme`;
 		if (!(await fs.exists(`${themeDir}/${name}.html`))) {
-			themeDir = `${__root}/sys/${sysStyle}/theme`;
+			themeDir = `${__root}/sys/${sys}/theme`;
 		}
 		let fileHtml = `${themeDir}/${name}.html`;
 		let filePug = `${themeDir}/${name}.pug`;
@@ -83,7 +83,7 @@ class Themes {
 		$('body').prepend(`<webview id="${name}" enableremotemodule="false" src="${fileHtml}"></webview>`);
 		let intro = $('#intro').eq(0)[0];
 		intro.addEventListener('dom-ready', () => {
-			if (prefs.args.testIntro) intro.openDevTools();
+			if (cf.args.testIntro) intro.openDevTools();
 		});
 	}
 
@@ -91,11 +91,11 @@ class Themes {
 		let styles = [];
 		let _systems = [sys];
 		if (sys == 'wii') _systems.push('gcn');
-		let dirs = [__root];
-		if (prefs.nlaDir) dirs.push(prefs.nlaDir);
+		let dirs = [__root + '/sys'];
+		if (cf.nlaDir) dirs.push(systemsDir);
 		for (let dir of dirs) {
 			for (let _sys of _systems) {
-				let file = `${dir}/sys/${_sys}/theme/${name}.css`;
+				let file = `${dir}/${_sys}/theme/${name}.css`;
 				if (dir != __root && !(await fs.exists(file))) {
 					try {
 						await fs.ensureFile(file);

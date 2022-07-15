@@ -10,7 +10,7 @@ class CuiState extends cui.State {
 		} else if (act == 'a') {
 			// try to load/download open box menu images
 			if (!$cursor.attr('class')) return;
-			let style = $cursor.attr('class').split(/\s+/)[0] || sysStyle;
+			let style = $cursor.attr('class').split(/\s+/)[0] || sys;
 			let imgs = nostlan.themes[style].template;
 			if (!(await nostlan.scraper.getExtraImgs(imgs))) return;
 			await cui.boxOpenMenu.load();
@@ -101,8 +101,7 @@ class CuiState extends cui.State {
 				if (await this.editImgSrc($cursor, $box, g, 'box')) break;
 				hasBox = false;
 			}
-			if ((game.sys || sys) != 'switch')
-				$cursor.find('.shade').addClass('hide');
+			if ((game.sys || sys) != 'switch') $cursor.find('.shade').addClass('hide');
 			let $cover = $cursor.find('img.coverBack.hq');
 			if (!$cover.length) $cover = $cursor.find('img.coverFull.hq');
 			if (!$cover.length) $cover = $cursor.find('section img.hq');

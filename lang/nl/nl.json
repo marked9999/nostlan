@@ -26,7 +26,7 @@
 		"err0": "Kies een installatielocatie!",
 		"msg0": "Kies de map waarin het sjabloon dient te worden geplaatst",
 		"err1": "Deze map is niet beschrijfbaar!",
-		"err2": "Deze map is alleen-lezen! Rechtsklik op de map, kies ‘Openen als administrator’, rechtsklik opnieuw, kies ‘Bestandsrechten bewerken’. Pas aan naar lezen/schrijven en maken/verwijderen voor alle gebruikersgroepen, of stel prefs.load.readOnlyFS in op ‘true’ in prefs.json."
+		"err2": "Deze map is alleen-lezen! Rechtsklik op de map, kies ‘Openen als administrator’, rechtsklik opnieuw, kies ‘Bestandsrechten bewerken’. Pas aan naar lezen/schrijven en maken/verwijderen voor alle gebruikersgroepen, of stel load.readOnlyFS in op ‘true’ in config.json"
 	},
 	"libMain": {
 		"nav0Lbl": "Spelen",

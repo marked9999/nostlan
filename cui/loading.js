@@ -8,8 +8,8 @@ class CuiState extends cui.State {
 	}
 
 	async removeIntro(time) {
-		time = time || prefs.load.delay;
-		if (prefs.args.testIntro) time = 1000000;
+		time = time || cf.load.delay;
+		if (cf.args.testIntro) time = 1000000;
 		log('removing intro: ' + time);
 		await delay(time);
 		$('#intro').remove();
@@ -22,8 +22,8 @@ class CuiState extends cui.State {
 		// 'loading additional images'
 		$('#loadDialog0').text(lang.loading.msg1);
 		let gh = 'https://github.com/quinton-ashley/nostlan-img/raw/main/shared';
-		if (!prefs.nlaDir) return;
-		let dir = prefs.nlaDir + '/images';
+		if (!cf.nlaDir) return;
+		let dir = cf.nlaDir + '/images';
 
 		let assetPacks = specificAssets || ['discSleeve', 'labels', 'plastic', 'stickers', 'wraps'];
 

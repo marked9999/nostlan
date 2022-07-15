@@ -3,7 +3,7 @@ module.exports = async function (arg) {
 	arg.__root = path.join(__dirname, '/..').replace(/\\/g, '/');
 	await require(arg.__root + '/core/setup.js')(arg);
 
-	const db = require(__root + '/core/db.js');
+	const db = require(__root + '/db.js');
 
 	global.sys = arg.sys;
 

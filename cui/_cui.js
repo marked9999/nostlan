@@ -75,9 +75,9 @@ module.exports = function () {
 			cui.doAction('back');
 		} else if (act == 'select') {
 			$('nav').toggleClass('hide');
-			prefs.ui.autoHideCover = $('nav').hasClass('hide');
+			cf.ui.autoHideCover = $('nav').hasClass('hide');
 			let $elem = $('#interfaceMenu_12 .cui[name="toggleCover"] .text');
-			if (!prefs.ui.autoHideCover) {
+			if (!cf.ui.autoHideCover) {
 				cui.resize(true);
 				$elem.text(lang.interfaceMenu.opt1[0]);
 			} else {
@@ -95,12 +95,12 @@ module.exports = function () {
 		}
 		// log(act + ' held for ' + timeHeld);
 		if (nostlan.launcher.state == 'running') {
-			if (nostlan.launcher.jsEmu && act == prefs.inGame.pause.hold && timeHeld > prefs.inGame.pause.time) {
+			if (nostlan.launcher.jsEmu && act == cf.inGame.pause.hold && timeHeld > cf.inGame.pause.time) {
 				cui.doAction('pause');
-			} else if (act == prefs.inGame.quit.hold && timeHeld > prefs.inGame.quit.time) {
+			} else if (act == cf.inGame.quit.hold && timeHeld > cf.inGame.quit.time) {
 				log('shutting down emulator');
 				nostlan.launcher.close();
-			} else if (act == prefs.inGame.reset.hold && timeHeld > prefs.inGame.reset.time) {
+			} else if (act == cf.inGame.reset.hold && timeHeld > cf.inGame.reset.time) {
 				log('resetting emulator');
 				nostlan.launcher.reset();
 			}

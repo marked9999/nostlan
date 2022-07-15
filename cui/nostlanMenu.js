@@ -5,16 +5,16 @@ class CuiState extends cui.State {
 		} else if (act == 'syncBackup' || act == 'forceUpdate') {
 			await this.saveSync(act);
 		} else if (act == 'fullscreen') {
-			prefs.ui.launchFullScreen = !prefs.ui.launchFullScreen;
+			cf.ui.launchFullScreen = !cf.ui.launchFullScreen;
 			electron.getCurrentWindow().focus();
-			electron.getCurrentWindow().setFullScreen(prefs.ui.launchFullScreen);
+			electron.getCurrentWindow().setFullScreen(cf.ui.launchFullScreen);
 		} else if (act == 'gameLibMenu') {
 			cui.change('gameLibMenu');
 		} else if (act == 'x') {
 			cui.doAction('quit');
 		} else if (act == 'settings') {
 			cui.change('settingsMenu');
-		} else if (act == 'minimize' || act == 'prefs' || act == 'y') {
+		} else if (act == 'minimize' || act == 'cf' || act == 'y') {
 			electron.getCurrentWindow().minimize();
 		} else if (act == 'patreon') {
 			opn('https://www.patreon.com/nostlan');
@@ -31,7 +31,7 @@ class CuiState extends cui.State {
 			cui.err(lang.donateMenu.msg0);
 			return;
 		}
-		if (!prefs.saves) {
+		if (!cf.saves) {
 			cui.change('addSavesPathMenu');
 			return;
 		}

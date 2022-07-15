@@ -59,7 +59,7 @@ class CuiState extends cui.State {
 			this.$elem.append(pug(instOpt));
 		}
 		cui.addListeners(this.id);
-		let note = prefs[sys].libs.join('<br>') + '<br><br>';
+		let note = cf[sys].libs.join('<br>') + '<br><br>';
 		if (syst.gameExts) {
 			// 'Game files must have the file extension'
 			note += lang.emptyGameLibMenu.msg1_0 + ':<br>';

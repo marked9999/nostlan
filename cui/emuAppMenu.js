@@ -16,7 +16,7 @@ class CuiState extends cui.State {
 				cui.err(lang.playing.err1 + ': ' + emuApp);
 				return;
 			}
-			prefs[emu].app = emuApp;
+			cf[emu].app = emuApp;
 			cui.doAction('back');
 		}
 	}
@@ -30,7 +30,7 @@ class CuiState extends cui.State {
 		wdw.setFullScreen(false);
 		let res = await nostlan.installer.install();
 		wdw.focus();
-		wdw.setFullScreen(prefs.ui.launchFullScreen);
+		wdw.setFullScreen(cf.ui.launchFullScreen);
 		cui.clearDialogs();
 		$('body > :not(#dialogs)').removeClass('dim');
 		if (res) {
