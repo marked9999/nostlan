@@ -1,6 +1,6 @@
 # <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
 
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/nostlan_ad.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad.png">
 
 ## A what? What's a "game launcher"?
 
@@ -34,74 +34,74 @@ Click on an image to see it in full quality 4K!
 
 ### Wii, Gamecube, Virtual Console [Dolphin]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/wii.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/wii_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/wii.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/wii_LQ.png">
 </a></p>
 
 ### Wii U [Cemu]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/wiiu.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/wiiu_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/wiiu.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/wiiu_LQ.png">
 </a></p>
 
 ### Switch [Yuzu, Ryujinx]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/switch.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/switch_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/switch.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/switch_LQ.png">
 </a></p>
 
 ### 3DS [Citra]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/n3ds.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/n3ds_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/n3ds.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/n3ds_LQ.png">
 </a></p>
 
 ### SNES [bsnes, snes9x]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/snes.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/snes_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/snes.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/snes_LQ.png">
 </a></p>
 
 ### Arcade Machines [MAME]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/mame.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/mame_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/mame.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/mame_LQ.png">
 </a></p>
 
 ### NES [Mesen, em-fceux]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/nes.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/nes_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/nes.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/nes_LQ.png">
 </a></p>
 
 ### DS [melonDS, DeSmuME]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ds.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ds_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ds.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/ds_LQ.png">
 </a></p>
 
 ### GBA [mGBA, Visual Boy Advance]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/gba.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/gba_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/gba.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/gba_LQ.png">
 </a></p>
 
 ### PS2 [PCSX2]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ps2.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ps2_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps2.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps2_LQ.png">
 </a></p>
 
 ### PS3 [RPCS3]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ps3.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/ps3_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps3.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps3_LQ.png">
 </a></p>
 
 ### Xbox 360 [Xenia]
 
-<p><a href="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/xbox360.png">
-<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/xbox360_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/xbox360.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/xbox360_LQ.png">
 </a></p>
 
 ## Support the Development of Nostlan!
