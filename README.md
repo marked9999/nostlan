@@ -1,11 +1,14 @@
-# <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan
+# <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
 
-| <a href="https://www.patreon.com/nostlan" max-width=50px><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon.png" max-width=50px></a> | Nostlan is a game launcher for retro and current gen video game emulators! Available on Linux, macOS, and Windows. Systems supported: Arcade, DS, GBA, 3DS, PS2, PS3, SNES, Switch, Wii, Wii U, and Xbox 360. Emulators supported: bsnes, Cemu, Citra, Dolphin, DeSmuME, MAME, melonDS, mGBA, PCSX2, RPCS3, Ryujinx, Xenia, and Yuzu. _[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ and if you enjoy the app [please make a contribution](https://www.paypal.me/qashto/20), any amount is appreciated. Join the [Nostlan community Discord server](https://discord.gg/cT2yNC6). [Support the development of Nostlan on patreon](https://www.patreon.com/nostlan) to gain access to premium features! |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+<img src="https://raw.githubusercontent.com/quinton-ashley/nostlan-screenshots/master/nostlan_ad.png">
 
 ## A what? What's a "game launcher"?
 
-Nostlan is like the part of Netflix where you choose a movie to watch but for your game libraries. It identifies your games and downloads high quality box art for them. You can interact with Nostlan using a mouse and keyboard or a game controller. [Nostlan is unlike any other launcher for video game emulators](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F). It has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
+Nostlan is like the part of Netflix where you choose a movie to watch, but for your game collection. It identifies your games and downloads high quality box art for them. You can interact with Nostlan using a mouse and keyboard or a game controller. [Nostlan is unlike any other launcher for video game emulators](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F). It has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
+
+Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA Mega Drive/Genesis, Switch, Wii, Wii U, and Xbox 360.
+
+Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, xemu, Xenia, Yuzu, and webretro.
 
 ## Features
 
@@ -16,10 +19,14 @@ Nostlan is like the part of Netflix where you choose a movie to watch but for yo
 - nostalgic UI themes for each supported console
 - launches games with emulator apps, not cores
 - most controllers connect to Nostlan automatically, no setup required
-- gamecube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via my own UI framework [contro-ui](https://github.com/quinton-ashley/contro-ui)
+- gamecube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
 - cross-platform support for Linux, macOS, and Windows
 - advanced customization: edit launch commands
 - [PREMIUM FEATURE] backup/sync all your save data to the cloud or local storage device
+
+## Nostlan is free
+
+_[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ and if you enjoy the app [please make a contribution](https://www.paypal.me/qashto/20), any amount is appreciated. Join the [Nostlan community Discord server](https://discord.gg/cT2yNC6). [Support the development of Nostlan on patreon](https://www.patreon.com/nostlan) to gain access to premium features!
 
 ## Supported Systems and Emulators
 
