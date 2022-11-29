@@ -9,14 +9,14 @@
 	"build": {
 		"appId": "com.qashto.nostlan",
 		"copyright": "Copyright © 2018-2022 Quinton Ashley",
-		"electronVersion": "19.0.3",
+		"electronVersion": "21.3.1",
 		"mac": {
 			"category": "public.app-category.game",
 			"target": [
 				{
 					"target": "zip",
 					"arch": [
-						"x64"
+						"arm64"
 					]
 				}
 			]
@@ -125,9 +125,9 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "sudo chmod -R 777 .",
 		"rebuild-l": "rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-mi": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-m": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --host_arch=arm64 --target_arch=arm64 --arch=arm64 --disturl=https://atom.io/download/atom-shell",
-		"rebuild-w": "npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-mi": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=21.3.1 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-m": "SHARP_IGNORE_GLOBAL_LIBVIPS=true rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=21.3.1 --host_arch=arm64 --target_arch=arm64 --arch=arm64 --disturl=https://atom.io/download/atom-shell",
+		"rebuild-w": "npm rebuild --build-from-source --runtime=electron --target=21.3.1 --disturl=https://atom.io/download/atom-shell",
 		"relink": "npm link ../../pkg/contro-ui",
 		"dist-l": "electron-builder -l",
 		"dist-m": "electron-builder -m -c.npmRebuild=false",
@@ -140,5 +140,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "1.25.5"
+	"version": "1.25.6"
 }
