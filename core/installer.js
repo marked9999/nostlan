@@ -67,7 +67,9 @@ class Installer {
 			if (!res) return;
 		}
 		if (emus[emu].jsEmu) {
-			let jsEmuDir = `${__root}/jsEmu/${emu}`;
+			let jsEmuDir = __root;
+			if (__root.slice(-4) == 'asar') jsEmuDir += '.unpacked';
+			jsEmuDir += `/jsEmu/${emu}`;
 			await fs.copy(jsEmuDir, this.dir, {
 				overwrite: true
 			});
@@ -229,6 +231,7 @@ class Installer {
 				// 'finishing, deleting package file'
 				this.loadLog(lang.emuAppMenu.msg10);
 				await fs.remove(res);
+				await delay(3000);
 			}
 		} else if (mac && ins.standalone) {
 			files = await klaw(dir);

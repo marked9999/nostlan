@@ -130,7 +130,9 @@ class Launcher {
 			if (emus[emu].multiSys) {
 				dir = `${systemsDir}/nostlan/jsEmu/${emu}`;
 			}
-			let jsEmuDir = `${__root}/jsEmu/${emu}`;
+			let jsEmuDir = __root;
+			if (__root.slice(-4) == 'asar') jsEmuDir += '.unpacked';
+			jsEmuDir += `/jsEmu/${emu}`;
 
 			if (cf[emu].dev || cf[emu].version != emus[emu].latestVersion) {
 				await fs.copy(jsEmuDir, dir, {
@@ -334,20 +336,17 @@ class Launcher {
 
 		let gameFile;
 		if (game) gameFile = game.file;
-		if (game && syst.gameFolders) {
+		if (game && syst.gameFolders && (await fs.stat(gameFile)).isDirectory()) {
 			if (syst.gameRoot) gameFile += '/' + syst.gameRoot;
-			if ((await fs.stat(gameFile)).isDirectory()) {
-				let limit = 0;
-				if (syst.gameFolderSearchDepthLimit) limit = syst.gameFolderSearchDepthLimit;
-				let files = await klaw(gameFile, {
-					depthLimit: limit
-				});
-				log(files);
-				for (let file of files) {
-					if (syst.gameExts.includes(path.parse(file).ext.slice(1))) {
-						gameFile = file;
-						break;
-					}
+			let limit = syst.gameFolderSearchDepthLimit || 0;
+			let files = await klaw(gameFile, {
+				depthLimit: limit
+			});
+			log(files);
+			for (let file of files) {
+				if (syst.gameExts.includes(path.parse(file).ext.slice(1))) {
+					gameFile = file;
+					break;
 				}
 			}
 		}

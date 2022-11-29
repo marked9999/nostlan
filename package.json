@@ -10,6 +10,7 @@
 		"appId": "com.qashto.nostlan",
 		"copyright": "Copyright © 2018-2022 Quinton Ashley",
 		"electronVersion": "21.3.1",
+		"asarUnpack": "jsEmu",
 		"mac": {
 			"category": "public.app-category.game",
 			"target": [
@@ -140,5 +141,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "1.26.0"
+	"version": "1.26.1"
 }

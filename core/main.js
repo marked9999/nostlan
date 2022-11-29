@@ -360,8 +360,8 @@ module.exports = async function (args) {
 
 		if (cf.load.online) {
 			try {
-				if (!args.dev && (await nostlan.updater.check())) {
-					electron.app.quit(); // TODO: make updating optional
+				if (!args.dev) {
+					await nostlan.updater.check();
 				}
 			} catch (ror) {
 				log('running in offline mode');

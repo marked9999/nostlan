@@ -56,7 +56,9 @@ module.exports = async function (defaults) {
 		if (cf.region.length == 1) cf.region = regions[cf.region] || 'USA';
 	}
 
-	if (semver.gte(ver, '1.24.0')) return;
+	if (semver.gt(ver, '1.26.0')) return;
+
+	if (mac) cf.cemu.cmd = ['${app}', '-g', '${game}', '-f'];
 
 	if (semver.gte(ver, '1.22.1')) return;
 

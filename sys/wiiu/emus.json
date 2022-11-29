@@ -6,13 +6,13 @@
 		"patreon": "https://www.patreon.com/cemu",
 		"discord": "https://discord.gg/5psYsup",
 		"appRegex": {
-			"linux": "Cemu\\.exe",
-			"mac": "Cemu\\.exe",
+			"linux": "Cemu\\.AppImage",
+			"mac": "Cemu\\.app",
 			"win": "Cemu\\.exe"
 		},
 		"cmd": {
-			"linux": ["wine", "${app}", "-g", "${game}", "-f"],
-			"mac": ["wine", "${app}", "-g", "${game}", "-f"],
+			"linux": ["${app}", "-g", "${game}", "-f"],
+			"mac": ["${app}", "-g", "${game}", "-f"],
 			"win": ["${app}", "-g", "${game}", "-f"]
 		},
 		"install": {

@@ -10,10 +10,12 @@
 			"linux": "net.rpcs3.RPCS3"
 		},
 		"appRegex": {
+			"mac": "RPCS3.app",
 			"win": "rpcs3\\.exe"
 		},
 		"cmd": {
 			"linux": ["flatpak", "run", "${app}", "${game}"],
+			"mac": ["${app}", "${game}"],
 			"win": ["${app}", "${game}"]
 		},
 		"install": {

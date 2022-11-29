@@ -7,7 +7,7 @@
 		"discord": "https://discord.gg/VkQYXAZ",
 		"appRegex": {
 			"linux": "^Ryujinx",
-			"mac": "^Ryujinx",
+			"mac": "Ryujinx\\.app",
 			"win": "^Ryujinx\\.exe"
 		},
 		"cmd": {
