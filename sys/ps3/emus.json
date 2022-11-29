@@ -24,13 +24,13 @@
 				]
 			},
 			"win-x64": {
-				"portable": "https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-73ed657e00bd43c41d17bc0990c9f83c456b8a28/rpcs3-v0.0.23-13925-73ed657e_win64.7z"
+				"portable": "https://github.com/RPCS3/rpcs3-binaries-win/releases/download/build-60c01ef9a9d59150f006192d5d72a4e8af97be33/rpcs3-v0.0.25-14397-60c01ef9_win64.7z"
 			},
 			"mac-x64": {
-				"installer": "https://github.com/RPCS3/rpcs3-binaries-mac/releases/download/build-73ed657e00bd43c41d17bc0990c9f83c456b8a28/rpcs3-v0.0.23-13925-73ed657e_macos.dmg"
+				"installer": "https://github.com/RPCS3/rpcs3-binaries-mac/releases/download/build-60c01ef9a9d59150f006192d5d72a4e8af97be33/rpcs3-v0.0.25-14397-60c01ef9_macos.dmg"
 			},
 			"mac-arm64": {
-				"installer": "https://github.com/RPCS3/rpcs3-binaries-mac/releases/download/build-73ed657e00bd43c41d17bc0990c9f83c456b8a28/rpcs3-v0.0.23-13925-73ed657e_macos.dmg"
+				"installer": "https://github.com/RPCS3/rpcs3-binaries-mac/releases/download/build-60c01ef9a9d59150f006192d5d72a4e8af97be33/rpcs3-v0.0.25-14397-60c01ef9_macos.dmg"
 			}
 		}
 	}

@@ -31,7 +31,7 @@
 						}
 					}
 				],
-				"portable": "https://sdlmame.lngn.net/stable/mame0245-x86.zip"
+				"portable": "https://sdlmame.lngn.net/stable/mame0249-x86.zip"
 			},
 			"mac-arm64": {
 				"prereqs": [
@@ -42,10 +42,10 @@
 						}
 					}
 				],
-				"portable": "https://sdlmame.lngn.net/stable/mame0245-arm64.zip"
+				"portable": "https://sdlmame.lngn.net/stable/mame0249-arm64.zip"
 			},
 			"win-x64": {
-				"portable": "https://github.com/mamedev/mame/releases/download/mame0245/mame0245b_64bit.exe"
+				"portable": "https://github.com/mamedev/mame/releases/download/mame0249/mame0249b_64bit.exe"
 			}
 		}
 	}

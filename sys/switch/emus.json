@@ -20,10 +20,10 @@
 				"portable": "https://github.com/Ryujinx/release-channel-master/releases/download/1.1.394/ryujinx-1.1.394-linux_x64.tar.gz"
 			},
 			"mac-arm64": {
-				"portable": "https://github.com/Ryujinx/release-channel-macos/releases/download/1.1.0-macos1/Ryujinx-1.1.0-macos1-macos_universal.app.tar.gz"
+				"standalone": "https://github.com/Ryujinx/release-channel-macos/releases/download/1.1.0-macos1/Ryujinx-1.1.0-macos1-macos_universal.app.tar.gz"
 			},
 			"mac-x64": {
-				"portable": "https://github.com/Ryujinx/release-channel-macos/releases/download/1.1.0-macos1/Ryujinx-1.1.0-macos1-macos_universal.app.tar.gz"
+				"standalone": "https://github.com/Ryujinx/release-channel-macos/releases/download/1.1.0-macos1/Ryujinx-1.1.0-macos1-macos_universal.app.tar.gz"
 			},
 			"win-x64": {
 				"portable": "https://github.com/Ryujinx/release-channel-master/releases/download/1.1.394/ryujinx-1.1.394-win_x64.zip"

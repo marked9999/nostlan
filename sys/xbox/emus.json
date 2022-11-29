@@ -18,7 +18,7 @@
 						"installer": "https://aka.ms/vs/16/release/vc_redist.x86.exe"
 					}
 				],
-				"portable": "https://github.com/Cxbx-Reloaded/Cxbx-Reloaded/releases/download/CI-db1bae2/CxbxReloaded-Release-VS2019.zip"
+				"portable": "https://github.com/Cxbx-Reloaded/Cxbx-Reloaded/releases/download/CI-0b69563/CxbxReloaded-Release-VS2022.zip"
 			}
 		}
 	},
