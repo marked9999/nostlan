@@ -1,5 +1,7 @@
 const delay = require('delay');
 
+let mouseIsDown = 0;
+
 module.exports = function () {
 	cui.passthrough = (contro) => {
 		if (!nostlan.launcher.jsEmu) return;
@@ -7,21 +9,18 @@ module.exports = function () {
 		nostlan.launcher.jsEmu.executeJavaScript(`jsEmu.controIn(${JSON.stringify(contro)})`);
 	};
 
-	document.addEventListener('mousedown', (e) => {
-		if (!nostlan.launcher.jsEmu) return;
+	for (let type of ['mousedown', 'mousemove', 'mouseup']) {
+		document.addEventListener(type, (e) => {
+			if (!nostlan.launcher.jsEmu) return;
 
-		nostlan.launcher.jsEmu.executeJavaScript(
-			`document.dispatchEvent(new MouseEvent("mousedown",{view:window,bubbles:true,cancelable:true,buttons:1,clientX:${e.clientX},clientY:${e.clientY}}))`
-		);
-	});
+			if (e.type == 'mousedown') mouseIsDown = 1;
+			else if (e.type == 'mouseup') mouseIsDown = 0;
 
-	document.addEventListener('mouseup', (e) => {
-		if (!nostlan.launcher.jsEmu) return;
-
-		nostlan.launcher.jsEmu.executeJavaScript(
-			`document.dispatchEvent(new MouseEvent("mouseup",{view:window,bubbles:true,cancelable:true,buttons:1,clientX:${e.clientX},clientY:${e.clientY}}))`
-		);
-	});
+			nostlan.launcher.jsEmu.executeJavaScript(
+				`document.dispatchEvent(new MouseEvent("${e.type}",{view:window,bubbles:true,cancelable:true,buttons:${mouseIsDown},clientX:${e.clientX},clientY:${e.clientY}}))`
+			);
+		});
+	}
 
 	cui.onResize = (adjust) => {};
 
