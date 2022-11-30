@@ -7,6 +7,22 @@ module.exports = function () {
 		nostlan.launcher.jsEmu.executeJavaScript(`jsEmu.controIn(${JSON.stringify(contro)})`);
 	};
 
+	document.addEventListener('mousedown', (e) => {
+		if (!nostlan.launcher.jsEmu) return;
+
+		nostlan.launcher.jsEmu.executeJavaScript(
+			`document.dispatchEvent(new MouseEvent("mousedown",{view:window,bubbles:true,cancelable:true,buttons:1,clientX:${e.clientX},clientY:${e.clientY}}))`
+		);
+	});
+
+	document.addEventListener('mouseup', (e) => {
+		if (!nostlan.launcher.jsEmu) return;
+
+		nostlan.launcher.jsEmu.executeJavaScript(
+			`document.dispatchEvent(new MouseEvent("mouseup",{view:window,bubbles:true,cancelable:true,buttons:1,clientX:${e.clientX},clientY:${e.clientY}}))`
+		);
+	});
+
 	cui.onResize = (adjust) => {};
 
 	cui.clearDialogs = () => {
