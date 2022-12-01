@@ -153,6 +153,7 @@
 		"msg4": "launching"
 	},
 	"emuAppMenu": {
+		"title0": "Emulator not found!",
 		"opt0": "install",
 		"opt1": "browse for",
 		"err0": "This emulator is not available for your computer's operating system",
@@ -176,7 +177,8 @@
 		"msg12": "download complete",
 		"msg13": "opening macOS .dmg file",
 		"msg14": "opening installer executable",
-		"msg15": "Almost done, please finish install manually"
+		"msg15": "Almost done, please finish install manually",
+		"msg16": "To play games with this emulator you'll need to install or locate the emulator app."
 	},
 	"emptyGameLibMenu": {
 		"title0": "No games found",

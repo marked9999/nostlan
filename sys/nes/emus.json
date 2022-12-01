@@ -6,7 +6,7 @@
 		"appRegex": "index\\.html",
 		"jsEmu": true,
 		"install": {
-			"jsEmu": "https://unpkg.com/em-fceux/dist/fceux.wasm"
+			"jsEmu": ["https://unpkg.com/em-fceux@2.1.0/dist/fceux.js", "https://unpkg.com/em-fceux@2.1.0/dist/fceux.wasm"]
 		},
 		"saveStateSlots": 10,
 		"loadStateSlots": 10,

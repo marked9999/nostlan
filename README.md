@@ -25,7 +25,7 @@ Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Pla
 - cross-platform support for Linux, macOS, and Windows
 - menu translations for Spanish, German, Hebrew, Russian, and Dutch
 - advanced customization: edit launch commands
-- [PREMIUM FEATURE] backup/sync all your save data to the cloud or local storage device
+- **_[PREMIUM FEATURE]_** backup/sync all your save data to the cloud or local storage device
 
 ## Nostlan is free
 
@@ -133,6 +133,7 @@ I've put a lot of effort into documenting Nostlan on the wiki. I hope you find i
 
 Adaptive Button Mapping  
 Credits  
+Config File Editing Guide  
 Custom Themes  
 Development Info  
 Features  
@@ -141,11 +142,10 @@ Hardware Compatibility
 How is Nostlan different from other front ends?  
 Image Names to use for Game Art  
 Premium Features  
+Progress Reports  
 Screenshots  
 Setting up Nostlan  
 Supported Systems and Emulators  
-Update Logs  
-User Preferences  
 Using Nostlan
 
 ## Contact

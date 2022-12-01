@@ -18,20 +18,17 @@ class Nostlan_emfceux {
 
 		// Run the emulation update loop.
 		// Use requestAnimationFrame() to synchronise to repaints.
+		let _this = this;
 
-		const updateLoop = () => {
+		function updateLoop() {
 			window.requestAnimationFrame(updateLoop);
-			this.fceux.update();
-		};
+			_this.fceux.update();
+		}
 		window.requestAnimationFrame(updateLoop);
 
 		await this.fceux.ready;
-		this.ready = true;
 
-		document.onmousedown = (e) => {
-			this.fceux.setConfig('system-port-2', 'zapper');
-			this.fceux.triggerZapper(e.clientX, e.clientY);
-		};
+		if (cfg.mute) this.mute(true);
 
 		if (cfg.saveStates) {
 			let saveStates = {};
@@ -48,7 +45,7 @@ class Nostlan_emfceux {
 			this.fceux.importSaveFiles(saveStates);
 		}
 
-		if (cfg.mute) this.mute(true);
+		this.ready = true;
 	}
 
 	// The array index below corresponds to the button bit index.
@@ -56,7 +53,6 @@ class Nostlan_emfceux {
 	controIn(contro) {
 		if (!this.ready) return;
 		let port = contro.port;
-		if (port == 1) this.fceux.setConfig('system-port-2', 'controller');
 		for (let i = 8 * port; i < 8 * (port + 1); i++) {
 			if (contro.btns[this.btns[i % 8]]) {
 				this.bits |= 1 << i;

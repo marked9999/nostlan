@@ -24,9 +24,9 @@
 		"saveStateSlots": 1,
 		"loadStateSlots": 1,
 		"install": {
-			"jsEmu": "https://github.com/BinBashBanana/webretro/archive/refs/tags/v6.4.zip"
+			"jsEmu": "https://github.com/BinBashBanana/webretro/releases/download/v6.5/webretro-v6.5.zip"
 		},
-		"latestVersion": "6.4.0",
+		"latestVersion": "6.5.0",
 		"dev": false,
 		"mute": false,
 		"keyboard": [{}, {}]

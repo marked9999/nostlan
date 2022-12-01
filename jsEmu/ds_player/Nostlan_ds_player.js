@@ -37,11 +37,9 @@ class Nostlan_ds_player {
 		this.pause(false);
 	}
 
-	mute(toggle) {}
+	mute() {}
 
-	unmute() {
-		this.mute(false);
-	}
+	unmute() {}
 
 	loadState() {
 		// uiSaveRestore;

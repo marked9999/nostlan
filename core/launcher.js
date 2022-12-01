@@ -226,7 +226,7 @@ class Launcher {
 			});
 			if (cfg.dev) jsEmu.openDevTools();
 
-			// FAIL: does not load the scripts in time, this approach does not work
+			// FAIL: does not load the scripts in time, this approach does not work, leaving this here to remind myself
 			// for (let src of ['GamepadsSpoof.js', 'Nostlan_' + emu + '.js']) {
 			// 	let s = document.createElement('script');
 			// 	s.type = 'text/javascript';
@@ -236,6 +236,9 @@ class Launcher {
 
 			this.cfg = cfg;
 			this.jsEmu = jsEmu;
+
+			jsEmu.setAudioMuted(false);
+			if (cfg.mute) this.mute();
 
 			let _this = this;
 			jsEmu.addEventListener('ipc-message', async (event) => {
@@ -522,7 +525,7 @@ class Launcher {
 			this.jsEmu.remove();
 			$('body').removeClass('jsEmu');
 			this.jsEmu = null;
-			this.cfg = null;
+			cf[emu] = this.cfg;
 			cui.setUISub(sys);
 		}
 	}
@@ -554,11 +557,13 @@ class Launcher {
 	mute() {
 		this.jsEmu.executeJavaScript(`jsEmu.mute();`);
 		this.jsEmu.setAudioMuted(true);
+		this.cfg.mute = true;
 	}
 
 	unmute() {
 		this.jsEmu.executeJavaScript(`jsEmu.unmute();`);
 		this.jsEmu.setAudioMuted(false);
+		this.cfg.mute = false;
 	}
 
 	openDevTools() {
