@@ -1,10 +1,12 @@
 # <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
 
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad_banner.png">
 
 ## A what? What's a "game launcher"?
 
-Nostlan is like the part of Netflix where you choose a movie to watch, but for your game collection. It identifies your games and downloads high quality box art for them. You can interact with Nostlan using a mouse and keyboard or a game controller. [Nostlan is unlike any other launcher for video game emulators](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F). It has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
+Nostlan is like the main page of Netflix, but for your video games. Nostlan downloads high quality box art for each game it identifies. Choose a game and press play to launch it with an emulator!
+
+[Nostlan is unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
 
 Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA Mega Drive/Genesis, Switch, Wii, Wii U, and Xbox 360.
 
@@ -21,12 +23,17 @@ Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Pla
 - most controllers connect to Nostlan automatically, no setup required
 - gamecube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
 - cross-platform support for Linux, macOS, and Windows
+- menu translations for Spanish, German, Hebrew, Russian, and Dutch
 - advanced customization: edit launch commands
 - [PREMIUM FEATURE] backup/sync all your save data to the cloud or local storage device
 
 ## Nostlan is free
 
-_[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ and if you enjoy the app [please make a contribution](https://www.paypal.me/qashto/20), any amount is appreciated. Join the [Nostlan community Discord server](https://discord.gg/cT2yNC6). [Support the development of Nostlan on patreon](https://www.patreon.com/nostlan) to gain access to premium features!
+_[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ but if you enjoy the app [please donate](https://www.paypal.me/qashto/20)! Any amount is appreciated. :)
+
+Be sure to join the [Nostlan community Discord server](https://discord.gg/cT2yNC6)!
+
+[Support the development of Nostlan on Patreon](https://www.patreon.com/nostlan) to gain access to premium features!
 
 ## Supported Systems and Emulators
 
@@ -125,7 +132,6 @@ Every month, Patreon supporters will be able to see an exclusive post with the m
 I've put a lot of effort into documenting Nostlan on the wiki. I hope you find it helpful! Go to the wiki to find out more info on these topics:
 
 Adaptive Button Mapping  
-Copyright, Trademark, and Open Source Licensing Info  
 Credits  
 Custom Themes  
 Development Info  
@@ -156,8 +162,8 @@ Although [emulation is legal](https://en.wikipedia.org/wiki/Bleem!), pirating ga
 
 Nostlan is not affiliated with Nintendo, Sony, SEGA, or Microsoft. All trademarks and servicemarks referenced in this app are the property of their respective owners.
 
-MAME and the MAME Logo are Copyright © 1997-2019 MAMEDev and contributors. MAME® is a registered trademark of Gregory Ember. Use of the MAME name and logo is done so with the expressed written permission from the trademark owner. For more information, please visit <https://www.mamedev.org>.
+MAME and the MAME Logo are Copyright © 1997-2023 MAMEDev and contributors. MAME® is a registered trademark of Gregory Ember. Use of the MAME name and logo is done so with the expressed written permission from the trademark owner. For more information, please visit <https://www.mamedev.org>.
 
-Nostlan and the Nostlan logo are Copyright © 2019-2021 Quinton Ashley. The Nostlan logo images are licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). The template images found in the [nostlan-img repository](https://github.com/quinton-ashley/nostlan-img) are public domain images using the Public Domain License CC0. The Nostlan software itself is fully open source and licensed under the copyleft [GNU GPLv3 license](https://en.wikipedia.org/wiki/GNU_General_Public_License).
+Nostlan was created by Quinton Ashley Copyright © 2019-2023. The Nostlan logo images are licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). The template images found in the [nostlan-img repository](https://github.com/quinton-ashley/nostlan-img) are public domain images under the Public Domain License CC0. The Nostlan software itself is open sourced and licensed under the copyleft [GNU GPLv3 license](https://en.wikipedia.org/wiki/GNU_General_Public_License).
 
 ![GNU GPLv3 logo](https://www.gnu.org/graphics/gpl-v3-logo.svg)

@@ -180,7 +180,9 @@ class Scanner {
 					};
 					// gives the game an id or not if it fails
 					try {
-						game = await nostlan.launcher.identifyGame(game);
+						if (sys != 'switch' || !mac) {
+							game = await nostlan.launcher.identifyGame(game);
+						}
 					} catch (ror) {}
 					if (game.id || (sys == 'switch' && game.tid)) {
 						let res;

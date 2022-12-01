@@ -96,6 +96,9 @@ class Launcher {
 
 	async launch(game, opt) {
 		opt = opt || {};
+		if (emus[emu].jsEmu) {
+			await cui.alert('<img src="../views/img/kb_layout.png">');
+		}
 		this.state = 'launching';
 		$('#dialogs').show();
 		// 'launching'
@@ -122,7 +125,7 @@ class Launcher {
 
 		if (emus[emu].jsEmu) {
 			if (!game) {
-				cui.alert('Not configurable yet.');
+				cui.alert('Not configurable yet.', 'Alert');
 				this.state = 'closed';
 				return;
 			}
@@ -206,8 +209,10 @@ class Launcher {
 					fileHtml += '?core=' + mult.core;
 				}
 			}
+
 			// NOT a good way to do it
 			// if (emu == 'webretro') fileHtml += '&rom=' + game.file;
+
 			let preloadJS = __root + '/jsEmu/preload.js';
 			$('body').prepend(
 				`<webview id="jsEmu" enableremotemodule="false" src="${fileHtml}" preload="${preloadJS}"></webview>`

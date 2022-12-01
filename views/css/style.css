@@ -15,6 +15,10 @@ html {
 	background-color: #000;
 	text-align: center;
 	user-select: none;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .waiting {
@@ -163,12 +167,17 @@ game {
 
 #gameBoxOpen,
 #gameBoxOpenMask {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	height: 100%;
+	position: fixed;
+	top: 50%;
+	/* left: 50%; */
+	height: 100vh;
 	width: auto;
-	transform: translate(-50%);
+	transform: translate(-50%, -50%);
+}
+
+.ds #gameBoxOpen,
+.ds #gameBoxOpenMask {
+	height: 75vh;
 }
 
 #boxOpenMenu_2 .row-y * {
@@ -905,5 +914,9 @@ button:focus {
 }
 
 .menu .row-x {
+	margin-bottom: 16px;
+}
+
+#alertMenu_9999 img {
 	margin-bottom: 16px;
 }
