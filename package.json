@@ -15,7 +15,7 @@
 			"category": "public.app-category.game",
 			"target": [
 				{
-					"target": "zip",
+					"target": "7z",
 					"arch": [
 						"arm64"
 					]
@@ -141,5 +141,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "2.0.0"
+	"version": "2.0.1"
 }

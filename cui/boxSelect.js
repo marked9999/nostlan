@@ -209,5 +209,9 @@ class CuiState extends cui.State {
 			$(`#${game.id} .sticker`).hide();
 		}
 	}
+
+	afterChange() {
+		cui.scrollToCursor(0, 0);
+	}
 }
 module.exports = new CuiState();
