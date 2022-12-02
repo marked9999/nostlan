@@ -185,7 +185,7 @@ class CuiState extends cui.State {
 		await cui.change('libMain', sys);
 		await cui.boxOpenMenu.load(true);
 		await cui.loading.removeIntro();
-		cui.resize(true);
+		cui.scrollToCursor();
 	}
 
 	searchForGame(char) {
@@ -257,7 +257,6 @@ class CuiState extends cui.State {
 		$('#loadDialog1').text(game.title);
 		let _sys = game.sys || sys;
 		let isTemplate = game.id.slice(1, 9) == 'TEMPLATE';
-		let isUnidentified = game.id.slice(1, 13) == 'UNIDENTIFIED';
 		game.hasNoImages = false;
 
 		let noBox;
@@ -398,8 +397,12 @@ class CuiState extends cui.State {
 		return hues[Math.floor(Math.random() * hues.length)];
 	}
 
+	onResize() {
+		cui.scrollToCursor(0, 0);
+	}
+
 	async viewerLoad(recheckImgs) {
-		cui.resize(true);
+		cui.scrollToCursor(0, 0);
 		if (!cf.ui.mouse.delta) {
 			cf.ui.mouse.delta = 100 * cf.ui.mouse.wheel.multi;
 		}
@@ -556,7 +559,6 @@ class CuiState extends cui.State {
 			let $cursor = $('#' + cf.session[sys].gameID).eq(0);
 			if (!$cursor.length) $cursor = $('#' + games[0].id).eq(0);
 			cui.makeCursor($cursor);
-			cui.scrollToCursor(250, 0);
 		} else if (cui.uiPrev == 'boxSelect') {
 			await cui.boxSelect.flipGameBox(cui.$cursor, true);
 			await cui.boxSelect.changeImageResolution(cui.$cursor);

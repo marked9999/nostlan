@@ -93,7 +93,6 @@ module.exports = function () {
 			cf.ui.autoHideCover = $('nav').hasClass('hide');
 			let $elem = $('#interfaceMenu_12 .cui[name="toggleCover"] .text');
 			if (!cf.ui.autoHideCover) {
-				cui.resize(true);
 				$elem.text(lang.interfaceMenu.opt1[0]);
 			} else {
 				$elem.text(lang.interfaceMenu.opt1[1]);

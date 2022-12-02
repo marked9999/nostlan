@@ -260,7 +260,7 @@ class Scanner {
 				} else {
 					this.olog('game could not be identified in the database\r\n');
 					game = {
-						id: '_UNIDENTIFIED_' + sys + '_' + unidentifiedAmt,
+						id: '_' + sys + '_' + unidentifiedAmt,
 						title: term
 					};
 					unidentifiedAmt++;

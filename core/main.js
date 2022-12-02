@@ -219,10 +219,7 @@ module.exports = async function (args) {
 		}
 
 		$('nav').hover(() => {
-			if (cf.ui.autoHideCover) {
-				$('nav').toggleClass('hide');
-				if (!$('nav').hasClass('hide')) cui.resize(true);
-			}
+			if (cf.ui.autoHideCover) $('nav').toggleClass('hide');
 		});
 
 		cui.click($('#nav0'), 'x');
@@ -315,8 +312,6 @@ module.exports = async function (args) {
 	nostlan.start = async () => {
 		if (!cf.ui.lang) {
 			await cui.change('languageMenu');
-			await delay(1000);
-			cui.resize(true);
 			return; // make user choose language first
 		}
 		$('body').addClass('waiting'); // changes mouse pointer into progress indicator
@@ -398,8 +393,6 @@ module.exports = async function (args) {
 		} else {
 			cui.change('welcomeMenu');
 		}
-		await delay(1000);
-		cui.resize(true);
 	};
 
 	nostlan.quit = async () => {

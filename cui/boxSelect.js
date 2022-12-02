@@ -24,13 +24,17 @@ class CuiState extends cui.State {
 			let ogHeight = $cursor.height();
 			await this.flipGameBox($cursor);
 			if (Math.abs(ogHeight - $cursor.height()) > 10) {
-				cui.resize();
 				cui.scrollToCursor(0, 0);
 			}
 		} else if (/key-./.test(act)) {
 			// letter by letter search for game
 			cui.libMain.searchForGame(act.slice(4));
 		}
+	}
+
+	onResize() {
+		cui.scrollToCursor(0, 0);
+		this.fitCoverToScreen(cui.$cursor);
 	}
 
 	async editImgSrc($cursor, $img, game, imgType) {

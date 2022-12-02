@@ -10,18 +10,18 @@ Nostlan is like the main page of Netflix, but for your video games. Nostlan down
 
 Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA Mega Drive/Genesis, Switch, Wii, Wii U, and Xbox 360.
 
-Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, xemu, Xenia, Yuzu, and webretro.
+Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, webretro, xemu, Xenia, and Yuzu.
 
 ## Features
 
 - navigate Nostlan's menus with your mouse, keyboard, or game controller
 - automated install of any emulator
-- designed for UHD displays and projectors
 - checks multiple database sites for the highest quality box art
 - nostalgic UI themes for each supported console
-- launches games with emulator apps, not cores
+- designed for UHD displays and projectors
+- can launch games using standalone emulator apps, not just cores
 - most controllers connect to Nostlan automatically, no setup required
-- gamecube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
+- GameCube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
 - cross-platform support for Linux, macOS, and Windows
 - menu translations for Spanish, German, Hebrew, Russian, and Dutch
 - advanced customization: edit launch commands
