@@ -8,7 +8,7 @@
 	},
 	"build": {
 		"appId": "com.qashto.nostlan",
-		"copyright": "Copyright © 2018-2022 Quinton Ashley",
+		"copyright": "Copyright © 2018-2023 Quinton Ashley",
 		"electronVersion": "21.3.1",
 		"asarUnpack": "jsEmu",
 		"mac": {
@@ -152,5 +152,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "2.0.3"
+	"version": "2.1.0"
 }
