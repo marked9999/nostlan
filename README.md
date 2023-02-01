@@ -1,6 +1,9 @@
 # <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
 
+<a href="https://quinton-ashley.github.io/nostlan-web">
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad_banner.png">
+</a>
+Download Nostlan from the official website: https://quinton-ashley.github.io/nostlan-web
 
 ## A what? What's a "game launcher"?
 
