@@ -1,5 +1,17 @@
 class CuiState extends cui.State {
+	constructor() {
+		super();
+		this.shutdownInit = [];
+	}
+
 	async onAction(act) {
+		if (act == 'l') {
+			this.shutdownInit.push('l');
+		} else if (act == 'r') {
+			this.shutdownInit.push('r');
+		} else {
+			this.shutdownInit = [];
+		}
 		if (act == 'start') {
 			cui.doAction('back');
 		} else if (act == 'syncBackup' || act == 'forceUpdate') {
@@ -22,12 +34,17 @@ class CuiState extends cui.State {
 			// nostlan discord invite link
 			opn('https://discord.gg/cT2yNC6');
 		}
+		if (this.shutdownInit.includes('l') && this.shutdownInit.includes('r')) {
+			this.shutdownInit = [];
+			if (await cui.alert('Are you sure you want to shutdown your computer?', 'WARNING')) {
+				await nostlan.quit();
+				shutdown.shutdown();
+			}
+		}
 	}
 
 	async onHeldAction(act) {
-		if (act == 'start') {
-			await cui.alert('Shutdown', 'Are you sure you want to shutdown Nostlan?');
-		}
+		console.log(act);
 	}
 
 	async saveSync(act) {

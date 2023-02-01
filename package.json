@@ -102,6 +102,16 @@
 	},
 	"description": "Nostlan is a nostlagia launcher for retro and current gen video game emulators!",
 	"entry point": "app.js",
+	"funding": [
+		{
+			"type": "paypal",
+			"url": "http://paypal.me/qastho"
+		},
+		{
+			"type": "patreon",
+			"url": "https://www.patreon.com/nostlan"
+		}
+	],
 	"keywords": [
 		"emulation",
 		"emulator",
@@ -142,5 +152,5 @@
 		"postversion": "git push",
 		"V": "npm version minor --force"
 	},
-	"version": "2.0.2"
+	"version": "2.0.3"
 }

@@ -39,6 +39,7 @@ module.exports = function () {
 		let ui = cui.ui;
 		if (act == 'quit') {
 			await nostlan.quit();
+			electron.app.quit();
 			return;
 		} else if (nostlan.launcher.state == 'running') {
 			if (nostlan.launcher.jsEmu && ui == 'playing') {

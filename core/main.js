@@ -271,6 +271,7 @@ module.exports = async function (args) {
 		}
 		cui.keyPress('space', 'key- ');
 
+		cui.keyPress('-', 'l');
 		cui.keyPress('=', 'r');
 		cui.keyPress('[', 'x');
 		cui.keyPress(']', 'y');
@@ -408,7 +409,6 @@ module.exports = async function (args) {
 		// remove the command line args from this session
 		delete cf.args;
 		if (cf.nlaDir) await cfMng.save(cf);
-		electron.app.quit();
 	};
 
 	// first function to be called
