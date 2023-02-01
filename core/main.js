@@ -408,6 +408,9 @@ module.exports = async function (args) {
 		// save the cf file
 		// remove the command line args from this session
 		delete cf.args;
+		for (let prop in cf) {
+			delete cf[sys].saveStates;
+		}
 		if (cf.nlaDir) await cfMng.save(cf);
 	};
 

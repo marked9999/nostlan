@@ -125,6 +125,7 @@ class Saves {
 			for (let i in cf[emu].saves.dirs) {
 				let src = cf[emu].saves.dirs[i];
 				let dest = dir + '/' + i;
+				if (!(await fs.exists(src))) continue;
 				log(`Backing up files to ${save.name} from ${src}`);
 				$('#loadDialog0').text(`Backing up files to ${save.name} from`);
 				$('#loadDialog1').text(src);
@@ -208,6 +209,7 @@ class Saves {
 		for (let i in cf[emu].saves.dirs) {
 			let src = dir + '/' + i;
 			let dest = cf[emu].saves.dirs[i];
+			if (!(await fs.exists(src))) continue;
 			log(`Updating files from ${save.name} to ${dest}`);
 			$('#loadDialog0').text(`Updating files from ${save.name} to`);
 			$('#loadDialog1').text(dest);
