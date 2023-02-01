@@ -43,7 +43,7 @@
 		},
 		"saveStateSlots": 1,
 		"loadStateSlots": 1,
-		"latestVersion": "1.0.0",
+		"latestVersion": "1.0.1",
 		"dev": true,
 		"mute": false,
 		"volume": 20,

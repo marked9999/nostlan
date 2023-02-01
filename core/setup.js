@@ -19,6 +19,7 @@ module.exports = async function (arg) {
 	global.opn = require('open');
 	global.path = require('path');
 	global.process = require('process');
+	global.shutdown = require('electron-shutdown-command');
 	global.spawn = require('await-spawn');
 	global.semver = require('semver');
 

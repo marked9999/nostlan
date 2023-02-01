@@ -24,6 +24,12 @@ class CuiState extends cui.State {
 		}
 	}
 
+	async onHeldAction(act) {
+		if (act == 'start') {
+			await cui.alert('Shutdown', 'Are you sure you want to shutdown Nostlan?');
+		}
+	}
+
 	async saveSync(act) {
 		if (!nostlan.premium.verify()) {
 			// 'You must be a Patreon supporter to access
