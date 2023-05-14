@@ -6,7 +6,7 @@
 
 [Download Nostlan from the official website](https://quinton-ashley.github.io/nostlan-web)
 
-### What's a "game launcher"?
+## What's a "game launcher"?
 
 Nostlan isn't just a fancy file browser for your game files, it brings the console gaming experience to your computer!
 
