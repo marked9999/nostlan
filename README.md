@@ -3,44 +3,58 @@
 <a href="https://quinton-ashley.github.io/nostlan-web">
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad_banner.png">
 </a>
-Download Nostlan from the official website: https://quinton-ashley.github.io/nostlan-web
 
-## A what? What's a "game launcher"?
+[Download Nostlan from the official website](https://quinton-ashley.github.io/nostlan-web)
 
-Nostlan is like the main page of Netflix, but for your video games. Nostlan downloads high quality box art for each game it identifies. Choose a game and press play to launch it with an emulator!
+### What's a "game launcher"?
 
-[Nostlan is unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below!
+Nostlan isn't just a fancy file browser for your game files, it brings the console gaming experience to your computer!
 
-Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA Mega Drive/Genesis, Switch, Wii, Wii U, and Xbox 360.
+Nostlan is [unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal, [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below.
 
-Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, webretro, xemu, Xenia, and Yuzu.
+### Total emulation noob?
 
-## Features
+Nostlan's got your back, with its single-click emulator install feature. It's never been easier to get started with emulation!
 
-- navigate Nostlan's menus with your mouse, keyboard, or game controller
+### Hardcore collector?
+
+A big bookshelf of game boxes is an impressive conversation starter. Having X amount of games on a hard drive? Not so much. But with Nostlan you can show off your virtual game collection with high quality box assets. It's like a virtual game room!
+
+### Couch gamer?
+
+Nostlan was designed to be used with a game controller, so you won't have to use a mouse and keyboard if you don't want to. Nostlan's UI uses large text only, making it perfect for a big UHD TV or projector.
+
+### Looking to play retro and modern games?
+
+_Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA MD/Genesis, **Nintendo Switch**, Wii, Wii U, Xbox, and Xbox 360._
+
+_Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, webretro, xemu, Xenia, and **Yuzu**._
+
+## Exclusive Features
+
+- browse the entire app with your mouse, keyboard, or game controller
 - automated install of any emulator
+- no nonsense setup and configuration
 - checks multiple database sites for the highest quality box art
 - nostalgic UI themes for each supported console
-- designed for UHD displays and projectors
-- can launch games using standalone emulator apps, not just cores
+- designed for big UHD displays and projectors
 - most controllers connect to Nostlan automatically, no setup required
 - GameCube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
-- cross-platform support for Linux, macOS, and Windows
 - menu translations for Spanish, German, Hebrew, Russian, and Dutch
+- cross-platform support for Linux, macOS, and Windows
+- can launch games using standalone emulator apps, not just cores
 - advanced customization: edit launch commands
-- **_[PREMIUM FEATURE]_** backup/sync all your save data to the cloud or local storage device
+- **_[PREMIUM FEATURE]_** backup/sync all your save data to the cloud, local storage device, or between your PC and laptop
 
 ## Nostlan is free
 
-_[Download Nostlan for free](https://github.com/quinton-ashley/nostlan/releases)_ but if you enjoy the app [please donate](https://www.paypal.me/qashto/20)! Any amount is appreciated. :)
+**[Download Nostlan](https://github.com/quinton-ashley/nostlan/releases)** and join the [Nostlan community Discord](https://discord.gg/cT2yNC6).
 
-Be sure to join the [Nostlan community Discord server](https://discord.gg/cT2yNC6)!
-
-[Support the development of Nostlan on Patreon](https://www.patreon.com/nostlan) to gain access to premium features!
+**Support the development of Nostlan on [Patreon](https://www.patreon.com/nostlan) to gain access to premium features!**
 
 ## Supported Systems and Emulators
 
-Click on an image to see it in full quality 4K!
+Click on an image to see it in full quality 4K resolution.
 
 ### Wii, Gamecube, Virtual Console [Dolphin]
 

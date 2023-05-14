@@ -3,6 +3,6 @@
 	"fullName": "Microsoft Xbox",
 	"emus": ["cxbx-reloaded", "xemu"],
 	"mediaType": "disc",
-	"gameExts": ["xbe"],
+	"gameExts": ["iso", "xbe", "xiso"],
 	"gameFolders": true
 }
