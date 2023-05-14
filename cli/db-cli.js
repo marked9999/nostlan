@@ -1,9 +1,14 @@
+/**
+ * db-cli.js
+ *
+ * electron . --db up --sys switch
+ */
 module.exports = async function (arg) {
 	global.path = require('path');
 	arg.__root = path.join(__dirname, '/..').replace(/\\/g, '/');
 	await require(arg.__root + '/core/setup.js')(arg);
 
-	const db = require(__root + '/db.js');
+	const db = require(__dirname + '/db.js');
 
 	global.sys = arg.sys;
 

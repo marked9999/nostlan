@@ -143,6 +143,10 @@ class Scanner {
 				if (sys == 'wii') {
 					term = term.replace(/ssbm/gi, 'Super Smash Bros. Melee');
 				}
+				if (sys == 'switch') {
+					term = term.replace(/botw/gi, 'The Legend of Zelda: Breath of the Wild');
+					term = term.replace(/totk/gi, 'The Legend of Zelda: Tears of the Kingdom');
+				}
 				if (/(n64|wii|wiiu|switch)/.test(sys)) {
 					term = term.replace(/s*m *64n*/gi, 'Super Mario 64');
 					term = term.replace(/mk(\d+)/gi, 'Mario Kart $1');

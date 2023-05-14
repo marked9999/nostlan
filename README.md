@@ -10,15 +10,15 @@
 
 Nostlan isn't just a fancy file browser for your game files, it brings the console gaming experience to your computer!
 
-Nostlan is [unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal, [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below.
-
 ### Total emulation noob?
 
 Nostlan's got your back, with its single-click emulator install feature. It's never been easier to get started with emulation!
 
 ### Hardcore collector?
 
-A big bookshelf of game boxes is an impressive conversation starter. Having X amount of games on a hard drive? Not so much. But with Nostlan you can show off your virtual game collection with high quality box assets. It's like a virtual game room!
+A big bookshelf of game boxes is an impressive conversation starter. Having X amount of games on a hard drive? Not so much.
+
+But with Nostlan you can show off your virtual game collection with high quality box assets. Nostlan is [unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal, [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below. It's like a virtual game room!
 
 ### Couch gamer?
 

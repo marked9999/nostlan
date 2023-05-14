@@ -508,7 +508,7 @@ class CuiState extends cui.State {
 						$('#dialogs').show();
 						$('body').addClass('waiting');
 						let _games = await nostlan.scraper.loadGameImages(games[i], true);
-						if (_games.length) games[i] = _games[0];
+						if (_games?.length) games[i] = _games[0];
 						let $box = await cui.libMain.makeGameBox(games[i]);
 						cui.hideDialogs();
 						cui.editSelect.game.hasNoImages = false;
