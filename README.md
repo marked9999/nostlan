@@ -4,7 +4,7 @@
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad_banner.png">
 </a>
 
-[Download Nostlan from the official website](https://quinton-ashley.github.io/nostlan-web)
+[Download Nostlan from the official website](https://quinton-ashley.github.io/nostlan-web) 🤝
 
 ## What's a "game launcher"?
 
@@ -12,13 +12,15 @@ Nostlan isn't just a fancy file browser for your game files, it brings the conso
 
 ### Total emulation noob?
 
-Nostlan's got your back, with its single-click emulator install feature. It's never been easier to get started with emulation!
+With Nostlan you can install new emulators with a single click. It's never been easier to get started with emulation!
 
 ### Hardcore collector?
 
 A big bookshelf of game boxes is an impressive conversation starter. Having X amount of games on a hard drive? Not so much.
 
-But with Nostlan you can show off your virtual game collection with high quality box assets. Nostlan is [unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal, [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. Check out the screenshots below. It's like a virtual game room!
+But with Nostlan you can show off your virtual game collection with high quality box assets. Nostlan is [unlike any other game launcher](https://github.com/quinton-ashley/nostlan/wiki/How-is-Nostlan-different-from-other-front-ends%3F) because it has a minimal, [skeuomorphic](https://en.wikipedia.org/wiki/Skeuomorph) UI design that prioritizes box art. It's like a virtual game room!
+
+Check out the screenshots below. 👇
 
 ### Couch gamer?
 
@@ -26,7 +28,9 @@ Nostlan was designed to be used with a game controller, so you won't have to use
 
 ### Looking to play retro and modern games?
 
-_Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA MD/Genesis, **Nintendo Switch**, Wii, Wii U, Xbox, and Xbox 360._
+Nostlan can do it all!
+
+_Systems supported: Arcade, DS, 3DS, GBA, N64, PS2, PS3, PSP, SNES, SEGA Mega Drive/Genesis, **Nintendo Switch**, Wii, Wii U, Xbox, and Xbox 360._
 
 _Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Player, em-fceux, MAME, melonDS, mesen, mupen64plus, mGBA, PCSX2, PPSSPP, RPCS3, Ryujinx, Ryujinx-LDN, snes9x, VBA, webretro, xemu, Xenia, and **Yuzu**._
 
@@ -42,24 +46,27 @@ _Emulators supported: bsnes, Cemu, Citra, Cxbx-Reloaded, Dolphin, DeSmuME, DS Pl
 - GameCube controller adapter supported with [gca-js](https://github.com/YonicDev/gca-js) via the [contro-ui](https://github.com/quinton-ashley/contro-ui) framework
 - menu translations for Spanish, German, Hebrew, Russian, and Dutch
 - cross-platform support for Linux, macOS, and Windows
-- can launch games using standalone emulator apps, not just cores
+- box edit mode provides an in-app image search on the web (no need to download and manually place image files in the right folder)
+- can launch games using standalone emulator apps
+- also utilizes JavaScript/WASM based emulator cores
+- browser-based features are completely isolated from the main process in accordance with the latest [Electron](https://electronjs.org/) app security standards
 - advanced customization: edit launch commands
 - **_[PREMIUM FEATURE]_** backup/sync all your save data to the cloud, local storage device, or between your PC and laptop
 
-## Nostlan is free
+## Nostlan is free and open source
 
-**[Download Nostlan](https://github.com/quinton-ashley/nostlan/releases)** and join the [Nostlan community Discord](https://discord.gg/cT2yNC6).
+**[Download Nostlan](https://github.com/quinton-ashley/nostlan/releases)** and join the [Nostlan community Discord](https://discord.gg/cT2yNC6). 😄
 
-**Support the development of Nostlan on [Patreon](https://www.patreon.com/nostlan) to gain access to premium features!**
+**Support the development of Nostlan on [Patreon](https://www.patreon.com/nostlan) to gain access to premium features!** ✨
 
 ## Supported Systems and Emulators
 
 Click on an image to see it in full quality 4K resolution.
 
-### Wii, Gamecube, Virtual Console [Dolphin]
+### Switch [Yuzu, Ryujinx]
 
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/wii.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/wii_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/switch.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/switch_LQ.png">
 </a></p>
 
 ### Wii U [Cemu]
@@ -68,16 +75,22 @@ Click on an image to see it in full quality 4K resolution.
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/wiiu_LQ.png">
 </a></p>
 
-### Switch [Yuzu, Ryujinx]
+### Wii, Gamecube, Virtual Console [Dolphin]
 
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/switch.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/switch_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/wii.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/wii_LQ.png">
 </a></p>
 
-### 3DS [Citra]
+### PS3 [RPCS3]
 
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/n3ds.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/n3ds_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps3.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps3_LQ.png">
+</a></p>
+
+### PS2 [PCSX2]
+
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps2.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps2_LQ.png">
 </a></p>
 
 ### SNES [bsnes, snes9x]
@@ -110,27 +123,15 @@ Click on an image to see it in full quality 4K resolution.
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/gba_LQ.png">
 </a></p>
 
-### PS2 [PCSX2]
+## Xbox, SEGA Genesis, N64, Nintendo 3DS, and more!
 
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps2.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps2_LQ.png">
+<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/more_systems.png">
+<img src="https://quinton-ashley.github.io/nostlan-screenshots/more_systems_LQ.jpg">
 </a></p>
 
-### PS3 [RPCS3]
+## Premium Features
 
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/ps3.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/ps3_LQ.png">
-</a></p>
-
-### Xbox 360 [Xenia]
-
-<p><a href="https://quinton-ashley.github.io/nostlan-screenshots/xbox360.png">
-<img src="https://quinton-ashley.github.io/nostlan-screenshots/xbox360_LQ.png">
-</a></p>
-
-## Support the Development of Nostlan!
-
-[Patreon](https://www.patreon.com/nostlan) supporters get premium features for only \\\$1 a month!
+Nostlan includes tons of great features for free, but [Patreon](https://www.patreon.com/nostlan) supporters can get premium features for only \$1 a month!
 
 - [backup/sync game saves to the cloud or local storage device](https://github.com/quinton-ashley/nostlan/wiki/Backup-Saves-and-Cloud-Save-Syncing)
 - [unlock alternate UI theme color palettes](https://github.com/quinton-ashley/nostlan/wiki/Change-Theme)
