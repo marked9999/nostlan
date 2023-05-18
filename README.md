@@ -1,4 +1,4 @@
-# <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/master/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
+# <a href="https://www.patreon.com/nostlan"><img src="https://raw.githubusercontent.com/quinton-ashley/nostlan/main/views/img/icon-sm.png" width=24px height=24px></a> Nostlan : a game launcher for emulators!
 
 <a href="https://quinton-ashley.github.io/nostlan-web">
 <img src="https://quinton-ashley.github.io/nostlan-screenshots/nostlan_ad_banner.png">
@@ -171,6 +171,18 @@ Using Nostlan
 Contact me on [Discord](https://discord.gg/cT2yNC6) with your comments, question, suggestions, or if you need any general help using the app.
 
 Please report technical issues and make specific feature requests on this project's Github.
+
+## Is Nostlan safe to use?
+
+Allow me to introduce myself, my full legal name is Quinton Michael Ashley, I'm the lead developer of Nostlan.
+
+I created Nostlan for fun and also to learn more about app development. Since Nostlan started as a personal project I wasn't under any pressure to make it look like a corporate website or follow any UI standards. Nostlan is an experiment in UI design. I consider it a piece of art that I'm sharing because I want other people to experience it too. Of course, I'd also like making some money off it by selling premium features that people can enjoy. But I have no interest in collecting your usage data, hijacking your cpu to mine crypto sh\*tcoin, or doing anything malicious.
+
+Since Nostlan is open source, anyone can look at the code. I also put a LOT of effort into following the latest Electron security standards. All the 3rd party emulator cores that Nostlan uses are sandboxed, meaning they run in isolation from the main process.
+
+BUT, please only download Nostlan from my official website!
+
+<https://quinton-ashley.github.io/nostlan-web/>
 
 ## Legal Disclaimer
 
