@@ -133,7 +133,7 @@
 		"url": "git+https://github.com/quinton-ashley/nostlan.git"
 	},
 	"scripts": {
-		"start": "electron . --dev",
+		"start": "sh shell.sh",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "sudo chmod -R 777 .",
 		"rebuild-l": "rm -rf ./node_modules/sharp/vendor | npm rebuild --build-from-source --runtime=electron --target=17.1.2 --disturl=https://atom.io/download/atom-shell",
